@@ -12,7 +12,7 @@ interface FloatingPillProps {
 export const FloatingPill = ({ text, color, className, delay = 0 }: FloatingPillProps) => {
     return (
         <motion.div
-            className={`absolute z-0 flex items-center gap-2 rounded-full px-6 py-3 ${color} shadow-lg ${className}`}
+            className={`absolute z-0 flex items-center gap-2 rounded-full px-6 py-3 ${color} border ${color.replace('bg-', 'border-')} shadow-lg ${className}`}
             initial={{ y: 0 }}
             animate={{
                 y: [-10, 10, -10],
