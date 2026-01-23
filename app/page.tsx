@@ -2,8 +2,10 @@
 
 import { HeroSectionOne } from "@/components/HeroSectionOne";
 import RecentProjects from "@/components/RecentProjects";
+
 import AboutMe from "@/components/AboutMe";
 import Skills from "@/components/Skills";
+
 
 export default function Home() {
   return (
