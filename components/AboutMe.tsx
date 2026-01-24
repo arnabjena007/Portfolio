@@ -16,7 +16,7 @@ const AboutMe = () => {
                             containerClassName="ml-2 inline-block cursor-pointer text-white-100 font-bold"
                             content={<DevoCard />}
                         >
-                            Devo
+                            Arnab
                         </Tooltip>
                     </h2>
 

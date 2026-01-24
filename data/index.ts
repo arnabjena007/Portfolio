@@ -9,7 +9,7 @@ export const navItems = [
 export const projects = [
     {
         id: 1,
-        title: "Pix — Pixel Art Generator",
+        title: "Pix",
         des: "Generating 8000×8000 pixel art in under 60 seconds using Golang and parallel processing.",
         img: "/p1.png",
         iconLists: ["/go.svg", "/ver.svg"],
@@ -26,7 +26,7 @@ export const projects = [
     },
     {
         id: 2,
-        title: "Indicoded — India's Art & Culture",
+        title: "Indicoded",
         des: "Interactive data visualization exploring Indian cultural patterns using D3.js, p5.js, and React.",
         img: "/p2.png",
         iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/ver.svg"],
@@ -46,7 +46,7 @@ export const projects = [
         title: "Internloom",
         des: "Internship discovery platform with 5000+ applications, secure payments, and analytics.",
         img: "/p3.png",
-        iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/ver.svg"],
+        iconLists: ["/next.png", "/tail.svg", "/ts.svg", "/ver.svg"],
         link: "https://internloom.vercel.app",
         category: "Full Stack",
         techStack: ["Next.js", "TypeScript", "PostgreSQL", "TailwindCSS"],
@@ -56,6 +56,40 @@ export const projects = [
             "Student and Recruiter dashboards",
             "Secure payment integration",
             "Automated application tracking",
+        ],
+    },
+    {
+        id: 4,
+        title: "APEX",
+        des: "Bridging the gap between technical skills and visionary ideas through student collaboration.",
+        img: "/p4.jpg",
+        iconLists: ["/next.png", "/tail.svg", "/ts.svg", "/ver.svg"],
+        link: "https://apex-website-gules.vercel.app/",
+        category: "Community Platform",
+        techStack: ["HTML", "CSS", "JavaScript", "Firestore", "Vercel"],
+        details: "The APEX (Aspiring Pioneers of Excellence) community was born from a common student dilemma: tech-savvy students lack ideas, while non-technical students lack skills. APEX bridges this gap by fostering collaboration, enabling technical students to gain ideas and non-technical students to acquire essential skills. This synergy cultivates an environment where visionary ideas become impactful realities.",
+        features: [
+            "Fosters collaboration between technical and non-technical students",
+            "Enables sharing of visionary ideas and skills",
+            "Cultivates an environment for impactful realities",
+            "Community-driven platform",
+        ],
+    },
+    {
+        id: 5,
+        title: "Mapify",
+        des: "A modern, interactive web application for finding shortest paths in Kolkata using Dijkstra's algorithm.",
+        img: "/p5.png",
+        iconLists: ["/re.svg", "/tail.svg", "/ts.svg"],
+        link: "https://github.com/arnabjena",
+        category: "Web Application",
+        techStack: ["React", "Leaflet", "Dijkstra Algorithm", "TailwindCSS"],
+        details: "A modern, interactive web application for finding shortest paths in Kolkata using Dijkstra's algorithm. It features an interactive Leaflet-based map with OpenStreetMap tiles, allowing users to select locations directly on the map or use text input. The application visualizes paths in real-time, displays distance, path segments, and computation time.",
+        features: [
+            "Interactive Leaflet-based map with OpenStreetMap tiles",
+            "Real-time path visualization with Dijkstra's algorithm",
+            "User-friendly input: Text, Landmark interactions, Map clicking",
+            "Real-time results: Distance, Segments, Computation time",
         ],
     }
 ];

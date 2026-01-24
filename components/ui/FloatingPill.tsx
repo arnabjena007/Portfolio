@@ -36,7 +36,7 @@ export const FloatingPill = ({ text, color, className, delay = 0 }: FloatingPill
                 >
                     <path
                         d="M3 3L10.07 19.97L12.58 12.58L19.97 10.07L3 3Z"
-                        stroke="white"
+                        stroke="currentColor"
                         strokeWidth="2"
                         strokeLinejoin="round"
                     />
