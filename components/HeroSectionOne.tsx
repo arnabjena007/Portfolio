@@ -30,7 +30,7 @@ export function HeroSectionOne() {
                 />
                 <FloatingPill
                     text="Innovate"
-                    color="bg-blue-500"
+                    color="bg-yellow-500"
                     className="top-[10%] right-[5%]"
                     delay={1.5}
                 />
