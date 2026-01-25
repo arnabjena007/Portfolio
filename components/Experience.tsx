@@ -2,6 +2,7 @@ import React from "react";
 
 import { workExperience } from "@/data";
 import { FRONTEND_STACKS, BACKEND_STACKS } from "@/constants/stack";
+import { LinkPreview } from "@/components/ui/link-preview";
 
 const Experience = () => {
     return (
@@ -14,11 +15,21 @@ const Experience = () => {
                         <h2 className="text-4xl md:text-5xl font-bold text-white text-center">
                             Devo in a <span className="text-yellow-500">gist</span>
                         </h2>
-                        <p className="text-white-100 text-base md:text-lg leading-relaxed">
+                        <p className="text-white-100 text-base md:text-lg leading-relaxed text-left">
                             I am a Frontend Engineer with a passion for building scalable, high-performance systems.
+                            I build cool things like{" "}
+                            <LinkPreview url="https://github.com/arnabjena" isStatic imageSrc="/p1.png" className="text-yellow-500 font-bold" description="High-performance pixel art generator using Golang.">
+                                Pix
+                            </LinkPreview>,{" "}
+                            <LinkPreview url="https://github.com/arnabjena007" isStatic imageSrc="/p2.png" className="text-yellow-500 font-bold" description="Interactive data visualization of Indian culture.">
+                                Indicoded
+                            </LinkPreview>
+                            , and{" "}
+                            <LinkPreview url="https://internloom.vercel.app" isStatic imageSrc="/p3.png" className="text-yellow-500 font-bold" description="Internship discovery platform with 5000+ listings.">
+                                Internloom
+                            </LinkPreview>.
                             My expertise lies in architecting distributed systems, optimizing database performance,
-                            and ensuring reliability in production environments. I thrive on solving complex engineering challenges
-                            and delivering robust solutions.
+                            and ensuring reliability in production environments.
                         </p>
                     </div>
 
