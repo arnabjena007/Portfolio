@@ -41,9 +41,9 @@ export default function RootLayout({
           </div>
 
           <div className="relative z-10 w-full">
+            <Navbar />
             <LeftSidebar />
             <div className="max-w-7xl mx-auto">
-              <Navbar />
             </div>
             {children}
           </div>

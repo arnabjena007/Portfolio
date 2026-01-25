@@ -1,13 +1,13 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { TerminalSquare } from "lucide-react";
+import { TerminalSquare, Coffee } from "lucide-react";
 
 import { navItems } from "@/data";
 
 export const Navbar = () => {
     return (
-        <nav className="flex w-full items-center justify-between border-t border-b border-neutral-200 px-4 py-4 dark:border-neutral-800">
+        <nav className="flex w-full items-center justify-between border-b border-white/20 bg-black-100/10 backdrop-blur-lg px-4 py-5">
             <Link href="/" className="flex items-center gap-2">
                 <div className="size-7 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500" />
                 <h1 className="text-xl font-bold md:text-3xl text-black dark:text-white">Devo</h1>
@@ -26,6 +26,12 @@ export const Navbar = () => {
             </div>
 
             <div className="flex items-center gap-4">
+                <a href="https://www.buymeacoffee.com/your-username" target="_blank" rel="noopener noreferrer">
+                    <button className="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-full font-bold transition-all shadow-md text-sm">
+                        <Coffee size={16} />
+                        <span className="hidden md:block">Buy me a coffee</span>
+                    </button>
+                </a>
                 <Link href="/terminal">
                     <button className="flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-black px-4 py-2 rounded-full font-bold transition-all shadow-md text-sm">
                         <TerminalSquare size={16} />
