@@ -20,21 +20,53 @@ export const SpotifyCard = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        let timeoutId: NodeJS.Timeout;
+        let isMounted = true;
+
         const fetchData = async () => {
+            if (!isMounted || document.hidden) return;
+
             try {
                 const res = await fetch("/api/spotify");
+                if (!res.ok) {
+                    throw new Error(`Status: ${res.status}`);
+                }
                 const json = await res.json();
-                setData(json);
+                if (isMounted) {
+                    setData(json);
+                }
             } catch (error) {
                 console.error("Error fetching spotify data", error);
             } finally {
-                setLoading(false);
+                if (isMounted) {
+                    setLoading(false);
+                    // Schedule next fetch only after current one completes
+                    timeoutId = setTimeout(fetchData, 15000);
+                }
             }
         };
 
+        // Initial fetch
         fetchData();
-        const interval = setInterval(fetchData, 10000); // Poll every 10s
-        return () => clearInterval(interval);
+
+        // Handle visibility change to pause/resume polling
+        const handleVisibilityChange = () => {
+            if (!document.hidden) {
+                // If tab becomes visible, fetch immediately if we weren't already polling (simple retry)
+                // But simplifying: just let the loop continue or next cycle catch it.
+                // For better UX, we can clear and restart:
+                clearTimeout(timeoutId);
+                fetchData();
+            }
+        };
+
+        document.addEventListener("visibilitychange", handleVisibilityChange);
+
+        return () => {
+            isMounted = false;
+            clearTimeout(timeoutId);
+            document.removeEventListener("visibilitychange", handleVisibilityChange);
+        };
     }, []);
 
     const formatTime = (ms: number) => {
