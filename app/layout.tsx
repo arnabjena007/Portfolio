@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/Navbar";
 import { LeftSidebar } from "@/components/LeftSidebar";
+import { PageTransition } from "@/components/PageTransition";
 import { html } from "framer-motion/client";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -45,7 +46,9 @@ export default function RootLayout({
             <LeftSidebar />
             <div className="max-w-7xl mx-auto">
             </div>
-            {children}
+            <PageTransition>
+              {children}
+            </PageTransition>
           </div>
         </ThemeProvider>
       </body>

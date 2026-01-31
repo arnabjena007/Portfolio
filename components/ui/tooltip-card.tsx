@@ -24,13 +24,13 @@ export const Tooltip = ({
         useTransform(x, [-100, 100], [-50, 50]),
         springConfig
     );
-    const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    const handleMouseMove = (event: React.MouseEvent<HTMLSpanElement>) => {
         const halfWidth = event.currentTarget.offsetWidth / 2;
         x.set(event.nativeEvent.offsetX - halfWidth);
     };
 
     return (
-        <div
+        <span
             className="relative z-30 inline-block"
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
@@ -69,6 +69,6 @@ export const Tooltip = ({
             <div className={containerClassName}>
                 {children}
             </div>
-        </div>
+        </span>
     );
 };

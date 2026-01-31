@@ -5,9 +5,16 @@ import { TerminalSquare, Coffee } from "lucide-react";
 
 import { navItems } from "@/data";
 
+import { motion } from "motion/react";
+
 export const Navbar = () => {
     return (
-        <nav className="flex w-full items-center justify-between border-b border-white/20 bg-black-100/10 backdrop-blur-lg px-4 py-5">
+        <motion.nav
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex w-full items-center justify-between border-b border-white/20 bg-black-100/10 backdrop-blur-lg px-4 py-5"
+        >
             <Link href="/" className="flex items-center gap-2">
                 <div className="size-7 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500" />
                 <h1 className="text-xl font-bold md:text-3xl text-black dark:text-white">Devo</h1>
@@ -39,6 +46,6 @@ export const Navbar = () => {
                     </button>
                 </Link>
             </div>
-        </nav>
+        </motion.nav>
     );
 };

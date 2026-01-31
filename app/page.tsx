@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 
 
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
-import { SpotifyCard } from "@/components/SpotifyCard";
+
 
 export default function Home() {
   return (
@@ -23,9 +23,7 @@ export default function Home() {
         <RecentProjects />
 
 
-        <div className="py-10 w-full">
-          <SpotifyCard />
-        </div>
+
 
         <div className="flex flex-col items-center justify-center py-20">
           <TextGenerateEffect
