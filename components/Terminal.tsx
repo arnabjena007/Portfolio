@@ -132,8 +132,8 @@ export default function Terminal() {
 
             case "contact":
                 newOutput.push(
-                    "GitHub: https://github.com/ArnabJena",
-                    "LinkedIn: https://linkedin.com/in/ArnabJena",
+                    "GitHub: https://github.com/arnabjena007",
+                    "LinkedIn: https://linkedin.com/in/arnabjena007",
                     "Email: contact@arnabjena.dev"
                 );
                 break;

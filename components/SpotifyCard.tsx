@@ -29,10 +29,16 @@ export const SpotifyCard = () => {
             try {
                 const res = await fetch("/api/spotify");
                 if (!res.ok) {
-                    throw new Error(`Status: ${res.status}`);
+                    // Start with basic mock data if API fails (e.g. 404 or 500)
+                    // This allows the UI to show *something* while we fix creds
+                    if (res.status === 404 || res.status === 500) {
+                        console.warn("Spotify API not ready, using fallback");
+                    }
+                    // throw new Error(`Status: ${res.status}`);
                 }
-                const json = await res.json();
-                if (isMounted) {
+                const json = await res.json().catch(() => null);
+
+                if (isMounted && json) {
                     setData(json);
                 }
             } catch (error) {
@@ -40,21 +46,16 @@ export const SpotifyCard = () => {
             } finally {
                 if (isMounted) {
                     setLoading(false);
-                    // Schedule next fetch only after current one completes
+                    // Schedule next fetch
                     timeoutId = setTimeout(fetchData, 15000);
                 }
             }
         };
 
-        // Initial fetch
         fetchData();
 
-        // Handle visibility change to pause/resume polling
         const handleVisibilityChange = () => {
             if (!document.hidden) {
-                // If tab becomes visible, fetch immediately if we weren't already polling (simple retry)
-                // But simplifying: just let the loop continue or next cycle catch it.
-                // For better UX, we can clear and restart:
                 clearTimeout(timeoutId);
                 fetchData();
             }
@@ -80,105 +81,124 @@ export const SpotifyCard = () => {
         : 0;
 
     return (
-        <div className="w-full max-w-2xl mx-auto p-4 md:p-6 bg-black/40 backdrop-blur-md border border-white/10 rounded-3xl relative overflow-hidden group">
-            {/* Background Gradient */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-green-500/10 blur-[100px] rounded-full pointer-events-none" />
+        <div className="w-full max-w-3xl mx-auto p-5 bg-[#050505] border border-white/5 rounded-[2rem] relative overflow-hidden group shadow-2xl">
+            {/* Ambient Background Glow */}
+            <div className="absolute top-[-20%] left-[-10%] w-[40%] h-[60%] bg-green-500/5 blur-[120px] rounded-full pointer-events-none" />
 
-            <div className="flex flex-col md:flex-row gap-8 relative z-10 font-serif">
-                {/* Now Playing Section */}
-                <div className="flex-1 flex flex-col justify-between">
-                    <div className="flex items-center gap-2 mb-4">
-                        <span className={`w-2 h-2 rounded-full ${data?.isPlaying ? 'bg-green-500 animate-pulse' : 'bg-gray-500'}`} />
-                        <h3 className="text-sm text-gray-400 font-medium">
-                            {data?.isPlaying ? 'Now Playing' : 'Offline / Not Playing'}
+            <div className="flex flex-col md:flex-row gap-6 md:gap-10 relative z-10 font-sans">
+                {/* --- Left Side: Recently Played / Now Playing --- */}
+                <div className="flex-1 flex flex-col justify-between gap-4">
+                    {/* Header Label */}
+                    <div className="flex items-center gap-2">
+                        <span className={`w-1.5 h-1.5 rounded-full ${data?.isPlaying ? 'bg-[#1DB954] animate-pulse' : 'bg-[#b3b3b3]'}`} />
+                        <h3 className="text-xs tracking-wider uppercase text-[#b3b3b3] font-medium">
+                            {data?.isPlaying ? 'Now Playing' : 'Last Played'}
                         </h3>
                     </div>
 
+                    {/* Content */}
                     <div className="flex gap-4 items-center">
-                        <div className="relative w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 group-hover:scale-105 transition-transform duration-500 bg-white/5">
+                        <div className="relative w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-[#121212] shadow-lg group-hover:scale-105 transition-transform duration-500 ease-out border border-white/5">
                             {data?.albumImageUrl ? (
                                 <>
                                     <img
                                         src={data.albumImageUrl}
-                                        alt="Album Art"
+                                        alt={data.album}
                                         className="w-full h-full object-cover"
                                     />
-                                    <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                        <Play size={20} className="text-white fill-white" />
-                                    </div>
+                                    <a
+                                        href={data.songUrl}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                    >
+                                        <ExternalLink size={18} className="text-white" />
+                                    </a>
                                 </>
                             ) : (
-                                <div className="w-full h-full flex items-center justify-center text-gray-500">
-                                    <IconBrandSpotify size={32} />
+                                <div className="w-full h-full flex items-center justify-center text-[#b3b3b3]">
+                                    <IconBrandSpotify size={28} />
                                 </div>
                             )}
                         </div>
-                        <div className="flex flex-col">
+
+                        <div className="flex flex-col min-w-0 gap-0.5">
                             {data?.songUrl ? (
-                                <a href={data.songUrl} target="_blank" rel="noreferrer" className="text-white font-bold text-lg hover:underline decoration-green-500/50 underline-offset-4 line-clamp-1">
+                                <a
+                                    href={data.songUrl}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="text-white font-bold text-lg hover:text-[#1DB954] transition-colors line-clamp-1"
+                                >
                                     {data.title}
                                 </a>
                             ) : (
                                 <span className="text-white font-bold text-lg line-clamp-1">
-                                    {loading ? "Loading..." : "Spotify Paused"}
+                                    {loading ? "Connecting..." : "Not Playing"}
                                 </span>
                             )}
-
-                            <p className="text-gray-400 text-sm line-clamp-1">
-                                {data?.artist || "Devo is currently offline"}
+                            <p className="text-[#b3b3b3] text-sm line-clamp-1 font-medium">
+                                {data?.artist || "Spotify"}
                             </p>
                         </div>
                     </div>
 
-                    {/* Progress Bar */}
-                    <div className="mt-6 flex flex-col gap-1.5">
-                        <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden">
-                            <div
-                                className="h-full bg-green-500 rounded-full transition-all duration-1000 ease-linear"
-                                style={{ width: `${progressPercentage}%` }}
-                            />
+                    {/* Progress Bar (Only show if playing or we have progress) */}
+                    {data?.isPlaying && (
+                        <div className="mt-1 flex flex-col gap-1.5">
+                            <div className="w-full h-1 bg-[#2a2a2a] rounded-full overflow-hidden">
+                                <div
+                                    className="h-full bg-[#1DB954] rounded-full"
+                                    style={{ width: `${progressPercentage}%` }}
+                                />
+                            </div>
                         </div>
-                        <div className="flex justify-between text-xs text-gray-500 font-mono">
-                            <span>{data?.progressMs ? formatTime(data.progressMs) : "--:--"}</span>
-                            <span>{data?.durationMs ? formatTime(data.durationMs) : "--:--"}</span>
-                        </div>
+                    )}
+                    <div className="mt-auto">
+                        <IconBrandSpotify size={20} className="text-[#1DB954]" />
                     </div>
                 </div>
 
-                {/* Divider (Hidden on mobile) */}
-                <div className="hidden md:block w-px bg-white/10 self-stretch my-2" />
+                {/* --- Divider (Vertical on Desktop, Horizontal on Mobile) --- */}
+                <div className="hidden md:block w-px bg-gradient-to-b from-transparent via-white/10 to-transparent" />
+                <div className="block md:hidden h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
-                {/* Featured Favorite Section (Static) */}
-                <div className="flex-1 flex flex-col">
-                    <div className="flex items-center gap-2 mb-4">
-                        <span className="w-2 h-2 rounded-full bg-purple-500" />
-                        <h3 className="text-sm text-gray-400 font-medium">Featured Favorite</h3>
+                {/* --- Right Side: Featured Favorite --- */}
+                <div className="flex-1 flex flex-col justify-between gap-4">
+                    <div className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#1DB954]" />
+                        <h3 className="text-xs tracking-wider uppercase text-[#b3b3b3] font-medium">Featured Favorite</h3>
                     </div>
 
                     <div className="flex gap-4 items-center mb-auto">
-                        <div className="w-14 h-14 rounded-lg overflow-hidden flex-shrink-0">
+                        <div className="relative w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-[#121212] shadow-lg border border-white/5 group/featured">
                             <img
                                 src="https://upload.wikimedia.org/wikipedia/en/a/a0/Blonde_-_Frank_Ocean.jpeg"
-                                alt="Album Art"
-                                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                                alt="Blonde"
+                                className="w-full h-full object-cover"
                             />
+                            <a
+                                href="https://open.spotify.com/track/2LMkwUfqC6S6s6q65L9269"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                            >
+                                <ExternalLink size={18} className="text-white" />
+                            </a>
                         </div>
-                        <div className="flex flex-col min-w-0">
-                            <span className="text-white font-bold text-base truncate">
+                        <div className="flex flex-col min-w-0 gap-0.5">
+                            <span className="text-white font-bold text-lg hover:text-[#1DB954] transition-colors cursor-default">
                                 White Ferrari
                             </span>
-                            <p className="text-gray-400 text-sm truncate">
+                            <p className="text-[#b3b3b3] text-sm truncate font-medium">
                                 by Frank Ocean
                             </p>
+                            <div className="absolute right-0 top-1/2 -translate-y-1/2 md:translate-y-0 md:relative md:top-auto md:right-auto md:mt-2 md:flex justify-end opacity-0 group-hover:opacity-100 transition-opacity">
+                                <a href="https://open.spotify.com/track/2LMkwUfqC6S6s6q65L9269" target="_blank" rel="noreferrer">
+                                    <ExternalLink size={18} className="text-[#b3b3b3] hover:text-white transition-colors" />
+                                </a>
+                            </div>
                         </div>
-                        <a href="https://open.spotify.com/track/2LMkwUfqC6S6s6q65L9269" target="_blank" rel="noreferrer" className="ml-auto p-2 bg-white/5 rounded-full hover:bg-green-500 text-white hover:text-black transition-all">
-                            <ExternalLink size={16} />
-                        </a>
-                    </div>
-
-                    {/* Spotify Logo Bottom Ctr/Right */}
-                    <div className="mt-8 flex justify-end">
-                        <IconBrandSpotify size={24} className="text-[#1DB954]" />
                     </div>
                 </div>
             </div>

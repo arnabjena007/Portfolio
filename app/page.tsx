@@ -2,6 +2,7 @@
 
 import { HeroSectionOne } from "@/components/HeroSectionOne";
 import RecentProjects from "@/components/RecentProjects";
+import { ExperienceStack } from "@/components/ExperienceStack";
 
 import AboutMe from "@/components/AboutMe";
 import Skills from "@/components/Skills";
@@ -10,6 +11,8 @@ import Footer from "@/components/Footer";
 
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 
+
+import { SpotifyCard } from "@/components/SpotifyCard";
 
 export default function Home() {
   return (
@@ -21,9 +24,11 @@ export default function Home() {
           <Skills />
         </div>
         <RecentProjects />
+        <ExperienceStack />
 
-
-
+        <div className="w-full mt-20 mb-10">
+          <SpotifyCard />
+        </div>
 
         <div className="flex flex-col items-center justify-center py-20">
           <TextGenerateEffect
