@@ -12,6 +12,6 @@ export const socialMedia = [
     {
         id: 3,
         img: "/link.svg",
-        link: "https://www.linkedin.com/in/arnabjena/", // Placeholder based on name
+        link: "https://www.linkedin.com/in/arnabjena007/", // Placeholder based on name
     },
 ];

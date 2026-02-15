@@ -64,13 +64,13 @@ const ContactPage = () => {
                                 arnab@example.com
                             </a>
                             <div className="flex gap-4">
-                                <a href="https://github.com/arnabjena" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 rounded-full text-white hover:bg-white/10 hover:text-purple transition-all">
+                                <a href="https://github.com/arnabjena007" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 rounded-full text-white hover:bg-white/10 hover:text-purple transition-all">
                                     <IconBrandGithub size={24} />
                                 </a>
-                                <a href="https://linkedin.com/in/arnabjena" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 rounded-full text-white hover:bg-white/10 hover:text-purple transition-all">
+                                <a href="https://linkedin.com/in/arnabjena007" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 rounded-full text-white hover:bg-white/10 hover:text-purple transition-all">
                                     <IconBrandLinkedin size={24} />
                                 </a>
-                                <a href="https://twitter.com/arnabjena" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 rounded-full text-white hover:bg-white/10 hover:text-purple transition-all">
+                                <a href="https://twitter.com/arnabjena007" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 rounded-full text-white hover:bg-white/10 hover:text-purple transition-all">
                                     <IconBrandTwitter size={24} />
                                 </a>
                             </div>
