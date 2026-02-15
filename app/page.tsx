@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 
 import { HeroSectionOne } from "@/components/HeroSectionOne";
 import RecentProjects from "@/components/RecentProjects";
@@ -15,10 +16,13 @@ import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { SpotifyCard } from "@/components/SpotifyCard";
 
 export default function Home() {
+
   return (
     <div className="relative flex justify-center items-center flex-col overflow-hidden mx-auto">
-      <div className="max-w-7xl w-full sm:px-10 px-5">
+
+      <div className="max-w-7xl w-full sm:px-10 px-5 relative z-10">
         <HeroSectionOne />
+
         <AboutMe />
         <div id="skills">
           <Skills />
