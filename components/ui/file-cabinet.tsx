@@ -3,27 +3,20 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 
-export const FileCabinet = ({ items }: { items: { title: string; content: React.ReactNode; color?: string; tabAlignment?: 'left' | 'right' | 'center' }[] }) => {
+export const FileCabinet = ({ items }: { items: { title: string; content: React.ReactNode; color?: string; tabAlignment?: 'left' | 'right' | 'center'; link?: string }[] }) => {
     return (
         <div className="relative w-full max-w-4xl mx-auto pt-10 pb-32 perspective-2000">
             {/* The Stack */}
             <ul className="list-none flex flex-col items-center w-full relative z-10 transform-style-3d rotate-x-6">
-                {items.map((item, index) => (
-                    <li
-                        key={index}
-                        className={cn(
-                            "group w-[90%] md:w-[80%] relative transition-all duration-300 ease-in-out",
-                            index !== 0 ? "-mt-20 md:-mt-28" : ""
-                        )}
-                        style={{
-                            zIndex: index,
-                            transform: `scale(${1 - (items.length - 1 - index) * 0.03}) translateY(${index * -5}px)`
-                        }}
-                    >
-                        <div className={cn(
-                            "relative transition-transform duration-300 ease-out group-hover:-translate-y-2",
-                            "flex flex-col w-full"
-                        )}>
+                {items.map((item, index) => {
+                    const FolderContent = (
+                        <div
+
+                            className={cn(
+                                "relative transition-transform duration-300 ease-out group-hover:-translate-y-2",
+                                "flex flex-col w-full group/card"
+                            )}
+                        >
                             {/* Tab Row */}
                             <div
                                 className={cn(
@@ -66,10 +59,35 @@ export const FileCabinet = ({ items }: { items: { title: string; content: React.
                                 >
                                     {item.content}
                                 </div>
+
+
                             </div>
                         </div>
-                    </li>
-                ))}
+                    );
+
+                    return (
+                        <li
+                            key={index}
+                            className={cn(
+                                "group w-[90%] md:w-[80%] relative transition-all duration-300 ease-in-out",
+                                index !== 0 ? "-mt-20 md:-mt-28" : ""
+                            )}
+                            style={{
+                                zIndex: index,
+                                transform: `scale(${1 - (items.length - 1 - index) * 0.03}) translateY(${index * -5}px)`
+                            }}
+                        >
+                            {/* Wrap with anchor if link exists */}
+                            {item.link ? (
+                                <a href={item.link} target="_blank" rel="noopener noreferrer" className="block w-full">
+                                    {FolderContent}
+                                </a>
+                            ) : (
+                                FolderContent
+                            )}
+                        </li>
+                    );
+                })}
             </ul>
 
             {/* Trapezoidal Drawer Front */}

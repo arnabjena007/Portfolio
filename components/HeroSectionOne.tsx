@@ -1,4 +1,5 @@
 "use client";
+import React from 'react';
 
 
 import { motion } from "motion/react";
@@ -7,9 +8,75 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { FloatingPill } from "./ui/FloatingPill";
 
+
 export function HeroSectionOne() {
+    const [time, setTime] = React.useState<string>("");
+    const [fps, setFps] = React.useState<number>(0);
+    const [cell, setCell] = React.useState({ col: 0, row: 0 });
+    const [mousePosition, setMousePosition] = React.useState({ x: 0, y: 0 });
+
+    React.useEffect(() => {
+        // Time updater
+        const updateTime = () => {
+            const now = new Date();
+            setTime(now.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' }));
+        };
+        updateTime();
+        const timeInterval = setInterval(updateTime, 1000);
+
+        // FPS counter
+        let lastTime = performance.now();
+        let frameCount = 0;
+        let animationFrameId: number;
+
+        const countFps = () => {
+            const now = performance.now();
+            frameCount++;
+            if (now - lastTime >= 1000) {
+                setFps(Math.round((frameCount * 1000) / (now - lastTime)));
+                frameCount = 0;
+                lastTime = now;
+            }
+            animationFrameId = requestAnimationFrame(countFps);
+        };
+        countFps();
+
+        return () => {
+            clearInterval(timeInterval);
+            cancelAnimationFrame(animationFrameId);
+        };
+    }, []);
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = Math.round(e.clientX - rect.left);
+        const y = Math.round(e.clientY - rect.top);
+
+        setMousePosition({ x, y });
+        setCell({
+            col: Math.floor(x / 100) + 1,
+            row: Math.floor(y / 100) + 1
+        });
+    };
+
     return (
-        <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center">
+        <div
+            onMouseMove={handleMouseMove}
+            className="relative mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center group"
+        >
+            {/* Technical Corner Overlays */}
+            <div className="absolute top-4 left-4 text-xs font-mono text-neutral-500 opacity-50 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-50">
+                x:{mousePosition.x} y:{mousePosition.y}
+            </div>
+            <div className="absolute top-4 right-4 text-xs font-mono text-neutral-500 opacity-50 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-50">
+                {time}
+            </div>
+            <div className="absolute bottom-4 left-4 text-xs font-mono text-neutral-500 opacity-50 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-50">
+                fps: {fps}
+            </div>
+            <div className="absolute bottom-4 right-4 text-xs font-mono text-neutral-500 opacity-50 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-50">
+                cell:{cell.col},{cell.row}
+            </div>
             <div className="absolute inset-y-0 left-0 h-full w-px bg-neutral-200/80 dark:bg-neutral-800/80">
                 <div className="absolute top-0 h-40 w-px bg-gradient-to-b from-transparent via-yellow-500 to-transparent" />
             </div>
@@ -110,10 +177,10 @@ export function HeroSectionOne() {
                     }}
                     className="relative z-10 mt-8 flex flex-wrap items-center justify-center gap-4"
                 >
-                    <Link href="/projects" className="w-60 transform rounded-lg bg-black px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 text-center flex items-center justify-center">
+                    <Link href="/projects" className="w-60 transform rounded-lg bg-black px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 text-center flex items-center justify-center h-10">
                         Show my work
                     </Link>
-                    <Link href="/contact" className="w-60 transform rounded-lg border border-gray-300 bg-white px-6 py-2 font-medium text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-100 dark:border-gray-700 dark:bg-black dark:text-white dark:hover:bg-gray-900 text-center flex items-center justify-center">
+                    <Link href="/contact" className="w-60 transform rounded-lg border border-gray-300 bg-white px-6 py-2 font-medium text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-100 dark:border-gray-700 dark:bg-black dark:text-white dark:hover:bg-gray-900 text-center flex items-center justify-center h-10">
                         Contact Me
                     </Link>
                 </motion.div>
