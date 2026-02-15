@@ -13,7 +13,7 @@ export const projects = [
         des: "Generating 8000×8000 pixel art in under 60 seconds using Golang and parallel processing.",
         img: "/p1.png",
         iconLists: ["/go.svg", "/ver.svg"],
-        link: "https://github.com/arnabjena",
+        link: "https://github.com/arnabjena007",
         category: "Backend",
         techStack: ["Golang", "Parallel Processing", "Image Processing"],
         details: "A high-performance command-line tool written in Go that converts standard images into massive pixel art compositions. It leverages Go's concurrency model to process pixels in parallel, handling 8k resolution images in under a minute.",
@@ -81,7 +81,7 @@ export const projects = [
         des: "A modern, interactive web application for finding shortest paths in Kolkata using Dijkstra's algorithm.",
         img: "/p5.png",
         iconLists: ["/re.svg", "/tail.svg", "/ts.svg"],
-        link: "https://github.com/arnabjena",
+        link: "https://github.com/arnabjena007",
         category: "Web Application",
         techStack: ["React", "Leaflet", "Dijkstra Algorithm", "TailwindCSS"],
         details: "A modern, interactive web application for finding shortest paths in Kolkata using Dijkstra's algorithm. It features an interactive Leaflet-based map with OpenStreetMap tiles, allowing users to select locations directly on the map or use text input. The application visualizes paths in real-time, displays distance, path segments, and computation time.",
@@ -191,17 +191,17 @@ export const socialMedia = [
     {
         id: 1,
         img: "/git.svg",
-        link: "https://github.com/arnabjena",
+        link: "https://github.com/arnabjena007",
     },
     {
         id: 2,
         img: "/twit.svg",
-        link: "https://twitter.com/arnabjena", // Placeholder
+        link: "https://twitter.com/arnabjena007", // Placeholder
     },
     {
         id: 3,
         img: "/link.svg",
-        link: "https://linkedin.com/in/arnabjena", // Placeholder based on name
+        link: "https://linkedin.com/in/arnabjena007", // Placeholder based on name
     },
 ];
 
