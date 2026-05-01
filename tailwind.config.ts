@@ -1,5 +1,6 @@
 /* eslint-disable */
 import type { Config } from "tailwindcss";
+import typography from "@tailwindcss/typography";
 
 
 const {
@@ -49,7 +50,7 @@ const config: Config = {
             },
         },
     },
-    plugins: [addVariablesForColors],
+    plugins: [addVariablesForColors, typography],
 };
 export default config;
 
