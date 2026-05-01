@@ -11,9 +11,118 @@
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
   background-color: black;
   color: white;
+}
+
+/* ============================================================
+   HIGHLIGHT.JS — GitHub Dark Theme (custom port)
+   ============================================================ */
+.hljs {
+  color: #c9d1d9;
+  background: transparent;
+  display: block;
+}
+
+/* Keywords: const, let, import, return, function, etc. */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-deletion {
+  color: #ff7b72;
+}
+
+/* Strings */
+.hljs-string,
+.hljs-addition {
+  color: #a5d6ff;
+}
+
+/* Numbers and booleans */
+.hljs-number,
+.hljs-literal,
+.hljs-boolean {
+  color: #79c0ff;
+}
+
+/* Function names / class names */
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.function_ {
+  color: #d2a8ff;
+}
+
+/* Types and type annotations */
+.hljs-type,
+.hljs-built_in,
+.hljs-class {
+  color: #ffa657;
+}
+
+/* Attributes, params */
+.hljs-attr,
+.hljs-variable.language_,
+.hljs-variable {
+  color: #79c0ff;
+}
+
+/* Comments */
+.hljs-comment,
+.hljs-quote {
+  color: #8b949e;
+  font-style: italic;
+}
+
+/* Operators */
+.hljs-operator,
+.hljs-punctuation {
+  color: #c9d1d9;
+}
+
+/* Tags (HTML/JSX) */
+.hljs-tag {
+  color: #7ee787;
+}
+
+/* Meta / decorators */
+.hljs-meta {
+  color: #79c0ff;
+}
+
+/* Emphasize */
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: 600;
+}
+
+/* ============================================================
+   Custom scrollbar for blog content
+   ============================================================ */
+.blog-scroll::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+.blog-scroll::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+.blog-scroll::-webkit-scrollbar-thumb {
+  background: #3f3f3f;
+  border-radius: 4px;
+}
+.blog-scroll::-webkit-scrollbar-thumb:hover {
+  background: #e9dd6e;
+}
+
+/* Code block horizontal scroll */
+pre code.hljs {
+  overflow-x: auto;
+  white-space: pre;
 }

@@ -1,0 +1,123 @@
+---
+title: "TypeScript's Type System is Turing Complete (And That's a Problem)"
+date: "2024-03-15"
+minutesRead: 9
+excerpt: "TypeScript's type system can compute anything a Turing machine can. This lets you encode incredible constraints — but also creates cognitive nightmares. Here's where to draw the line."
+thumbnail: "/images/blog2.jpg"
+tags: ["TypeScript", "Type Theory", "Advanced"]
+---
+
+## The Day I Discovered Type-Level Programming
+
+I was reviewing a PR when I saw it — a TypeScript type that computed the Fibonacci sequence *at compile time*. No runtime, no loop. Just types.
+
+```ts
+type Fib<N extends number, A extends 1[] = [1], B extends 1[] = [1]> =
+  N extends 0
+    ? 0
+    : A["length"] extends N
+    ? A["length"]
+    : Fib<N, B, [...A, ...B]>;
+
+type Fib10 = Fib<10>; // Resolves to: 55
+```
+
+My first reaction was awe. My second was existential dread.
+
+## How TypeScript Achieves Turing Completeness
+
+TypeScript's type system is Turing complete through the combination of:
+
+1. **Conditional types** — `T extends U ? X : Y`
+2. **Recursive type aliases** — a type that refers to itself
+3. **Template literal types** — string manipulation at compile time
+4. **Variadic tuple types** — array manipulation at the type level
+
+### Encoding Arithmetic With Tuples
+
+Since TypeScript 4.1, you can encode numbers as tuple lengths:
+
+```ts
+// Add two numbers at the type level
+type Add<A extends number, B extends number> =
+  [...BuildTuple<A>, ...BuildTuple<B>]["length"];
+
+type BuildTuple<N extends number, T extends unknown[] = []> =
+  T["length"] extends N ? T : BuildTuple<N, [...T, unknown]>;
+
+type Sum = Add<12, 30>; // 42
+```
+
+## Where Turing Completeness Gets Dangerous
+
+### The Halting Problem Bites You
+
+Because TypeScript's type system is Turing complete, it inherits the **halting problem**. The compiler can't always determine if type resolution terminates. When you write a deeply recursive type, you might hit:
+
+```
+Type instantiation is excessively deep and possibly infinite.
+```
+
+This isn't a bug — it's a fundamental theoretical limit. The TypeScript team set an arbitrary depth limit to prevent the compiler from hanging forever.
+
+### Compile-Time Performance Craters
+
+Complex type-level computations don't execute in microseconds:
+
+```ts
+// This innocent-looking type can make tsc crawl
+type DeepReadonly<T> = {
+  readonly [K in keyof T]: T[K] extends object ? DeepReadonly<T[K]> : T[K];
+};
+
+// Applied to a massive nested config object...
+type Config = DeepReadonly<MassiveNestedConfigObject>; // 💀 compiler timeout
+```
+
+## When Type-Level Programming Is Worth It
+
+Not all type gymnastics are bad. These patterns earn their complexity:
+
+### Discriminated Unions (Always Good)
+
+```ts
+type Result<T, E = Error> =
+  | { ok: true; data: T }
+  | { ok: false; error: E };
+
+function parseUser(raw: unknown): Result<User, string> {
+  if (!isUser(raw)) return { ok: false, error: "Invalid shape" };
+  return { ok: true, data: raw };
+}
+
+const result = parseUser(rawJson);
+if (result.ok) {
+  console.log(result.data.name); // TypeScript knows this exists
+}
+```
+
+### Template Literal Types for API Routes
+
+```ts
+type HttpMethod = "GET" | "POST" | "PUT" | "DELETE";
+type ApiPath = `/api/${string}`;
+type RouteKey = `${HttpMethod} ${ApiPath}`;
+
+type RouteHandler = (req: Request, res: Response) => Promise<void>;
+const routes: Partial<Record<RouteKey, RouteHandler>> = {};
+```
+
+## My Rule of Thumb
+
+> If a junior engineer can't understand your type within 30 seconds, it's too clever.
+
+Type safety should empower your team, not gatekeep it. Use type-level programming for:
+
+- ✅ Discriminated unions and exhaustiveness checking
+- ✅ Template literals for route/event naming
+- ✅ Utility types (`Pick`, `Omit`, `ReturnType`)
+- ❌ Compile-time arithmetic beyond simple addition
+- ❌ Recursive depth beyond 2-3 levels
+- ❌ Anything requiring a PhD to maintain
+
+The type system is a tool. Like any powerful tool, wielding it recklessly is more dangerous than not using it at all.
