@@ -4,7 +4,7 @@ import React from 'react';
 
 import { motion } from "motion/react";
 
-import { ArrowRight } from "lucide-react";
+import { Github, Twitter, Linkedin } from "lucide-react";
 import Link from "next/link";
 import { FloatingPill } from "./ui/FloatingPill";
 
@@ -64,19 +64,7 @@ export function HeroSectionOne() {
             onMouseMove={handleMouseMove}
             className="relative mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center group"
         >
-            {/* Technical Corner Overlays */}
-            <div className="absolute top-4 left-4 text-xs font-mono text-neutral-500 opacity-50 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-50">
-                x:{mousePosition.x} y:{mousePosition.y}
-            </div>
-            <div className="absolute top-4 right-4 text-xs font-mono text-neutral-500 opacity-50 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-50">
-                {time}
-            </div>
-            <div className="absolute bottom-4 left-4 text-xs font-mono text-neutral-500 opacity-50 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-50">
-                fps: {fps}
-            </div>
-            <div className="absolute bottom-4 right-4 text-xs font-mono text-neutral-500 opacity-50 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-50">
-                cell:{cell.col},{cell.row}
-            </div>
+
             <div className="absolute inset-y-0 left-0 h-full w-px bg-neutral-200/80 dark:bg-neutral-800/80">
                 <div className="absolute top-0 h-40 w-px bg-gradient-to-b from-transparent via-yellow-500 to-transparent" />
             </div>
@@ -110,22 +98,7 @@ export function HeroSectionOne() {
             </div>
             <div className="px-4 py-10 md:py-20 flex flex-col items-center">
 
-                {/* Quick Runthrough Pill */}
-                <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="mb-8 hidden md:block" // Hidden on mobile to save space, visible on md+
-                >
-                    <Link href="/experience" className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-900/50 border border-yellow-500/30 backdrop-blur-sm hover:border-yellow-500/60 transition-colors cursor-pointer group">
-                        <span className="relative flex h-2 w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-yellow-500"></span>
-                        </span>
-                        <span className="text-sm font-medium text-yellow-200">Got no time? Quick runthrough</span>
-                        <ArrowRight size={14} className="text-yellow-200 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                </motion.div>
+
 
                 <h1 className="relative z-10 mx-auto max-w-4xl text-center text-2xl font-bold text-slate-700 md:text-4xl lg:text-7xl dark:text-slate-300">
                     {"Hey, I am Arnab Jena - aka Devo"
@@ -184,19 +157,27 @@ export function HeroSectionOne() {
                         Contact Me
                     </Link>
                 </motion.div>
+
+                {/* Mobile-friendly Horizontal Social Links (Inspired by reference portfolio) */}
                 <motion.div
-                    initial={{
-                        opacity: 0,
-                        y: 10,
-                    }}
-                    animate={{
-                        opacity: 1,
-                        y: 0,
-                    }}
-                    transition={{
-                        duration: 0.3,
-                        delay: 1.2,
-                    }}>
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 1.2 }}
+                    className="relative z-10 flex items-center justify-center gap-6 mt-8 border border-white/5 bg-[#0a0a0c]/60 backdrop-blur-md px-5 py-2.5 rounded-full shadow-lg"
+                >
+                    <span className="text-[10px] font-mono text-neutral-500 uppercase tracking-widest mr-1">Find me:</span>
+                    <a href="https://github.com/arnabjena007" target="_blank" rel="noreferrer" className="text-neutral-400 hover:text-yellow-500 transition-colors flex items-center gap-1.5 text-xs font-mono cursor-pointer">
+                        <Github size={15} />
+                        <span>Github</span>
+                    </a>
+                    <a href="https://twitter.com/arnabjena007" target="_blank" rel="noreferrer" className="text-neutral-400 hover:text-yellow-500 transition-colors flex items-center gap-1.5 text-xs font-mono cursor-pointer">
+                        <Twitter size={15} />
+                        <span>Twitter</span>
+                    </a>
+                    <a href="https://linkedin.com/in/arnabjena007" target="_blank" rel="noreferrer" className="text-neutral-400 hover:text-yellow-500 transition-colors flex items-center gap-1.5 text-xs font-mono cursor-pointer">
+                        <Linkedin size={15} />
+                        <span>LinkedIn</span>
+                    </a>
                 </motion.div>
             </div>
         </div>
