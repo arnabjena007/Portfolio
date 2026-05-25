@@ -1,49 +1,13 @@
 "use client";
 import React from "react";
-
-import { HeroSectionOne } from "@/components/HeroSectionOne";
-import RecentProjects from "@/components/RecentProjects";
-import { ExperienceStack } from "@/components/ExperienceStack";
-
-import AboutMe from "@/components/AboutMe";
-import Skills from "@/components/Skills";
+import { ModernFeed } from "@/components/ModernFeed";
 import Footer from "@/components/Footer";
 
-
-import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
-
-
-import { SpotifyCard } from "@/components/SpotifyCard";
-
 export default function Home() {
-
   return (
-    <div className="relative flex justify-center items-center flex-col overflow-hidden mx-auto">
-
-      <div className="max-w-7xl w-full sm:px-10 px-5 relative z-10">
-        <HeroSectionOne />
-
-        <AboutMe />
-        <div id="skills">
-          <Skills />
-        </div>
-        <RecentProjects />
-        <ExperienceStack />
-
-        <div className="w-full mt-20 mb-10">
-          <SpotifyCard />
-        </div>
-
-        <div className="flex flex-col items-center justify-center py-20">
-          <TextGenerateEffect
-            className="text-center text-[40px] md:text-5xl lg:text-6xl font-serif text-white/50"
-            words={"Give me a place to stand, and I will move the Earth."}
-          />
-          <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl font-serif text-white/40 mt-2">
-            - Archimedes
-          </p>
-        </div>
-
+    <div className="relative flex justify-center items-center flex-col overflow-hidden mx-auto w-full">
+      <div className="w-full relative z-10">
+        <ModernFeed />
       </div>
       <Footer />
     </div>
