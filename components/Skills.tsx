@@ -1,7 +1,6 @@
 "use client";
 import Marquee from "react-fast-marquee";
 import { BACKEND_STACKS, FRONTEND_STACKS, stacksProps } from "@/constants/stack";
-import { typo } from "@/components/ui/typography";
 
 const Skills = () => {
     return (

@@ -63,7 +63,7 @@ const Experience = () => {
                                         {card.date}
                                     </span>
                                 </div>
-                                <h2 className="text-xl font-semibold text-yellow-500">
+                                <h2 className="text-xl font-semibold text-yellow-500 font-instrument">
                                     {card.company}
                                 </h2>
                             </div>
