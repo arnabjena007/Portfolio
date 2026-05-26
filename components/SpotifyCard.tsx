@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { IconBrandSpotify } from "@tabler/icons-react";
-import { ExternalLink, Play } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 interface SpotifyData {
     isPlaying: boolean;
@@ -70,11 +70,7 @@ export const SpotifyCard = () => {
         };
     }, []);
 
-    const formatTime = (ms: number) => {
-        const minutes = Math.floor(ms / 60000);
-        const seconds = ((ms % 60000) / 1000).toFixed(0);
-        return `${minutes}:${Number(seconds) < 10 ? '0' : ''}${seconds}`;
-    };
+
 
     const progressPercentage = data?.progressMs && data?.durationMs
         ? (data.progressMs / data.durationMs) * 100

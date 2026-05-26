@@ -10,58 +10,8 @@ import { FloatingPill } from "./ui/FloatingPill";
 
 
 export function HeroSectionOne() {
-    const [time, setTime] = React.useState<string>("");
-    const [fps, setFps] = React.useState<number>(0);
-    const [cell, setCell] = React.useState({ col: 0, row: 0 });
-    const [mousePosition, setMousePosition] = React.useState({ x: 0, y: 0 });
-
-    React.useEffect(() => {
-        // Time updater
-        const updateTime = () => {
-            const now = new Date();
-            setTime(now.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' }));
-        };
-        updateTime();
-        const timeInterval = setInterval(updateTime, 1000);
-
-        // FPS counter
-        let lastTime = performance.now();
-        let frameCount = 0;
-        let animationFrameId: number;
-
-        const countFps = () => {
-            const now = performance.now();
-            frameCount++;
-            if (now - lastTime >= 1000) {
-                setFps(Math.round((frameCount * 1000) / (now - lastTime)));
-                frameCount = 0;
-                lastTime = now;
-            }
-            animationFrameId = requestAnimationFrame(countFps);
-        };
-        countFps();
-
-        return () => {
-            clearInterval(timeInterval);
-            cancelAnimationFrame(animationFrameId);
-        };
-    }, []);
-
-    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-        const rect = e.currentTarget.getBoundingClientRect();
-        const x = Math.round(e.clientX - rect.left);
-        const y = Math.round(e.clientY - rect.top);
-
-        setMousePosition({ x, y });
-        setCell({
-            col: Math.floor(x / 100) + 1,
-            row: Math.floor(y / 100) + 1
-        });
-    };
-
     return (
         <div
-            onMouseMove={handleMouseMove}
             className="relative mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center group"
         >
 

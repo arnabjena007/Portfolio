@@ -1,7 +1,7 @@
 "use client";
 import { projects } from "@/data";
 import { AnimatePresence, motion } from "motion/react";
-import { Terminal as TerminalIcon, Maximize2, Minus, X } from "lucide-react";
+import { Terminal as TerminalIcon } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 export default function Terminal() {
@@ -12,7 +12,7 @@ export default function Terminal() {
     const [history, setHistory] = useState<string[]>([]);
     const [historyIndex, setHistoryIndex] = useState(-1);
     const [suggestions, setSuggestions] = useState<string[]>([]);
-    const [highlightedSuggestion, setHighlightedSuggestion] = useState("");
+
     const [isTyping, setIsTyping] = useState(false);
     const inputRef = useRef<HTMLInputElement>(null);
     const outputRef = useRef<HTMLDivElement>(null);
@@ -22,8 +22,6 @@ export default function Terminal() {
         "help",
         "intro",
         "projects",
-        "skills",
-        "experience",
         "education",
         "blogs",
         "contact",
@@ -48,7 +46,7 @@ export default function Terminal() {
     useEffect(() => {
         const matchingCommands = commands.filter((cmd) => cmd.startsWith(command.toLowerCase()));
         setSuggestions(matchingCommands);
-        setHighlightedSuggestion(matchingCommands[0] || "");
+
 
         if (typingTimeoutRef.current) {
             clearTimeout(typingTimeoutRef.current);
@@ -79,7 +77,7 @@ export default function Terminal() {
         setHistory([...history, trimmedCommand]);
         setHistoryIndex(history.length + 1);
 
-        const [baseCommand, ...args] = trimmedCommand.toLowerCase().split(" ");
+        const [baseCommand] = trimmedCommand.toLowerCase().split(" ");
 
         switch (baseCommand) {
             case "help":
@@ -100,9 +98,9 @@ export default function Terminal() {
 
             case "intro":
                 newOutput.push(
-                    "Hi! I'm Arnab Jena (Devo).",
-                    "A Frontend Engineer passionate about building scalable solutions.",
-                    "Type 'skills' or 'projects' to evaluate my potential."
+                    "Hi! I'm Arnab Jena.",
+                    "A Software Engineer passionate about building scalable platforms and data applications.",
+                    "Type 'projects' or 'resume' to explore my work."
                 );
                 break;
 
@@ -112,7 +110,7 @@ export default function Terminal() {
 
             case "ls":
                 newOutput.push("src  public  node_modules  package.json  README.md  (just kidding, here are the sections):");
-                newOutput.push("projects/  skills/  experience/  books/  contact.md");
+                newOutput.push("projects/  books/  contact.md");
                 break;
 
             case "resume":
@@ -140,7 +138,7 @@ export default function Terminal() {
 
             default:
                 // Check if it's one of the other section commands
-                if (["skills", "projects", "experience", "education", "blogs"].includes(baseCommand)) {
+                if (["projects", "education", "blogs"].includes(baseCommand)) {
                     newOutput.push(`Navigating to ${baseCommand}... (Simulation)`);
                     // In a real implementation this would scroll to the section
                     const section = document.getElementById(baseCommand);
@@ -157,7 +155,7 @@ export default function Terminal() {
         setOutput(newOutput);
         setCommand("");
         setSuggestions([]);
-        setHighlightedSuggestion("");
+
         setIsTyping(false);
     };
 

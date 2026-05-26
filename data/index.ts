@@ -1,7 +1,6 @@
 export const navItems = [
     { name: "About", link: "/about" },
     { name: "Projects", link: "/projects" },
-    { name: "Experience", link: "/experience" },
     { name: "Blog", link: "/blog" },
     { name: "Contact", link: "/contact" },
 ];
@@ -11,7 +10,7 @@ export const projects = [
     {
         id: 1,
         title: "Pix",
-        des: "Generating 8000×8000 pixel art in under 60 seconds using Golang and parallel processing.",
+        des: "Generating pixel art in under 60 seconds using Golang and parallel processing.",
         img: "/p1.png",
         iconLists: ["/go.svg", "/ver.svg"],
         link: "https://github.com/arnabjena007",
@@ -98,9 +97,26 @@ export const projects = [
 export const workExperience = [
     {
         id: 1,
+        title: "Software Developer Intern",
+        company: "Center for Data for Public Good, IISc",
+        logo: "/cdpg.png",
+        date: "Jan 2026 – Present",
+        desc: "Working at the intersection of technology, policy, and society to enable responsible data sharing and innovation across sectors like urban development, agriculture, geospatial services, and healthcare.",
+        tech: ["Next.js", "TypeScript", "Python", "AI/ML", "Docker"],
+        points: [
+            "Working at the intersection of technology, policy, and society, enabling responsible data sharing and innovation across sectors such as urban development, agriculture, geospatial services, healthcare, and more.",
+            "Fostering collaboration between academia, industry, and government to address pressing challenges across sectors and empower stakeholders to develop solutions that drive equitable and sustainable progress.",
+            "Contributing to software platforms, AI/ML models, innovative applications, and data policies that facilitate the use of data for public good, anchored in translational research and real-world applications."
+        ],
+        className: "md:col-span-2",
+        thumbnail: "/cdpg.png",
+    },
+    {
+        id: 2,
         title: "Founding Engineer",
         company: "InternLoom",
-        date: "2024 – Present",
+        logo: "/internloom.png",
+        date: "June 2024 – Dec 2025",
         desc: "Built and scaled an internship discovery platform focused on structured listings and high signal matching.",
         tech: ["Next.js", "TypeScript", "PostgreSQL", "Node.js", "Docker"],
         points: [
@@ -111,13 +127,14 @@ export const workExperience = [
             "Optimized performance and reliability to support growing user traffic and real world usage",
         ],
         className: "md:col-span-2",
-        thumbnail: "/exp1.svg",
+        thumbnail: "/internloom.png",
     },
     {
-        id: 2,
+        id: 3,
         title: "Research Intern",
         company: "IIT Ropar",
-        date: "2024",
+        logo: "/iitropar.png",
+        date: "May 2024 – July 2024",
         desc: "Worked on AI driven brain tumor detection using medical imaging data.",
         tech: ["Python", "Deep Learning", "Medical Imaging"],
         points: [
@@ -127,23 +144,7 @@ export const workExperience = [
             "Contributed to experimentation, evaluation pipelines, and result analysis for research outcomes",
         ],
         className: "md:col-span-2",
-        thumbnail: "/exp2.svg",
-    },
-    {
-        id: 3,
-        title: "Tech Lead",
-        company: "Apex",
-        date: "2023 – 2024",
-        desc: "Led technical development for Apex, overseeing architecture and implementation across teams.",
-        tech: ["Next.js", "React", "Node.js", "PostgreSQL"],
-        points: [
-            "Led technical development for Apex, overseeing architecture and implementation across teams",
-            "Designed and built the core platform including website, event management system, and internal dashboards",
-            "Mentored developers and coordinated technical decisions to ensure consistency and delivery quality",
-            "Took ownership of deployments, system reliability, and feature rollouts make theexperience system better",
-        ],
-        className: "md:col-span-2",
-        thumbnail: "/exp3.svg",
+        thumbnail: "/iitropar.png",
     },
 ];
 

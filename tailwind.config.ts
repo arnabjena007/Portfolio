@@ -27,6 +27,7 @@ const config: Config = {
             fontFamily: {
                 sans: ["var(--font-inter)", "sans-serif"],
                 serif: ["var(--font-instrument-serif)", "serif"],
+                instrument: ["var(--font-instrument-sans)", "sans-serif"],
             },
             animation: {
                 spotlight: "spotlight 2s ease .75s 1 forwards",

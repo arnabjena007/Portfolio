@@ -1,6 +1,5 @@
 const https = require('https');
 const http = require('http');
-const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
 const { exec } = require('child_process');
@@ -19,7 +18,7 @@ try {
             if (key.trim() === 'SPOTIFY_CLIENT_SECRET') clientSecret = value.trim();
         }
     });
-} catch (error) {
+} catch {
     console.error('Error reading .env.local. Make sure it exists in the root directory.');
     process.exit(1);
 }
@@ -118,7 +117,7 @@ function updateEnvFile(token) {
                 console.log('Automatically updated .env.local with the new token!');
             }
         }
-    } catch (e) {
+    } catch {
         console.log('Could not auto-update .env.local. Please paste manually.');
     }
 }

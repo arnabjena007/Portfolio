@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import { projects } from "@/data";
-import { IconSearch, IconFilter, IconExternalLink } from "@tabler/icons-react";
+import { IconSearch, IconExternalLink } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const ProjectsPage = () => {
