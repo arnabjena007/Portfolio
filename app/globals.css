@@ -126,3 +126,97 @@ pre code.hljs {
   overflow-x: auto;
   white-space: pre;
 }
+
+/* ============================================================
+   React Activity Calendar Responsive Styling
+   ============================================================ */
+.react-activity-calendar {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.react-activity-calendar__scroll-container {
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+}
+
+.react-activity-calendar__calendar {
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+}
+
+/* ============================================================
+   Glowing Diagonal Sweep Animation
+   ============================================================ */
+@keyframes diagonal-sweep {
+  0% {
+    transform: translate(-120px, -120px) rotate(45deg);
+  }
+  40% {
+    transform: translate(160px, 160px) rotate(45deg);
+  }
+  100% {
+    transform: translate(160px, 160px) rotate(45deg);
+  }
+}
+
+.animate-diagonal-sweep {
+  animation: diagonal-sweep 3.5s infinite ease-in-out;
+}
+
+/* ============================================================
+   Profile Sweep (Reflecting Glass Shimmer) Animation
+   ============================================================ */
+@keyframes profile-sweep {
+  0% {
+    left: -30%;
+  }
+  35% {
+    left: 130%;
+  }
+  100% {
+    left: 130%;
+  }
+}
+
+.animate-profile-sweep {
+  animation: profile-sweep 4s infinite ease-in-out;
+}
+
+/* ============================================================
+   View Transition Circular Reveal Theme Toggle
+   ============================================================ */
+:root {
+  --expo-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+::view-transition-group(root) {
+  animation-timing-function: var(--expo-out);
+}
+
+::view-transition-new(root) {
+  mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><defs><filter id="blur"><feGaussianBlur stdDeviation="2"/></filter></defs><circle cx="40" cy="0" r="18" fill="white" filter="url(%23blur)"/></svg>') top right / 0 no-repeat;
+  mask-origin: content-box;
+  animation: scale 1s;
+  animation-fill-mode: both;
+  transform-origin: top right;
+}
+
+::view-transition-old(root),
+.dark::view-transition-old(root) {
+  animation: scale 1s;
+  animation-fill-mode: both;
+  transform-origin: top right;
+  z-index: -1;
+}
+
+@keyframes scale {
+  to {
+    mask-size: 350vmax;
+  }
+}
+
+
+
+

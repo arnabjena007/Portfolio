@@ -12,12 +12,12 @@ const About = () => {
 
                 {/* Header Section */}
                 <div className="flex flex-col md:flex-row gap-8 items-start">
-                    <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-white/20">
+                    <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-[2rem] overflow-hidden border border-white/[0.06]">
                         {/* Placeholder for profile image - using a generating gradient for now */}
                         <div className="absolute inset-0 bg-gradient-to-br from-orange-500 via-yellow-500 to-pink-500"></div>
                     </div>
                     <div className="flex flex-col gap-2">
-                        <h1 className="text-4xl md:text-5xl font-serif font-bold text-white">About Me</h1>
+                        <h1 className="text-3xl md:text-4xl font-serif font-semibold text-white">About Me</h1>
                         <div className="text-neutral-400 text-sm md:text-base max-w-lg mt-2 leading-relaxed font-serif">
                             <Tooltip content={<DevoCard />}>
                                 <span className="cursor-pointer hover:text-white transition-colors">Devo / Arnab Jena</span>
@@ -66,7 +66,7 @@ const About = () => {
 
                 {/* Stack & Style */}
                 <div className="space-y-8">
-                    <h2 className="text-3xl md:text-4xl font-serif font-bold text-white">Stack & Style</h2>
+                    <h2 className="text-2xl md:text-3xl font-serif font-semibold text-white">Stack & Style</h2>
                     <p className="text-neutral-400 text-base">
                         I believe in choosing the right tool for the job, but these are the technologies I&apos;m currently most excited about and experienced with:
                     </p>
@@ -82,7 +82,7 @@ const About = () => {
 
                 {/* Philosophy */}
                 <div className="space-y-8">
-                    <h2 className="text-3xl md:text-4xl font-serif font-bold text-white">Philosophy</h2>
+                    <h2 className="text-2xl md:text-3xl font-serif font-semibold text-white">Philosophy</h2>
                     <div className="space-y-4 text-neutral-300 text-lg leading-relaxed font-serif">
                         <p>
                             I approach software development as a craft that requires both technical precision and creative problem-solving. While I deeply appreciate elegant code and efficient algorithms, I never lose sight of the humans who will ultimately use what I build. I am addicted to improving and refactoring my code. I believe in writing clean, maintainable code that is easy to read and understand. I also love breaking stuff, make mistakes, fail and then pick up the pieces and learn from them.
@@ -101,7 +101,7 @@ const About = () => {
                 {/* Other Pursuits */}
                 <CollapsibleSection title="Other Pursuits">
                     <div className="grid grid-cols-1 gap-8 pt-4">
-                        <div className="bg-[#0f0f11] border border-white/10 p-6 rounded-2xl space-y-4 hover:border-white/20 transition-colors">
+                        <div className="bg-[#0f0f11] border border-white/[0.06] p-6 rounded-2xl space-y-4 hover:border-white/[0.12] transition-colors">
                             <h3 className="text-xl font-bold text-white flex items-center gap-2">
                                 <span className="text-2xl">🧠</span> Quizzing
                             </h3>
@@ -110,7 +110,7 @@ const About = () => {
                             </p>
                         </div>
 
-                        <div className="bg-[#0f0f11] border border-white/10 p-6 rounded-2xl space-y-4 hover:border-white/20 transition-colors">
+                        <div className="bg-[#0f0f11] border border-white/[0.06] p-6 rounded-2xl space-y-4 hover:border-white/[0.12] transition-colors">
                             <h3 className="text-xl font-bold text-white flex items-center gap-2">
                                 <span className="text-2xl">✍️</span> Writing
                             </h3>
@@ -119,7 +119,7 @@ const About = () => {
                             </p>
                         </div>
 
-                        <div className="bg-[#0f0f11] border border-white/10 p-6 rounded-2xl space-y-4 hover:border-white/20 transition-colors">
+                        <div className="bg-[#0f0f11] border border-white/[0.06] p-6 rounded-2xl space-y-4 hover:border-white/[0.12] transition-colors">
                             <h3 className="text-xl font-bold text-white flex items-center gap-2">
                                 <span className="text-2xl">🤝</span> Community
                             </h3>
@@ -128,7 +128,7 @@ const About = () => {
                             </p>
                         </div>
 
-                        <div className="bg-[#0f0f11] border border-white/10 p-6 rounded-2xl space-y-4 hover:border-white/20 transition-colors">
+                        <div className="bg-[#0f0f11] border border-white/[0.06] p-6 rounded-2xl space-y-4 hover:border-white/[0.12] transition-colors">
                             <h3 className="text-xl font-bold text-white flex items-center gap-2">
                                 <span className="text-2xl">🧩</span> Personality
                             </h3>
@@ -140,7 +140,7 @@ const About = () => {
                 </CollapsibleSection>
 
                 {/* Education (From User Request) */}
-                <div className="w-full p-6 md:p-8 rounded-[1.75rem] border border-white/10 bg-[#0f0f11]">
+                <div className="w-full p-6 md:p-8 rounded-[1.75rem] border border-white/[0.06] bg-[#0f0f11]">
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 mb-2">
                         <h3 className="text-xl md:text-2xl font-serif text-white">Manipal Institute of Technology</h3>
                         <span className="text-sm text-neutral-400">Bengaluru, India</span>
@@ -165,7 +165,7 @@ const CollapsibleSection = ({ title, children }: { title: string, children: Reac
                 onClick={() => setIsOpen(!isOpen)}
                 className="flex items-center justify-between w-full text-left group"
             >
-                <h2 className="text-3xl md:text-4xl font-serif font-bold text-white group-hover:text-yellow-400 transition-colors">
+                <h2 className="text-2xl md:text-3xl font-serif font-semibold text-white group-hover:text-yellow-400 transition-colors">
                     {title}
                 </h2>
                 <motion.div
