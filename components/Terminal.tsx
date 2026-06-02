@@ -11,7 +11,6 @@ export default function Terminal() {
     ]);
     const [history, setHistory] = useState<string[]>([]);
     const [historyIndex, setHistoryIndex] = useState(-1);
-    const [historyIndex, setHistoryIndex] = useState(-1);
 
     const [isTyping, setIsTyping] = useState(false);
     const inputRef = useRef<HTMLInputElement>(null);
@@ -44,29 +43,14 @@ export default function Terminal() {
         inputRef.current?.focus();
     }, []);
 
-    // Suggestions logic (now derived state)
+    // Suggestions logic typing timeout cleanup on unmount
     useEffect(() => {
-
-
-        if (typingTimeoutRef.current) {
-            clearTimeout(typingTimeoutRef.current);
-        }
-
-        if (command) {
-            setIsTyping(true);
-            typingTimeoutRef.current = setTimeout(() => {
-                setIsTyping(false);
-            }, 1000);
-        } else {
-            setIsTyping(false);
-        }
-
         return () => {
             if (typingTimeoutRef.current) {
                 clearTimeout(typingTimeoutRef.current);
             }
         };
-    }, [command]);
+    }, []);
 
     const handleCommand = (e: React.FormEvent) => {
         e.preventDefault();
@@ -164,18 +148,22 @@ export default function Terminal() {
             const newIndex = Math.max(0, historyIndex - 1);
             setHistoryIndex(newIndex);
             setCommand(history[newIndex] || "");
+            setIsTyping(false);
         } else if (e.key === "ArrowDown") {
             e.preventDefault();
             const newIndex = Math.min(history.length, historyIndex + 1);
             setHistoryIndex(newIndex);
             setCommand(history.length === newIndex ? "" : history[newIndex] || "");
+            setIsTyping(false);
         } else if (e.key === "Tab") {
             e.preventDefault();
             if (suggestions.length === 1) {
                 setCommand(suggestions[0]);
+                setIsTyping(false);
             } else if (suggestions.length > 1) {
                 // rudimentary auto-complete
                 setCommand(suggestions[0]);
+                setIsTyping(false);
             }
         }
     };
@@ -246,7 +234,23 @@ export default function Terminal() {
                                 ref={inputRef}
                                 type="text"
                                 value={command}
-                                onChange={(e) => setCommand(e.target.value)}
+                                onChange={(e) => {
+                                    const value = e.target.value;
+                                    setCommand(value);
+                                    
+                                    if (typingTimeoutRef.current) {
+                                        clearTimeout(typingTimeoutRef.current);
+                                    }
+                                    
+                                    if (value) {
+                                        setIsTyping(true);
+                                        typingTimeoutRef.current = setTimeout(() => {
+                                            setIsTyping(false);
+                                        }, 1000);
+                                    } else {
+                                        setIsTyping(false);
+                                    }
+                                }}
                                 onKeyDown={handleKeyDown}
                                 className="w-full bg-transparent border-none outline-none text-white focus:ring-0"
                                 spellCheck={false}

@@ -1,58 +1,80 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { TerminalSquare, Coffee } from "lucide-react";
+import { TerminalSquare, Sun, Moon } from "lucide-react";
 import { usePathname } from "next/navigation";
-
 import { navItems } from "@/data";
-
 import { motion } from "motion/react";
+import { useTheme as useNextTheme } from "next-themes";
 
 export const Navbar = () => {
     const pathname = usePathname();
     const isBlog = pathname.startsWith("/blog");
 
+    const { theme, setTheme } = useNextTheme();
+    const [mounted, setMounted] = React.useState(false);
+
+    React.useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    const toggleTheme = () => {
+        if (!mounted) return;
+
+        // Native View Transition API theme toggle circular reveal ripple
+        if (!document.startViewTransition) {
+            setTheme(theme === "dark" ? "light" : "dark");
+            return;
+        }
+
+        document.startViewTransition(() => {
+            setTheme(theme === "dark" ? "light" : "dark");
+        });
+    };
+
     return (
         <motion.nav
-            initial={{ y: -100, opacity: 0 }}
+            initial={{ y: -10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className={`flex w-full items-center justify-between border-b px-4 py-5 ${
-                isBlog
-                    ? "bg-[#0a0a0a] border-zinc-800"
-                    : "bg-black-100/10 backdrop-blur-lg border-white/20"
-            }`}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className={`flex w-full items-center justify-end border-b px-6 py-3 ${isBlog
+                    ? "bg-white dark:bg-[#0a0a0a] border-zinc-200 dark:border-zinc-800"
+                    : "bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-lg border-neutral-200 dark:border-white/[0.05]"
+                }`}
         >
-            <Link href="/" className="flex items-center gap-2">
-                <div className="size-7 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500" />
-                <h1 className="text-xl font-bold md:text-3xl text-black dark:text-white">Devo</h1>
-            </Link>
-
-            <div className="hidden md:flex items-center gap-8">
-                {navItems.map((item, idx) => (
-                    <Link
-                        key={idx}
-                        href={item.link}
-                        className="text-lg font-medium text-neutral-600 dark:text-neutral-300 hover:text-black dark:hover:text-white transition-colors"
-                    >
-                        {item.name}
-                    </Link>
-                ))}
-            </div>
-
-            <div className="flex items-center gap-4">
-                <a href="https://www.buymeacoffee.com/your-username" target="_blank" rel="noopener noreferrer">
-                    <button className="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-full font-bold transition-all shadow-md text-sm">
-                        <Coffee size={16} />
-                        <span className="hidden md:block">Buy me a coffee</span>
-                    </button>
-                </a>
-                <Link href="/terminal">
-                    <button className="flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-black px-4 py-2 rounded-full font-bold transition-all shadow-md text-sm">
-                        <TerminalSquare size={16} />
-                        <span>CLI</span>
-                    </button>
+            {/* Right actions */}
+            <div className="flex items-center gap-5 shrink-0">
+                <Link
+                    href="/terminal"
+                    className="flex items-center gap-1 text-xs font-mono text-neutral-500 hover:text-neutral-800 dark:hover:text-white transition-colors"
+                >
+                    <TerminalSquare size={13} className="opacity-60" />
+                    <span>CLI</span>
                 </Link>
+                <a
+                    href="https://drive.google.com/file/d/1Stp0jleIoRQ-6DkHPkkQESf7x6C9k7KL/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-mono text-neutral-500 hover:text-neutral-800 dark:hover:text-white transition-colors"
+                >
+                    Resume
+                </a>
+                <button
+                    onClick={toggleTheme}
+                    className="flex items-center justify-center p-1.5 rounded-[10px] border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#070709] text-neutral-500 hover:text-neutral-800 dark:hover:text-white hover:bg-neutral-50 dark:hover:bg-neutral-900/40 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-300 shadow-sm shrink-0"
+                    title="Toggle Theme"
+                    aria-label="Toggle Theme"
+                >
+                    {mounted ? (
+                        theme === "dark" ? (
+                            <Sun size={13} />
+                        ) : (
+                            <Moon size={13} />
+                        )
+                    ) : (
+                        <div className="w-[13px] h-[13px]" />
+                    )}
+                </button>
             </div>
         </motion.nav>
     );

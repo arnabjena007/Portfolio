@@ -33,12 +33,11 @@ export default function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          forcedTheme="dark"
           enableSystem={false}
           disableTransitionOnChange
         >
           {/* Background */}
-          <div className="fixed inset-0 min-h-screen w-full bg-[#0A0A0A] pointer-events-none z-0" />
+          <div className="fixed inset-0 min-h-screen w-full bg-[#FAFAFA] dark:bg-[#0A0A0A] transition-colors duration-500 pointer-events-none z-0" />
 
           <div className="relative z-10 w-full">
             <Navbar />
