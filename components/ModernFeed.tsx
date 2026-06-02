@@ -10,24 +10,23 @@ import {
     ExternalLink,
     ArrowRight,
     FileText,
-    ChevronDown,
-    ChevronUp,
     ChevronsUpDown
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { workExperience, projects } from "@/data";
 import GitHubContributions from "@/components/GitHubContributions";
 
-// Diagonal Stripe Separator (Partition) with requested repeating linear gradient enclosed by vertical dotted margins
+// Diagonal Stripe Separator (Partition) spanning full viewport width
 const DiagonalSeparator = () => (
-    <div className="relative w-auto h-10 my-16 overflow-hidden select-none pointer-events-none -mx-8 sm:-mx-12 border-t border-b border-neutral-800">
-        <div
-            className="absolute inset-0"
-            style={{
-                backgroundImage: 'repeating-linear-gradient(-45deg, transparent, transparent 10px, currentcolor 10px, currentcolor 12px)',
-                opacity: 0.25
-            }}
-        />
+    <div className="relative w-full h-8 my-10 select-none pointer-events-none flex items-center justify-center">
+        <div className="absolute w-[100vw] h-full left-1/2 -translate-x-1/2 border-t border-b border-white/[0.03]">
+            <div
+                className="absolute inset-0"
+                style={{
+                    backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(255, 255, 255, 0.03) 6px, rgba(255, 255, 255, 0.03) 7px)',
+                }}
+            />
+        </div>
     </div>
 );
 
@@ -39,7 +38,7 @@ export const ModernFeed = () => {
 
 
     return (
-        <div className="w-full max-w-4xl mx-auto px-8 sm:px-12 relative pb-32 text-neutral-300 font-sans leading-relaxed border-l border-r border-dotted border-neutral-800">
+        <div className="w-full max-w-4xl mx-auto px-8 sm:px-12 relative pb-32 text-neutral-300 font-sans leading-relaxed border-l border-r border-solid border-white/[0.03]">
 
             {/* 1. HERO SECTION */}
             <header className="relative pt-24 pb-12 w-full">
@@ -284,10 +283,10 @@ export const ModernFeed = () => {
 
                     <div className="relative z-10 space-y-2">
                         <h2 className="text-3xl font-serif font-bold text-white tracking-wide">
-                            Let's work together
+                            Let&apos;s work together
                         </h2>
                         <p className="text-sm font-mono text-neutral-400">
-                            Have a project in mind? Let's create something amazing.
+                            Have a project in mind? Let&apos;s create something amazing.
                         </p>
                     </div>
 

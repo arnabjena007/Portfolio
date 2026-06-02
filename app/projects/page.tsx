@@ -112,6 +112,7 @@ const ProjectsPage = () => {
     );
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ProjectCard = ({ project }: { project: any }) => {
     return (
         <div className={`flex flex-col bg-[#0f0f11] border border-white/10 rounded-[1.75rem] overflow-hidden hover:border-purple/50 transition-colors duration-300 group h-full`}>

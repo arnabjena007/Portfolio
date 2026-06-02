@@ -52,7 +52,9 @@ export function BlogLayout({
       text: el.textContent ?? "",
       level: parseInt(el.tagName.replace("H", ""), 10),
     }));
-    setHeadings(items);
+    setTimeout(() => {
+      setHeadings(items);
+    }, 0);
   }, []);
 
   const formattedDate = new Date(frontmatter.date).toLocaleDateString("en-US", {
