@@ -12,7 +12,7 @@ export const ExperienceStack = () => {
             content: (
                 <div className="flex flex-col h-full justify-between items-start text-left p-2">
                     <p className="text-neutral-400 font-serif text-lg leading-snug" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>
-                        "Exploring the aspirations, struggles, and the unyielding spirit that defines the modern Indian dream."
+                        &quot;Exploring the aspirations, struggles, and the unyielding spirit that defines the modern Indian dream.&quot;
                     </p>
                     <span className="text-yellow-500 text-xs font-bold uppercase tracking-widest mt-2 hover:underline self-end">
                         Read Article
@@ -28,7 +28,7 @@ export const ExperienceStack = () => {
             content: (
                 <div className="flex flex-col h-full justify-between items-start text-left p-2">
                     <p className="text-neutral-900 font-serif text-lg leading-snug" style={{ textShadow: '0 1px 1px rgba(255,255,255,0.2)' }}>
-                        "A new blueprint for impact that bridges the gap between deep emotional connection and scalable change."
+                        &quot;A new blueprint for impact that bridges the gap between deep emotional connection and scalable change.&quot;
                     </p>
                     <span className="text-black text-xs font-bold uppercase tracking-widest mt-2 hover:underline self-end">
                         Read Article
@@ -44,7 +44,7 @@ export const ExperienceStack = () => {
             content: (
                 <div className="flex flex-col h-full justify-between items-start text-left p-2">
                     <p className="text-neutral-400 font-serif text-lg leading-snug" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>
-                        "An honest reflection on why taking shortcuts in life often leads to the longest and hardest roads."
+                        &quot;An honest reflection on why taking shortcuts in life often leads to the longest and hardest roads.&quot;
                     </p>
                     <span className="text-yellow-500 text-xs font-bold uppercase tracking-widest mt-2 hover:underline self-end">
                         Read Article
@@ -60,7 +60,7 @@ export const ExperienceStack = () => {
             content: (
                 <div className="flex flex-col h-full justify-between items-start text-left p-2">
                     <p className="text-neutral-900 font-serif text-lg leading-snug" style={{ textShadow: '0 1px 1px rgba(255,255,255,0.2)' }}>
-                        "Examining the silent revolutions and monumental shifts that mark India's journey on the global stage."
+                        &quot;Examining the silent revolutions and monumental shifts that mark India&apos;s journey on the global stage.&quot;
                     </p>
                     <span className="text-black text-xs font-bold uppercase tracking-widest mt-2 hover:underline self-end">
                         Read Article

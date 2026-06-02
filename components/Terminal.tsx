@@ -11,7 +11,7 @@ export default function Terminal() {
     ]);
     const [history, setHistory] = useState<string[]>([]);
     const [historyIndex, setHistoryIndex] = useState(-1);
-    const [suggestions, setSuggestions] = useState<string[]>([]);
+    const [historyIndex, setHistoryIndex] = useState(-1);
 
     const [isTyping, setIsTyping] = useState(false);
     const inputRef = useRef<HTMLInputElement>(null);
@@ -32,6 +32,8 @@ export default function Terminal() {
         "ls"
     ];
 
+    const suggestions = command ? commands.filter((cmd) => cmd.startsWith(command.toLowerCase())) : [];
+
     // Auto-scroll to bottom
     useEffect(() => {
         if (outputRef.current) outputRef.current.scrollTop = outputRef.current.scrollHeight;
@@ -42,10 +44,8 @@ export default function Terminal() {
         inputRef.current?.focus();
     }, []);
 
-    // Suggestions logic
+    // Suggestions logic (now derived state)
     useEffect(() => {
-        const matchingCommands = commands.filter((cmd) => cmd.startsWith(command.toLowerCase()));
-        setSuggestions(matchingCommands);
 
 
         if (typingTimeoutRef.current) {
@@ -154,7 +154,6 @@ export default function Terminal() {
 
         setOutput(newOutput);
         setCommand("");
-        setSuggestions([]);
 
         setIsTyping(false);
     };

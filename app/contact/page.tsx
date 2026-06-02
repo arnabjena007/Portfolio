@@ -40,7 +40,7 @@ const ContactPage = () => {
                         Contact <span className="text-purple">Me</span>
                     </h1>
                     <p className="text-white-100/80 text-lg max-w-2xl mx-auto">
-                        Have a project in mind or just want to explore a new idea? I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.
+                        Have a project in mind or just want to explore a new idea? I&apos;m always open to discussing new projects, creative ideas or opportunities to be part of your visions.
                     </p>
                 </motion.div>
 
@@ -53,7 +53,7 @@ const ContactPage = () => {
                         className="flex flex-col gap-8"
                     >
                         <div className="flex flex-col gap-4">
-                            <h2 className="text-2xl font-bold text-white">Let's connect</h2>
+                            <h2 className="text-2xl font-bold text-white">Let&apos;s connect</h2>
                             <p className="text-gray-400 leading-relaxed">
                                 Feel free to reach out directly via email or check out my social profiles. I try my best to respond within 24 hours.
                             </p>
@@ -95,7 +95,7 @@ const ContactPage = () => {
                                         <IconSend size={32} />
                                     </div>
                                     <h3 className="text-2xl font-bold text-white mb-2">Message Sent!</h3>
-                                    <p className="text-gray-400">Thanks for reaching out. I'll get back to you soon.</p>
+                                    <p className="text-gray-400">Thanks for reaching out. I&apos;ll get back to you soon.</p>
                                     <button
                                         type="button"
                                         onClick={() => setStatus("idle")}

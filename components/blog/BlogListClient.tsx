@@ -90,7 +90,7 @@ export function BlogListClient({ posts }: BlogListClientProps) {
           className="mb-14"
         >
           <p className="text-xs font-mono uppercase tracking-widest text-yellow-400/70 mb-3">
-            // writing
+            {`// writing`}
           </p>
           <h1 className="font-mono text-4xl sm:text-5xl font-bold text-white mb-4">
             Blog

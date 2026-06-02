@@ -31,7 +31,7 @@ const About = () => {
                 {/* Journey Text */}
                 <div className="space-y-6 text-neutral-300 text-lg leading-relaxed font-serif">
                     <div>
-                        Programming wasn't on my radar until 11th grade, when
+                        Programming wasn&apos;t on my radar until 11th grade, when
                         <Tooltip content="Object-Oriented Programming & System Basics">
                             <span className="cursor-pointer text-white font-bold ml-1">C++ and OOP</span>
                         </Tooltip> concepts clicked, the idea of creating something from nothing was fascinating. College introduced me to web development, but it was
@@ -53,14 +53,14 @@ const About = () => {
                         <Tooltip content="In-memory data structure store">
                             <span className="cursor-pointer text-white font-bold mx-1">Redis duplicate</span>
                         </Tooltip>
-                        to monitoring systems. I started documenting my learnings through blogs and open-source projects. Today, I'm focused on
+                        to monitoring systems. I started documenting my learnings through blogs and open-source projects. Today, I&apos;m focused on
                         <Tooltip content="Computing systems that are distributed across multiple nodes">
                             <span className="cursor-pointer text-white font-bold mx-1">distributed systems</span>
                         </Tooltip>
                         , performance optimization, and sharing knowledge through code and writing.
                     </div>
                     <div>
-                        I'm always open to new opportunities, collaborations, and feedback. If you're working on something interesting or want to connect, feel free to reach out!
+                        I&apos;m always open to new opportunities, collaborations, and feedback. If you&apos;re working on something interesting or want to connect, feel free to reach out!
                     </div>
                 </div>
 
@@ -68,7 +68,7 @@ const About = () => {
                 <div className="space-y-8">
                     <h2 className="text-3xl md:text-4xl font-serif font-bold text-white">Stack & Style</h2>
                     <p className="text-neutral-400 text-base">
-                        I believe in choosing the right tool for the job, but these are the technologies I'm currently most excited about and experienced with:
+                        I believe in choosing the right tool for the job, but these are the technologies I&apos;m currently most excited about and experienced with:
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -106,7 +106,7 @@ const About = () => {
                                 <span className="text-2xl">🧠</span> Quizzing
                             </h3>
                             <p className="text-neutral-400 leading-relaxed font-serif">
-                                As the <span className="text-white font-bold">Head of Mimansa</span> (Quizzing Society), I live for the "aha!" moments. I've led my team to victories at <span className="text-white">IISC, Christ University, and IIIT Bangalore</span>. To me, quizzing isn't just trivia—it's the art of lateral thinking and connecting obscure dots under pressure.
+                                As the <span className="text-white font-bold">Head of Mimansa</span> (Quizzing Society), I live for the &quot;aha!&quot; moments. I&apos;ve led my team to victories at <span className="text-white">IISC, Christ University, and IIIT Bangalore</span>. To me, quizzing isn&apos;t just trivia—it&apos;s the art of lateral thinking and connecting obscure dots under pressure.
                             </p>
                         </div>
 
@@ -115,7 +115,7 @@ const About = () => {
                                 <span className="text-2xl">✍️</span> Writing
                             </h3>
                             <p className="text-neutral-400 leading-relaxed font-serif">
-                                I pen down my thoughts on <span className="text-white font-bold">Medium</span>, exploring the intersection of distributed systems, philosophy, and tech culture. I believe in open-sourcing knowledge and documenting the "why" behind the code. It allows me to clarify my own thinking while helping others navigate similar paths.
+                                I pen down my thoughts on <span className="text-white font-bold">Medium</span>, exploring the intersection of distributed systems, philosophy, and tech culture. I believe in open-sourcing knowledge and documenting the &quot;why&quot; behind the code. It allows me to clarify my own thinking while helping others navigate similar paths.
                             </p>
                         </div>
 
@@ -124,7 +124,7 @@ const About = () => {
                                 <span className="text-2xl">🤝</span> Community
                             </h3>
                             <p className="text-neutral-400 leading-relaxed font-serif">
-                                Leadership is about enabling others. As the <span className="text-white font-bold">Executive Secretary of CodeX</span>, I've helped build a community of 2000+ students, organizing hackathons like <i>HackTheWeb</i> and <i>GameForge</i>. My goal is to create spaces where students can move from "consumers" of tech to "creators" of it.
+                                Leadership is about enabling others. As the <span className="text-white font-bold">Executive Secretary of CodeX</span>, I&apos;ve helped build a community of 2000+ students, organizing hackathons like <i>HackTheWeb</i> and <i>GameForge</i>. My goal is to create spaces where students can move from &quot;consumers&quot; of tech to &quot;creators&quot; of it.
                             </p>
                         </div>
 
@@ -133,7 +133,7 @@ const About = () => {
                                 <span className="text-2xl">🧩</span> Personality
                             </h3>
                             <p className="text-neutral-400 leading-relaxed font-serif">
-                                My Myers-Briggs Type Indicator (MBTI) is <span className="text-white font-bold">INFP</span> [Introvert | iNtuitive | Feeling | Prospecting]. I balance the logic of engineering with the intuition of art. I'm driven by values, curiosity, and a desire to build things that matter.
+                                My Myers-Briggs Type Indicator (MBTI) is <span className="text-white font-bold">INFP</span> [Introvert | iNtuitive | Feeling | Prospecting]. I balance the logic of engineering with the intuition of art. I&apos;m driven by values, curiosity, and a desire to build things that matter.
                             </p>
                         </div>
                     </div>
