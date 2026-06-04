@@ -25,7 +25,7 @@ const ContactPage = () => {
     };
 
     return (
-        <main className="min-h-screen relative flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5 font-serif">
+        <main className="min-h-screen relative flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5 font-sans">
             {/* Gradient Background */}
             <div className="absolute top-0 left-0 w-full h-full bg-grid-white/[0.03] -z-10"></div>
 
@@ -36,7 +36,7 @@ const ContactPage = () => {
                     transition={{ duration: 0.5 }}
                     className="text-center mb-16"
                 >
-                    <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                    <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 font-instrument">
                         Contact <span className="text-purple">Me</span>
                     </h1>
                     <p className="text-white-100/80 text-lg max-w-2xl mx-auto">
@@ -53,7 +53,7 @@ const ContactPage = () => {
                         className="flex flex-col gap-8"
                     >
                         <div className="flex flex-col gap-4">
-                            <h2 className="text-2xl font-bold text-white">Let&apos;s connect</h2>
+                            <h2 className="text-2xl font-bold text-white font-instrument">Let&apos;s connect</h2>
                             <p className="text-gray-400 leading-relaxed">
                                 Feel free to reach out directly via email or check out my social profiles. I try my best to respond within 24 hours.
                             </p>
@@ -94,7 +94,7 @@ const ContactPage = () => {
                                     <div className="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mb-4 text-green-500">
                                         <IconSend size={32} />
                                     </div>
-                                    <h3 className="text-2xl font-bold text-white mb-2">Message Sent!</h3>
+                                    <h3 className="text-2xl font-bold text-white mb-2 font-instrument">Message Sent!</h3>
                                     <p className="text-gray-400">Thanks for reaching out. I&apos;ll get back to you soon.</p>
                                     <button
                                         type="button"

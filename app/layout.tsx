@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${instrumentSerif.variable} ${instrumentSans.variable} font-serif antialiased`}>
+      <body className={`${inter.variable} ${instrumentSerif.variable} ${instrumentSans.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

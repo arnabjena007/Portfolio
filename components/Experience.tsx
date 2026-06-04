@@ -1,7 +1,6 @@
 import React from "react";
 
 import { workExperience } from "@/data";
-import { FRONTEND_STACKS, BACKEND_STACKS } from "@/constants/stack";
 import { LinkPreview } from "@/components/ui/link-preview";
 
 const Experience = () => {
@@ -10,9 +9,9 @@ const Experience = () => {
 
 
             <div className="w-full mt-12 mb-12 p-8 rounded-[1.75rem] border border-white/20 bg-[#0f0f11]">
-                <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-8 font-sans">
                     <div className="flex flex-col gap-4 w-full">
-                        <h2 className="text-4xl md:text-5xl font-bold text-white text-center">
+                        <h2 className="text-4xl md:text-5xl font-bold text-white text-center font-instrument">
                             Devo in a <span className="text-yellow-500">gist</span>
                         </h2>
                         <p className="text-white-100 text-base md:text-lg leading-relaxed text-left">
@@ -43,52 +42,59 @@ const Experience = () => {
                 </div>
             </div>
 
-            <div className="w-full mt-12 flex flex-col gap-8">
-                {workExperience.map((card) => (
-                    <div
-                        key={card.id}
-                        className="flex-1 text-white border border-white/20"
-                        style={{
-                            background: "#0f0f11",
-                            borderRadius: "1.75rem",
-                        }}
-                    >
-                        <div className="flex flex-col p-6 md:p-8 gap-4">
-                            <div className="flex flex-col gap-1">
-                                <div className="flex justify-between items-start w-full">
-                                    <h1 className="text-2xl md:text-3xl font-bold">
-                                        {card.title}
-                                    </h1>
-                                    <span className="text-base font-medium text-white-100 whitespace-nowrap">
-                                        {card.date}
-                                    </span>
+            <div className="relative border-l border-white/20 ml-4 md:ml-6 pl-6 md:pl-8 space-y-10 my-8">
+                {workExperience.map((exp) => (
+                    <div key={exp.id} className="relative">
+                        {/* Timeline Dot */}
+                        <div className="absolute -left-[31px] md:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-white/20 bg-slate-950 flex items-center justify-center">
+                            {exp.date.includes("Present") ? (
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#00E676] shadow-[0_0_8px_#00E676]" />
+                            ) : (
+                                <span className="w-1.5 h-1.5 rounded-full bg-neutral-400 dark:bg-neutral-600" />
+                            )}
+                        </div>
+
+                        {/* Timeline Content */}
+                        <div className="flex flex-col gap-1">
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 w-full font-sans">
+                                <h3 className="text-base md:text-lg font-bold text-neutral-900 dark:text-white flex items-center gap-1.5 flex-wrap font-instrument">
+                                    <span className="text-neutral-900 dark:text-white">{exp.title}</span>
+                                    <span className="text-neutral-400 dark:text-neutral-500 font-normal">·</span>
+                                    <span className="text-neutral-400 dark:text-neutral-500 font-normal">{exp.company}</span>
+                                </h3>
+                                <span className="text-xs md:text-sm font-mono text-neutral-500 shrink-0">
+                                    {exp.date}
+                                </span>
+                            </div>
+
+                            <span className="text-xs md:text-sm text-neutral-500 font-medium">
+                                {exp.subtitle}
+                            </span>
+
+                            {exp.description && (
+                                <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base leading-relaxed mt-1">
+                                    {exp.description}
+                                </p>
+                            )}
+
+                            {exp.points && exp.points.length > 0 && (
+                                <ul className="mt-1 space-y-1 text-neutral-600 dark:text-neutral-400 text-sm md:text-base leading-relaxed list-none">
+                                    {exp.points.map((point, index) => (
+                                        <li key={index} className="flex items-start gap-2">
+                                            <span className="text-neutral-400 dark:text-neutral-600 mt-1.5 select-none">•</span>
+                                            <span>{point}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+
+                            {exp.tech && exp.tech.length > 0 && (
+                                <div className="flex flex-wrap items-center gap-3.5 mt-3">
+                                    {exp.tech.map((iconPath, index) => (
+                                        <img key={index} src={iconPath} alt="tech icon" className="w-5 h-5 object-contain opacity-80 hover:opacity-100 transition-opacity" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                                    ))}
                                 </div>
-                                <h2 className="text-xl font-semibold text-yellow-500 font-instrument">
-                                    {card.company}
-                                </h2>
-                            </div>
-
-                            <div className="flex flex-wrap gap-3 my-2">
-                                {card.tech && card.tech.map((item, i) => {
-                                    const stackItem = FRONTEND_STACKS[item] || BACKEND_STACKS[item] || FRONTEND_STACKS["React"] || { Icon: null, className: "" };
-                                    const Icon = stackItem.Icon;
-
-                                    return (
-                                        <div key={i} className="flex items-center gap-1 px-3 py-1 text-sm font-medium rounded-full bg-slate-800 text-white border border-slate-700" title={item}>
-                                            {Icon && <Icon className={`w-4 h-4 ${stackItem.className}`} />}
-                                            <span>{item}</span>
-                                        </div>
-                                    );
-                                })}
-                            </div>
-
-                            <ul className="list-disc list-outside ml-5 space-y-2">
-                                {card.points && card.points.map((point, i) => (
-                                    <li key={i} className="text-white-100 text-base leading-relaxed">
-                                        {point}
-                                    </li>
-                                ))}
-                            </ul>
+                            )}
                         </div>
                     </div>
                 ))}
