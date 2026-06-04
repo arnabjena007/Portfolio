@@ -10,7 +10,7 @@ const AboutMe = () => {
             <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 {/* Left Content */}
                 <div className="space-y-6">
-                    <h2 className="text-4xl md:text-5xl font-serif italic text-white/90">
+                    <h2 className="text-4xl md:text-5xl font-instrument italic text-white/90">
                         Hello, I am
                         <Tooltip
                             containerClassName="ml-2 inline-block cursor-pointer text-white-100 font-bold"

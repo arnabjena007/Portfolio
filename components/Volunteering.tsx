@@ -4,7 +4,7 @@ import { volunteering } from "@/data";
 const Volunteering = () => {
     return (
         <div className="py-20" id="volunteering">
-            <h1 className="heading text-4xl md:text-5xl font-bold text-center">
+            <h1 className="heading text-4xl md:text-5xl font-bold text-center font-instrument">
                 My
                 <span className="text-yellow-500"> volunteering work</span>
             </h1>
@@ -22,7 +22,7 @@ const Volunteering = () => {
                         <div className="flex flex-col p-6 md:p-8 gap-4">
                             <div className="flex flex-col gap-1">
                                 <div className="flex justify-between items-start w-full">
-                                    <h1 className="text-2xl md:text-3xl font-bold">
+                                    <h1 className="text-2xl md:text-3xl font-bold font-instrument">
                                         {card.title}
                                     </h1>
                                     <span className="text-base font-medium text-white-100 whitespace-nowrap">

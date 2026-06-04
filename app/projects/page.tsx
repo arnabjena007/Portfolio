@@ -30,9 +30,9 @@ const ProjectsPage = () => {
     }, [searchQuery, selectedCategory, selectedTech]);
 
     return (
-        <main className="min-h-screen relative flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5 font-serif">
+        <main className="min-h-screen relative flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5 font-sans">
             <div className="max-w-7xl w-full pt-32 pb-20">
-                <h1 className="text-4xl md:text-5xl font-bold text-center text-white mb-4">
+                <h1 className="text-4xl md:text-5xl font-bold text-center text-white mb-4 font-instrument">
                     My <span className="text-purple">Projects</span>
                 </h1>
                 <p className="text-center text-white-100 mb-12 text-lg">
@@ -49,7 +49,7 @@ const ProjectsPage = () => {
                             placeholder="Search projects..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full bg-slate-950 border border-white/20 rounded-xl py-3 pl-10 pr-4 text-white focus:outline-none focus:border-purple transition-all placeholder:font-serif"
+                            className="w-full bg-slate-950 border border-white/20 rounded-xl py-3 pl-10 pr-4 text-white focus:outline-none focus:border-purple transition-all placeholder:font-sans"
                         />
                     </div>
 
@@ -58,7 +58,7 @@ const ProjectsPage = () => {
                         <select
                             value={selectedCategory}
                             onChange={(e) => setSelectedCategory(e.target.value)}
-                            className="bg-slate-950 text-white border border-white/20 rounded-lg px-4 py-2 focus:outline-none focus:border-purple cursor-pointer hover:bg-slate-900 transition-colors font-serif"
+                            className="bg-slate-950 text-white border border-white/20 rounded-lg px-4 py-2 focus:outline-none focus:border-purple cursor-pointer hover:bg-slate-900 transition-colors"
                         >
                             <option value="All">All Categories</option>
                             {categories.slice(1).map((cat) => (
@@ -69,7 +69,7 @@ const ProjectsPage = () => {
                         <select
                             value={selectedTech}
                             onChange={(e) => setSelectedTech(e.target.value)}
-                            className="bg-slate-950 text-white border border-white/20 rounded-lg px-4 py-2 focus:outline-none focus:border-purple cursor-pointer hover:bg-slate-900 transition-colors font-serif"
+                            className="bg-slate-950 text-white border border-white/20 rounded-lg px-4 py-2 focus:outline-none focus:border-purple cursor-pointer hover:bg-slate-900 transition-colors"
                         >
                             <option value="All">All Technologies</option>
                             {techOptions.slice(1).map((tech) => (
@@ -129,7 +129,7 @@ const ProjectCard = ({ project }: { project: any }) => {
 
                 {/* Category Badge */}
                 {project.category && (
-                    <span className="absolute top-4 left-4 bg-black/60 backdrop-blur-md border border-white/20 text-white text-xs px-3 py-1 rounded-full uppercase tracking-wider font-serif">
+                    <span className="absolute top-4 left-4 bg-black/60 backdrop-blur-md border border-white/20 text-white text-xs px-3 py-1 rounded-full uppercase tracking-wider">
                         {project.category}
                     </span>
                 )}
@@ -137,19 +137,19 @@ const ProjectCard = ({ project }: { project: any }) => {
 
             <div className="p-6 md:p-8 flex flex-col flex-grow relative bg-grid-white/[0.02]">
                 <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-2xl font-bold text-white group-hover:text-purple transition-colors line-clamp-1 font-serif">{project.title}</h3>
+                    <h3 className="text-2xl font-bold text-white group-hover:text-purple transition-colors line-clamp-1 font-instrument">{project.title}</h3>
                     <a href={project.link} target="_blank" rel="noreferrer" className="text-white-200 hover:text-purple transition-colors">
                         <IconExternalLink size={24} />
                     </a>
                 </div>
 
-                <p className="text-white-100/80 mb-6 line-clamp-3 text-sm md:text-base font-serif">
+                <p className="text-white-100/80 mb-6 line-clamp-3 text-sm md:text-base">
                     {project.details || project.des}
                 </p>
 
                 {/* Feature List (Gist) */}
                 {project.features && (
-                    <ul className="mb-6 space-y-2 font-serif">
+                    <ul className="mb-6 space-y-2">
                         {project.features.slice(0, 3).map((feat: string, i: number) => (
                             <li key={i} className="flex items-center gap-2 text-xs md:text-sm text-gray-400">
                                 <span className="w-1.5 h-1.5 rounded-full bg-purple"></span>
@@ -160,20 +160,13 @@ const ProjectCard = ({ project }: { project: any }) => {
                 )}
 
                 <div className="mt-auto pt-6 border-t border-white/10 flex items-center justify-between">
-                    <div className="flex items-center -space-x-2">
+                    <div className="flex flex-wrap items-center gap-3.5">
                         {project.iconLists?.map((icon: string, index: number) => (
-                            <div key={index} className="w-8 h-8 rounded-full border border-white/20 bg-black flex items-center justify-center overflow-hidden">
-                                <img src={icon} alt="tech" className="p-1.5" />
-                            </div>
+                            <img key={index} src={icon} alt="tech icon" className="w-5 h-5 object-contain opacity-80 hover:opacity-100 transition-opacity" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
                         ))}
-                        {project.techStack?.length > (project.iconLists?.length || 0) && (
-                            <div className="w-8 h-8 rounded-full border border-white/20 bg-slate-900 flex items-center justify-center text-xs text-white-200 font-serif">
-                                +{project.techStack.length - (project.iconLists?.length || 0)}
-                            </div>
-                        )}
                     </div>
 
-                    <a href={project.link} className="flex items-center gap-2 text-purple text-sm font-medium hover:underline font-serif">
+                    <a href={project.link} className="flex items-center gap-2 text-purple text-sm font-medium hover:underline">
                         View Project
                     </a>
                 </div>

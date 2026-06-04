@@ -17,8 +17,8 @@ const About = () => {
                         <div className="absolute inset-0 bg-gradient-to-br from-orange-500 via-yellow-500 to-pink-500"></div>
                     </div>
                     <div className="flex flex-col gap-2">
-                        <h1 className="text-3xl md:text-4xl font-serif font-semibold text-white">About Me</h1>
-                        <div className="text-neutral-400 text-sm md:text-base max-w-lg mt-2 leading-relaxed font-serif">
+                        <h1 className="text-3xl md:text-4xl font-instrument font-semibold text-white">About Me</h1>
+                        <div className="text-neutral-400 text-sm md:text-base max-w-lg mt-2 leading-relaxed">
                             <Tooltip content={<DevoCard />}>
                                 <span className="cursor-pointer hover:text-white transition-colors">Devo / Arnab Jena</span>
                             </Tooltip><br />
@@ -29,7 +29,7 @@ const About = () => {
                 </div>
 
                 {/* Journey Text */}
-                <div className="space-y-6 text-neutral-300 text-lg leading-relaxed font-serif">
+                <div className="space-y-6 text-neutral-300 text-lg leading-relaxed">
                     <div>
                         Programming wasn&apos;t on my radar until 11th grade, when
                         <Tooltip content="Object-Oriented Programming & System Basics">
@@ -66,7 +66,7 @@ const About = () => {
 
                 {/* Stack & Style */}
                 <div className="space-y-8">
-                    <h2 className="text-2xl md:text-3xl font-serif font-semibold text-white">Stack & Style</h2>
+                    <h2 className="text-2xl md:text-3xl font-instrument font-semibold text-white">Stack & Style</h2>
                     <p className="text-neutral-400 text-base">
                         I believe in choosing the right tool for the job, but these are the technologies I&apos;m currently most excited about and experienced with:
                     </p>
@@ -82,8 +82,8 @@ const About = () => {
 
                 {/* Philosophy */}
                 <div className="space-y-8">
-                    <h2 className="text-2xl md:text-3xl font-serif font-semibold text-white">Philosophy</h2>
-                    <div className="space-y-4 text-neutral-300 text-lg leading-relaxed font-serif">
+                    <h2 className="text-2xl md:text-3xl font-instrument font-semibold text-white">Philosophy</h2>
+                    <div className="space-y-4 text-neutral-300 text-lg leading-relaxed">
                         <p>
                             I approach software development as a craft that requires both technical precision and creative problem-solving. While I deeply appreciate elegant code and efficient algorithms, I never lose sight of the humans who will ultimately use what I build. I am addicted to improving and refactoring my code. I believe in writing clean, maintainable code that is easy to read and understand. I also love breaking stuff, make mistakes, fail and then pick up the pieces and learn from them.
                         </p>
@@ -102,37 +102,37 @@ const About = () => {
                 <CollapsibleSection title="Other Pursuits">
                     <div className="grid grid-cols-1 gap-8 pt-4">
                         <div className="bg-[#0f0f11] border border-white/[0.06] p-6 rounded-2xl space-y-4 hover:border-white/[0.12] transition-colors">
-                            <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                            <h3 className="text-xl font-bold text-white flex items-center gap-2 font-instrument">
                                 <span className="text-2xl">🧠</span> Quizzing
                             </h3>
-                            <p className="text-neutral-400 leading-relaxed font-serif">
+                            <p className="text-neutral-400 leading-relaxed">
                                 As the <span className="text-white font-bold">Head of Mimansa</span> (Quizzing Society), I live for the &quot;aha!&quot; moments. I&apos;ve led my team to victories at <span className="text-white">IISC, Christ University, and IIIT Bangalore</span>. To me, quizzing isn&apos;t just trivia—it&apos;s the art of lateral thinking and connecting obscure dots under pressure.
                             </p>
                         </div>
 
                         <div className="bg-[#0f0f11] border border-white/[0.06] p-6 rounded-2xl space-y-4 hover:border-white/[0.12] transition-colors">
-                            <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                            <h3 className="text-xl font-bold text-white flex items-center gap-2 font-instrument">
                                 <span className="text-2xl">✍️</span> Writing
                             </h3>
-                            <p className="text-neutral-400 leading-relaxed font-serif">
+                            <p className="text-neutral-400 leading-relaxed">
                                 I pen down my thoughts on <span className="text-white font-bold">Medium</span>, exploring the intersection of distributed systems, philosophy, and tech culture. I believe in open-sourcing knowledge and documenting the &quot;why&quot; behind the code. It allows me to clarify my own thinking while helping others navigate similar paths.
                             </p>
                         </div>
 
                         <div className="bg-[#0f0f11] border border-white/[0.06] p-6 rounded-2xl space-y-4 hover:border-white/[0.12] transition-colors">
-                            <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                            <h3 className="text-xl font-bold text-white flex items-center gap-2 font-instrument">
                                 <span className="text-2xl">🤝</span> Community
                             </h3>
-                            <p className="text-neutral-400 leading-relaxed font-serif">
+                            <p className="text-neutral-400 leading-relaxed">
                                 Leadership is about enabling others. As the <span className="text-white font-bold">Executive Secretary of CodeX</span>, I&apos;ve helped build a community of 2000+ students, organizing hackathons like <i>HackTheWeb</i> and <i>GameForge</i>. My goal is to create spaces where students can move from &quot;consumers&quot; of tech to &quot;creators&quot; of it.
                             </p>
                         </div>
 
                         <div className="bg-[#0f0f11] border border-white/[0.06] p-6 rounded-2xl space-y-4 hover:border-white/[0.12] transition-colors">
-                            <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                            <h3 className="text-xl font-bold text-white flex items-center gap-2 font-instrument">
                                 <span className="text-2xl">🧩</span> Personality
                             </h3>
-                            <p className="text-neutral-400 leading-relaxed font-serif">
+                            <p className="text-neutral-400 leading-relaxed">
                                 My Myers-Briggs Type Indicator (MBTI) is <span className="text-white font-bold">INFP</span> [Introvert | iNtuitive | Feeling | Prospecting]. I balance the logic of engineering with the intuition of art. I&apos;m driven by values, curiosity, and a desire to build things that matter.
                             </p>
                         </div>
@@ -142,7 +142,7 @@ const About = () => {
                 {/* Education (From User Request) */}
                 <div className="w-full p-6 md:p-8 rounded-[1.75rem] border border-white/[0.06] bg-[#0f0f11]">
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 mb-2">
-                        <h3 className="text-xl md:text-2xl font-serif text-white">Manipal Institute of Technology</h3>
+                        <h3 className="text-xl md:text-2xl font-instrument text-white">Manipal Institute of Technology</h3>
                         <span className="text-sm text-neutral-400">Bengaluru, India</span>
                     </div>
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-2">
@@ -165,7 +165,7 @@ const CollapsibleSection = ({ title, children }: { title: string, children: Reac
                 onClick={() => setIsOpen(!isOpen)}
                 className="flex items-center justify-between w-full text-left group"
             >
-                <h2 className="text-2xl md:text-3xl font-serif font-semibold text-white group-hover:text-yellow-400 transition-colors">
+                <h2 className="text-2xl md:text-3xl font-instrument font-semibold text-white group-hover:text-yellow-400 transition-colors">
                     {title}
                 </h2>
                 <motion.div

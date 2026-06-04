@@ -11,7 +11,7 @@ export const ExperienceStack = () => {
             link: 'https://medium.com/@arnabjena2003/the-indian-dream-93f4317306c7',
             content: (
                 <div className="flex flex-col h-full justify-between items-start text-left p-2">
-                    <p className="text-neutral-400 font-serif text-lg leading-snug" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>
+                    <p className="text-neutral-400 text-lg leading-snug" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>
                         &quot;Exploring the aspirations, struggles, and the unyielding spirit that defines the modern Indian dream.&quot;
                     </p>
                     <span className="text-yellow-500 text-xs font-bold uppercase tracking-widest mt-2 hover:underline self-end">
@@ -27,7 +27,7 @@ export const ExperienceStack = () => {
             link: 'https://medium.com/@arnabjena2003/when-empathy-meets-ecstasy-a-new-blueprint-for-impact-c28a6bfbb4d3',
             content: (
                 <div className="flex flex-col h-full justify-between items-start text-left p-2">
-                    <p className="text-neutral-900 font-serif text-lg leading-snug" style={{ textShadow: '0 1px 1px rgba(255,255,255,0.2)' }}>
+                    <p className="text-neutral-900 text-lg leading-snug" style={{ textShadow: '0 1px 1px rgba(255,255,255,0.2)' }}>
                         &quot;A new blueprint for impact that bridges the gap between deep emotional connection and scalable change.&quot;
                     </p>
                     <span className="text-black text-xs font-bold uppercase tracking-widest mt-2 hover:underline self-end">
@@ -43,7 +43,7 @@ export const ExperienceStack = () => {
             link: 'https://medium.com/@arnabjena2003/%E0%A4%B6%E0%A5%89%E0%A4%B0%E0%A5%8D%E0%A4%9F%E0%A4%95%E0%A4%9F-%E0%A4%95%E0%A4%BE-%E0%A4%96%E0%A5%87%E0%A4%B2-36a39604470b',
             content: (
                 <div className="flex flex-col h-full justify-between items-start text-left p-2">
-                    <p className="text-neutral-400 font-serif text-lg leading-snug" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>
+                    <p className="text-neutral-400 text-lg leading-snug" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>
                         &quot;An honest reflection on why taking shortcuts in life often leads to the longest and hardest roads.&quot;
                     </p>
                     <span className="text-yellow-500 text-xs font-bold uppercase tracking-widest mt-2 hover:underline self-end">
@@ -59,7 +59,7 @@ export const ExperienceStack = () => {
             link: 'https://medium.com/@arnabjena2003/indias-greatest-achievement-60accc923230',
             content: (
                 <div className="flex flex-col h-full justify-between items-start text-left p-2">
-                    <p className="text-neutral-900 font-serif text-lg leading-snug" style={{ textShadow: '0 1px 1px rgba(255,255,255,0.2)' }}>
+                    <p className="text-neutral-900 text-lg leading-snug" style={{ textShadow: '0 1px 1px rgba(255,255,255,0.2)' }}>
                         &quot;Examining the silent revolutions and monumental shifts that mark India&apos;s journey on the global stage.&quot;
                     </p>
                     <span className="text-black text-xs font-bold uppercase tracking-widest mt-2 hover:underline self-end">
@@ -72,7 +72,7 @@ export const ExperienceStack = () => {
 
     return (
         <div className="w-full py-20">
-            <h1 className="font-bold text-4xl md:text-5xl text-center mb-10 font-serif">
+            <h1 className="font-bold text-4xl md:text-5xl text-center mb-10 font-instrument">
                 My <span className="text-yellow-500">Writings</span>
             </h1>
             <FileCabinet items={items} />

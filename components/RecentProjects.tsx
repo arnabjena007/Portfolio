@@ -17,7 +17,7 @@ const RecentProjects = () => {
                 <div className="absolute mx-auto h-px w-40 bg-gradient-to-r from-transparent via-yellow-500 to-transparent" />
             </div>
 
-            <h1 className='font-bold text-4xl md:text-5xl text-center'>
+            <h1 className='font-bold text-4xl md:text-5xl text-center font-instrument'>
                 A small selection of {' '}
                 <span className='text-yellow-500'>recent projects</span>
             </h1>
@@ -41,27 +41,18 @@ const RecentProjects = () => {
                                 </div>
                                 <img src={img} alt={title} className='z-10 absolute bottom-0 w-full h-full object-cover rounded-xl' />
                             </div>
-                            <h1 className='font-bold lg:text-xl md:text-lg text-base line-clamp-1 font-serif'>
+                            <h1 className='font-bold lg:text-xl md:text-lg text-base line-clamp-1 font-instrument'>
                                 {title}
                             </h1>
 
-                            <div className="flex flex-wrap gap-2 my-2">
-                                {techStack?.map((tag, i) => (
-                                    <span key={i} className="px-2 py-1 bg-white/10 text-xs rounded-md text-gray-300">
-                                        {tag}
-                                    </span>
+                            <div className="flex flex-wrap items-center gap-3.5 mt-3">
+                                {iconLists.map((icon, index) => (
+                                    <img key={index} src={icon} alt="tech icon" className="w-5 h-5 object-contain opacity-80 hover:opacity-100 transition-opacity" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
                                 ))}
                             </div>
 
                             <div className='flex items-center justify-between mt-4 mb-2'>
-                                <div className='flex items-center'>
-                                    {iconLists.map((icon, index) => (
-                                        <div key={icon} className='border border-white/[0.2] rounded-full bg-black lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center' style={{ transform: `translateX(-${5 * index * 2}px)` }}>
-                                            <img src={icon} alt={icon} className='p-2' />
-                                        </div>
-                                    ))}
-                                </div>
-                                <div className='flex justify-center items-center'>
+                                <div className='flex justify-center items-center ml-auto'>
                                     <p className='flex lg:text-xl md:text-xs text-sm text-yellow-500'>Check Live Site</p>
                                     <IconArrowUpRight className='ms-3' color='#EAB308' />
                                 </div>

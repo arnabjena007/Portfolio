@@ -27,7 +27,7 @@ export const FileCabinet = ({ items }: { items: { title: string; content: React.
                                 )}
                             >
                                 <div
-                                    className="relative min-w-[180px] md:min-w-[250px] px-6 h-10 md:h-12 rounded-t-xl font-bold font-serif text-sm md:text-lg text-white shadow-lg flex items-center justify-center border-t border-x border-white/20 select-none -mb-1"
+                                    className="relative min-w-[180px] md:min-w-[250px] px-6 h-10 md:h-12 rounded-t-xl font-bold font-instrument text-sm md:text-lg text-white shadow-lg flex items-center justify-center border-t border-x border-white/20 select-none -mb-1"
                                     style={{
                                         backgroundColor: item.color || '#2B2B2B',
                                         transform: 'perspective(500px) rotateX(5deg)', // Tweaked rotation
