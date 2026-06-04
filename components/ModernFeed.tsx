@@ -57,10 +57,7 @@ export const ModernFeed = () => {
             {/* 1. HERO SECTION */}
             <header className="relative pt-10 pb-6 w-full">
 
-                {/* Kanji Backdrop Watermark "改善" (Kaizen) matching Vedant's header background */}
-                <div className="absolute top-8 left-1/2 -translate-x-1/2 text-neutral-400/10 dark:text-neutral-800/30 font-bold select-none text-[8rem] md:text-[13rem] tracking-widest font-serif pointer-events-none">
-                    改善
-                </div>
+
 
                 <div className="relative z-10 flex flex-col items-center sm:items-start text-center sm:text-left gap-4">
                     {/* circular avatar frame with green status indicator */}
