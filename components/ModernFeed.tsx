@@ -133,7 +133,7 @@ export const ModernFeed = () => {
                     </div>
 
                     {/* Metadata columns: Location, Email, and Socials */}
-                    <div className="mt-6 pt-6 border-t border-neutral-200 dark:border-neutral-800/60 grid grid-cols-1 sm:grid-cols-3 gap-6 w-full text-left font-sans">
+                    <div className="mt-6 pt-6 border-t border-neutral-200 dark:border-neutral-800/60 flex flex-col sm:flex-row sm:items-start justify-between gap-y-4 gap-x-8 w-full text-left font-sans">
                         {/* Location */}
                         <div className="flex flex-col gap-1.5">
                             <span className="text-xs font-mono text-neutral-500 uppercase tracking-wider">Location</span>
@@ -148,7 +148,7 @@ export const ModernFeed = () => {
                             <span className="text-xs font-mono text-neutral-500 uppercase tracking-wider">Email</span>
                             <div className="flex items-center gap-2 text-neutral-800 dark:text-neutral-200">
                                 <Mail size={16} className="text-yellow-500" />
-                                <a href="mailto:siddharth@onavix.com" className="text-sm md:text-base font-medium hover:underline hover:text-yellow-500 transition-colors">
+                                <a href="mailto:arnabjena2003@gmail.com" className="text-sm md:text-base font-medium hover:underline hover:text-yellow-500 transition-colors">
                                     arnabjena2003@gmail.com
                                 </a>
                             </div>
