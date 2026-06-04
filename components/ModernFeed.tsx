@@ -3,7 +3,6 @@ import React from "react";
 import Link from "next/link";
 import {
     Github,
-    CheckCircle2,
     ExternalLink,
     ArrowRight,
     MapPin,
@@ -102,9 +101,6 @@ export const ModernFeed = () => {
                                 <h1 className="text-3xl md:text-4xl font-instrument font-bold text-neutral-900 dark:text-white tracking-wide">
                                     Arnab Jena
                                 </h1>
-                                <span title="Verified Engineer" className="inline-flex items-center">
-                                    <CheckCircle2 className="w-5 h-5 text-sky-500 fill-sky-500/10" />
-                                </span>
                             </div>
                             {/* Animated rotating subtitle phrases */}
                             <div className="h-5 flex items-center justify-center sm:justify-start overflow-hidden">
