@@ -6,7 +6,7 @@ const Footer = () => {
         <footer className="w-full border-t border-neutral-200 dark:border-white/[0.05] bg-white dark:bg-[#0a0a0a]" id="contact">
             <div className="max-w-3xl mx-auto px-8 sm:px-12 py-12">
                 {/* Top row: 3 columns */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-12">
                     {/* Col 1: Navigate */}
                     <div className="space-y-3">
                         <p className="text-xs font-mono text-neutral-500 uppercase tracking-widest">Navigate</p>
@@ -61,16 +61,6 @@ const Footer = () => {
                                 </li>
                             ))}
                         </ul>
-                    </div>
-
-                    {/* Col 4: Visits badge */}
-                    <div className="space-y-3">
-                        <p className="text-xs font-mono text-neutral-500 uppercase tracking-widest">Visitors</p>
-                        <img
-                            src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Farnabjena007%2FDevo-Portfolio&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visits&edge_flat=false"
-                            alt="visits"
-                            className="h-5 opacity-60"
-                        />
                     </div>
                 </div>
 
