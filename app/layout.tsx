@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, Instrument_Serif, Instrument_Sans } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import { Navbar } from "@/components/Navbar";
-import { LeftSidebar } from "@/components/LeftSidebar";
-import { PageTransition } from "@/components/PageTransition";
+import { ThemeProvider } from "@/components/layout/theme-provider";
+import { Navbar } from "@/components/layout/Navbar";
+import { LeftSidebar } from "@/components/layout/LeftSidebar";
+import { PageTransition } from "@/components/layout/PageTransition";
 
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });

@@ -10,7 +10,9 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { workExperience, projects } from "@/data";
-import GitHubContributions, { GitHubContributionsFallback } from "@/components/GitHubContributions";
+import GitHubContributions, { GitHubContributionsFallback } from "@/components/sections/GitHubContributions";
+import LocationIcon from "@/components/icons/LocationIcon";
+import MailIcon from "@/components/icons/MailIcon";
 
 // Diagonal Stripe Separator (Partition) spanning full viewport width
 const DiagonalSeparator = () => (
@@ -98,7 +100,7 @@ export const ModernFeed = () => {
                         </div>
                         <div className="flex flex-col gap-2 shrink-0">
                             <div className="flex items-center justify-center sm:justify-start gap-2">
-                                <h1 className="text-3xl md:text-4xl font-instrument font-bold text-neutral-900 dark:text-white tracking-wide">
+                                <h1 className="text-4xl md:text-4xl font-serif font-bold text-neutral-900 dark:text-white tracking-wide">
                                     Arnab Jena
                                 </h1>
                             </div>
@@ -122,8 +124,8 @@ export const ModernFeed = () => {
                     </div>
 
                     <div className="mt-4 space-y-3 w-full">
-                        <h2 className="text-lg font-instrument font-semibold text-neutral-900 dark:text-white uppercase tracking-wider">About</h2>
-                        <p className="text-neutral-700 dark:text-neutral-300 text-base md:text-lg max-w-2xl leading-relaxed">
+                        <h2 className="text-lg font-serif font-semibold text-neutral-900 dark:text-white uppercase tracking-wider">About</h2>
+                        <p className="text-neutral-700 dark:text-neutral-300 text-base md:text-base max-w-2xl leading-relaxed">
                             I&apos;m Arnab Jena. I&apos;m currently a student studying Computer Science at Manipal Institute of Technology, Bengaluru. I spend most of my time going down the rabbit hole and teaching myself whatever catches my curiosity. All of which this page attempts to outline.
                         </p>
                     </div>
@@ -132,60 +134,56 @@ export const ModernFeed = () => {
                     <div className="mt-6 pt-6 border-t border-neutral-200 dark:border-neutral-800/60 flex flex-col sm:flex-row sm:items-start justify-between gap-y-4 gap-x-8 w-full text-left font-sans">
                         {/* Location */}
                         <div className="flex flex-col gap-1.5">
-                            <span className="text-xs font-mono text-neutral-500 uppercase tracking-wider">Location</span>
+                            <span className="text-xs font-serif text-neutral-500 uppercase tracking-wider">Location</span>
                             <div className="flex items-center gap-2 text-neutral-800 dark:text-neutral-200">
-                                <MapPin size={16} className="text-yellow-500" />
+                                <LocationIcon size={16} className="text-yellow-500" />
                                 <span className="text-sm md:text-base font-medium">Bengaluru, India</span>
                             </div>
                         </div>
 
                         {/* Email */}
                         <div className="flex flex-col gap-1.5">
-                            <span className="text-xs font-mono text-neutral-500 uppercase tracking-wider">Email</span>
+                            <span className="text-xs font-serif text-neutral-500 uppercase tracking-wider">Email</span>
                             <div className="flex items-center gap-2 text-neutral-800 dark:text-neutral-200">
-                                <Mail size={16} className="text-yellow-500" />
+                                <MailIcon size={16} className="text-yellow-500" />
                                 <a href="mailto:arnabjena2003@gmail.com" className="text-sm md:text-base font-medium hover:underline hover:text-yellow-500 transition-colors">
                                     arnabjena2003@gmail.com
                                 </a>
                             </div>
                         </div>
 
-                        {/* Social Networks */}
+                        {/* Resume */}
                         <div className="flex flex-col gap-1.5">
-                            <span className="text-xs font-mono text-neutral-500 uppercase tracking-wider">Socials</span>
+                            <span className="text-xs font-serif text-neutral-500 uppercase tracking-wider">Resume</span>
                             <div className="flex items-center gap-2 select-none">
                                 <a
-                                    href="https://linkedin.com/in/arnabjena007"
+                                    href="https://drive.google.com/file/d/1Stp0jleIoRQ-6DkHPkkQESf7x6C9k7KL/view?usp=sharing"
                                     target="_blank"
                                     rel="noreferrer"
-                                    className="flex items-center justify-center w-8 h-8 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#070709] hover:bg-neutral-50 dark:hover:bg-neutral-900/40 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-300 shadow-sm group"
-                                    title="LinkedIn"
+                                    className="bg-neutral-200 dark:bg-slate-800 no-underline group cursor-pointer relative shadow-lg dark:shadow-2xl shadow-neutral-200 dark:shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6 text-neutral-900 dark:text-white inline-block"
                                 >
-                                    <svg className="w-3.5 h-3.5 transition-all duration-300 group-hover:scale-110 fill-neutral-500 group-hover:fill-[#0077b5]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
-                                    </svg>
-                                </a>
-                                <a
-                                    href="https://github.com/arnabjena007"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="flex items-center justify-center w-8 h-8 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#070709] hover:bg-neutral-50 dark:hover:bg-neutral-900/40 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-300 shadow-sm group"
-                                    title="GitHub"
-                                >
-                                    <svg className="w-3.5 h-3.5 transition-all duration-300 group-hover:scale-110 fill-neutral-500 dark:fill-neutral-400 group-hover:fill-black dark:group-hover:fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                                    </svg>
-                                </a>
-                                <a
-                                    href="https://x.com/ArnabJena11"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="flex items-center justify-center w-8 h-8 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#070709] hover:bg-neutral-50 dark:hover:bg-neutral-900/40 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-300 shadow-sm group"
-                                    title="Twitter / X"
-                                >
-                                    <svg className="w-3.5 h-3.5 transition-all duration-300 group-hover:scale-110 fill-neutral-500 dark:fill-neutral-400 group-hover:fill-black dark:group-hover:fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                                    </svg>
+                                    <span className="absolute inset-0 overflow-hidden rounded-full">
+                                        <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
+                                    </span>
+                                    <div className="relative flex space-x-2 items-center z-10 rounded-full bg-white dark:bg-zinc-950 py-1 px-4 ring-1 ring-black/10 dark:ring-white/10">
+                                        <span>Resume</span>
+                                        <svg
+                                            width="16"
+                                            height="16"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                stroke="currentColor"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth="1.5"
+                                                d="M10.75 8.75L14.25 12L10.75 15.25"
+                                            ></path>
+                                        </svg>
+                                    </div>
+                                    <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40"></span>
                                 </a>
                             </div>
                         </div>
@@ -199,8 +197,7 @@ export const ModernFeed = () => {
             <section className="space-y-5">
                 <div className="relative py-3">
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100vw] border-t border-neutral-200 dark:border-neutral-800/50" />
-                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[100vw] border-b border-neutral-200 dark:border-neutral-800/50" />
-                    <h2 className="text-2xl font-instrument font-bold text-neutral-900 dark:text-white">Work Experience</h2>
+                    <h2 className="text-3xl font-serif italic font-bold text-neutral-900 dark:text-white">Work Experience</h2>
                 </div>
 
                 <div className="relative border-l border-neutral-200 dark:border-neutral-800/50 ml-4 md:ml-6 pl-6 md:pl-8 space-y-10 my-8">
@@ -268,8 +265,7 @@ export const ModernFeed = () => {
             <section className="space-y-5">
                 <div className="relative py-3 flex items-center justify-between">
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100vw] border-t border-neutral-200 dark:border-neutral-800/50" />
-                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[100vw] border-b border-neutral-200 dark:border-neutral-800/50" />
-                    <h2 className="text-2xl font-instrument font-bold text-neutral-900 dark:text-white">Projects</h2>
+                    <h2 className="text-3xl font-serif italic font-bold text-neutral-900 dark:text-white">Projects</h2>
                     <Link href="/projects" className="text-xs font-mono text-neutral-500 hover:text-yellow-600 dark:hover:text-yellow-500 transition-colors flex items-center gap-1">
                         View All &rarr;
                     </Link>
@@ -350,8 +346,7 @@ export const ModernFeed = () => {
             <section className="space-y-4">
                 <div className="relative py-3">
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100vw] border-t border-neutral-200 dark:border-neutral-800/50" />
-                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[100vw] border-b border-neutral-200 dark:border-neutral-800/50" />
-                    <h2 className="text-2xl font-instrument font-bold text-neutral-900 dark:text-white">GitHub Activity</h2>
+                    <h2 className="text-3xl font-serif italic font-bold text-neutral-900 dark:text-white">GitHub Activity</h2>
                 </div>
                 <React.Suspense fallback={<GitHubContributionsFallback />}>
                     <GitHubContributions />
@@ -360,51 +355,7 @@ export const ModernFeed = () => {
 
 
 
-            <DiagonalSeparator />
 
-            {/* 8. LET'S WORK TOGETHER (Crosshair card styled in gold/yellow) */}
-            <section className="relative py-4">
-                <div className="relative p-8 md:p-12 rounded-[2rem] bg-white dark:bg-[#050507] border border-neutral-200 dark:border-neutral-900 text-center space-y-6 overflow-hidden max-w-2xl mx-auto shadow-2xl">
-
-                    {/* Coordinate crosshairs (+) in the four corners in custom gold-yellow */}
-                    <span className="absolute top-4 left-4 text-xs font-mono text-yellow-500/40 select-none">+</span>
-                    <span className="absolute top-4 right-4 text-xs font-mono text-yellow-500/40 select-none">+</span>
-                    <span className="absolute bottom-4 left-4 text-xs font-mono text-yellow-500/40 select-none">+</span>
-                    <span className="absolute bottom-4 right-4 text-xs font-mono text-yellow-500/40 select-none">+</span>
-
-                    {/* Glowing background ambient glow in gold */}
-                    <div className="absolute top-[-30%] left-[30%] w-[40%] h-[60%] bg-yellow-500/5 blur-[100px] rounded-full pointer-events-none" />
-
-                    <div className="relative z-10 space-y-2">
-                        <div className="relative py-3 w-full">
-                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100vw] border-t border-neutral-200 dark:border-neutral-800/40" />
-                            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[100vw] border-b border-neutral-200 dark:border-neutral-800/40" />
-                            <h2 className="text-2xl font-instrument font-bold text-neutral-900 dark:text-white">
-                                Let&apos;s work together
-                            </h2>
-                        </div>
-                        <p className="text-sm font-mono text-neutral-500 dark:text-neutral-400">
-                            Have a project in mind? Let&apos;s create something amazing.
-                        </p>
-                    </div>
-
-                    <div className="relative z-10 flex flex-wrap items-center justify-center gap-4 pt-4">
-                        <a
-                            href="mailto:arnabjena2003@gmail.com"
-                            className="px-6 py-2.5 rounded-lg border border-amber-600 dark:border-yellow-500 text-amber-600 dark:text-yellow-500 hover:bg-amber-600/10 dark:hover:bg-yellow-500/10 text-xs font-mono font-bold transition-all duration-300"
-                        >
-                            Email Me
-                        </a>
-                        <Link
-                            href="/contact"
-                            className="px-6 py-2.5 rounded-lg bg-yellow-500 hover:bg-yellow-400 text-black text-xs font-mono font-bold transition-all duration-300 inline-flex items-center gap-1.5"
-                        >
-                            <span>Book a Call</span>
-                            <ArrowRight size={12} />
-                        </Link>
-                    </div>
-                </div>
-            </section>
         </div>
     );
 };

@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 
 import { Github, Twitter, Linkedin } from "lucide-react";
 import Link from "next/link";
-import { FloatingPill } from "./ui/FloatingPill";
+import { FloatingPill } from "@/components/ui/FloatingPill";
 
 
 export function HeroSectionOne() {
