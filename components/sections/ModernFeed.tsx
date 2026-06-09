@@ -290,7 +290,7 @@ export const ModernFeed = () => {
                             <div className="flex-1 flex flex-col justify-between gap-3 relative">
                                 <div className="space-y-2">
                                     <div className="flex justify-between items-start w-full gap-4">
-                                        <h3 className="text-lg font-bold text-neutral-900 dark:text-white group-hover:text-yellow-600 dark:group-hover:text-yellow-500 transition-colors font-instrument">
+                                        <h3 className="text-lg font-bold text-neutral-900 dark:text-white group-hover:text-yellow-600 dark:group-hover:text-yellow-500 transition-colors font-instrument pr-2">
                                             {project.title}
                                         </h3>
                                         <div className="flex items-center gap-2">
