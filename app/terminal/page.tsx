@@ -1,6 +1,6 @@
 "use client";
 
-import Terminal from "@/components/Terminal";
+import Terminal from "@/components/features/Terminal";
 
 export default function TerminalPage() {
     return (

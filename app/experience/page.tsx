@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import Experience from "@/components/Experience";
-import Volunteering from "@/components/Volunteering";
+import Experience from "@/components/sections/Experience";
+import Volunteering from "@/components/sections/Volunteering";
 
 const ExperiencePage = () => {
     return (

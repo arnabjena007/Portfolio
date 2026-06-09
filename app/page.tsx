@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import { ModernFeed } from "@/components/ModernFeed";
-import Footer from "@/components/Footer";
+import { ModernFeed } from "@/components/sections/ModernFeed";
+import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (

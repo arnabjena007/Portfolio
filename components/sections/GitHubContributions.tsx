@@ -25,7 +25,7 @@ const THEME = {
 export function GitHubContributionsFallback() {
     return (
         <div className="flex h-40 w-full items-center justify-center">
-            <div className="flex gap-1.5 items-center text-neutral-600 text-xs font-mono">
+            <div className="flex gap-1.5 items-center text-neutral-600 text-xs font-serif">
                 <span className="w-2 h-2 rounded-full bg-neutral-700 animate-pulse" />
                 <span className="w-2 h-2 rounded-full bg-neutral-700 animate-pulse delay-75" />
                 <span className="w-2 h-2 rounded-full bg-neutral-700 animate-pulse delay-150" />
@@ -50,7 +50,7 @@ const GitHubContributions = () => {
         <div className="space-y-3 -mx-8 sm:-mx-12">
             {/* Header row aligned with standard padding */}
             <div className="flex items-center justify-between px-8 sm:px-12">
-                <span className="text-xs font-mono text-neutral-500 dark:text-neutral-400">
+                <span className="text-xs font-serif text-neutral-500 dark:text-neutral-400">
                     {totalCount !== null
                         ? `${totalCount.toLocaleString("en")} contributions in the last year`
                         : "GitHub contributions"}
@@ -59,7 +59,7 @@ const GitHubContributions = () => {
                     href="https://github.com/arnabjena007"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[10px] font-mono text-neutral-500 hover:text-yellow-600 dark:text-neutral-600 dark:hover:text-yellow-500 transition-colors"
+                    className="text-[10px] font-serif text-neutral-500 hover:text-yellow-600 dark:text-neutral-600 dark:hover:text-yellow-500 transition-colors"
                 >
                     @arnabjena007 ↗
                 </a>
@@ -72,6 +72,7 @@ const GitHubContributions = () => {
                     .react-activity-calendar {
                         width: 100% !important;
                         max-width: 100% !important;
+                        font-family: var(--font-instrument-serif), serif !important;
                     }
                     .react-activity-calendar__scroll-container {
                         overflow-x: hidden !important;

@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { FileCabinet } from './ui/file-cabinet';
+import { FileCabinet } from '@/components/ui/file-cabinet';
 
 export const ExperienceStack = () => {
     const items = [
