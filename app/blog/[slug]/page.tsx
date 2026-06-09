@@ -31,7 +31,7 @@ const components = {
     if (!className) {
       return (
         <code
-          className="font-mono text-yellow-300 bg-zinc-800/70 px-1.5 py-0.5 rounded text-sm"
+          className="font-mono text-yellow-700 dark:text-yellow-300 bg-neutral-100 dark:bg-neutral-800/70 px-1.5 py-0.5 rounded text-sm"
           {...props}
         >
           {children}
@@ -43,20 +43,20 @@ const components = {
   },
   // Custom heading anchors
   h2: ({ children, id, ...props }: React.ComponentPropsWithoutRef<"h2">) => (
-    <h2 id={id} className="group font-mono text-2xl font-bold text-white mt-12 mb-4 border-l-2 border-yellow-400 pl-4 flex items-center gap-2" {...props}>
+    <h2 id={id} className="group font-serif text-3xl font-bold text-neutral-900 dark:text-white mt-12 mb-4 border-l-2 border-yellow-500 pl-4 flex items-center gap-2" {...props}>
       {children}
       {id && (
-        <a href={`#${id}`} className="opacity-0 group-hover:opacity-100 text-yellow-400/50 hover:text-yellow-400 transition-opacity text-lg" aria-hidden>
+        <a href={`#${id}`} className="opacity-0 group-hover:opacity-100 text-yellow-500/50 hover:text-yellow-500 transition-opacity text-xl" aria-hidden>
           #
         </a>
       )}
     </h2>
   ),
   h3: ({ children, id, ...props }: React.ComponentPropsWithoutRef<"h3">) => (
-    <h3 id={id} className="group font-mono text-xl font-semibold text-zinc-200 mt-8 mb-3 flex items-center gap-2" {...props}>
+    <h3 id={id} className="group font-serif text-2xl font-semibold text-neutral-800 dark:text-neutral-200 mt-8 mb-3 flex items-center gap-2" {...props}>
       {children}
       {id && (
-        <a href={`#${id}`} className="opacity-0 group-hover:opacity-100 text-yellow-400/50 hover:text-yellow-400 transition-opacity" aria-hidden>
+        <a href={`#${id}`} className="opacity-0 group-hover:opacity-100 text-yellow-500/50 hover:text-yellow-500 transition-opacity text-lg" aria-hidden>
           #
         </a>
       )}
@@ -65,7 +65,7 @@ const components = {
   // Styled blockquote
   blockquote: ({ children, ...props }: React.ComponentPropsWithoutRef<"blockquote">) => (
     <blockquote
-      className="border-l-2 border-yellow-400 pl-4 pr-3 py-2 my-6 bg-zinc-900/50 rounded-r-lg font-mono text-zinc-400 text-sm italic"
+      className="border-l-2 border-yellow-500 pl-4 pr-3 py-2 my-6 bg-neutral-50 dark:bg-neutral-900/50 rounded-r-lg font-serif text-neutral-600 dark:text-neutral-400 text-lg italic"
       {...props}
     >
       {children}
