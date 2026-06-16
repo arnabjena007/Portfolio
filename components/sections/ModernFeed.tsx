@@ -8,11 +8,14 @@ import {
     MapPin,
     Mail
 } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import { workExperience, projects } from "@/data";
 import GitHubContributions, { GitHubContributionsFallback } from "@/components/sections/GitHubContributions";
 import LocationIcon from "@/components/icons/LocationIcon";
 import MailIcon from "@/components/icons/MailIcon";
+import GithubIcon from "@/components/icons/GithubIcon";
+import TwitterXIcon from "@/components/icons/TwitterXIcon";
+import LinkedinIcon from "@/components/icons/LinkedinIcon";
 
 // Diagonal Stripe Separator (Partition) spanning full viewport width
 const DiagonalSeparator = () => (
@@ -36,22 +39,6 @@ const DiagonalSeparator = () => (
 
 
 export const ModernFeed = () => {
-    const [phraseIdx, setPhraseIdx] = React.useState(0);
-
-    const phrases = [
-        "Engineer • Developer • Builder",
-        "CS Student @ MIT Bengaluru",
-        "Building Scalable Platforms",
-        "Teaching Myself Anything"
-    ];
-
-    React.useEffect(() => {
-        const id = setInterval(() => {
-            setPhraseIdx((i) => (i + 1) % phrases.length);
-        }, 3000);
-        return () => clearInterval(id);
-    }, []);
-
     return (
         <div className="w-full max-w-3xl mx-auto px-8 sm:px-12 relative pb-16 text-neutral-700 dark:text-neutral-300 font-sans leading-relaxed border-l border-r border-solid border-neutral-200 dark:border-white/[0.03]">
 
@@ -104,22 +91,17 @@ export const ModernFeed = () => {
                                     Arnab Jena
                                 </h1>
                             </div>
-                            {/* Animated rotating subtitle phrases */}
-                            <div className="h-5 flex items-center justify-center sm:justify-start overflow-hidden">
-                                <AnimatePresence mode="wait">
-                                    <motion.p
-                                        key={phraseIdx}
-                                        initial={{ opacity: 0, y: 7 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, y: -7 }}
-                                        transition={{ duration: 0.2 }}
-                                        className="text-sm font-mono text-neutral-500 dark:text-neutral-400"
-                                    >
-                                        {phrases[phraseIdx]}
-                                    </motion.p>
-                                </AnimatePresence>
+                            <div className="flex items-center justify-center sm:justify-start gap-4 mt-1">
+                                <a href="https://x.com/ArnabJena11" target="_blank" rel="noreferrer" className="text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors" aria-label="Twitter">
+                                    <TwitterXIcon size={18} />
+                                </a>
+                                <a href="https://linkedin.com/in/arnabjena007" target="_blank" rel="noreferrer" className="text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors" aria-label="LinkedIn">
+                                    <LinkedinIcon size={18} />
+                                </a>
+                                <a href="https://github.com/arnabjena007" target="_blank" rel="noreferrer" className="text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors" aria-label="GitHub">
+                                    <GithubIcon size={18} />
+                                </a>
                             </div>
-
                         </div>
                     </div>
 
@@ -130,64 +112,7 @@ export const ModernFeed = () => {
                         </p>
                     </div>
 
-                    {/* Metadata columns: Location, Email, and Socials */}
-                    <div className="mt-6 pt-6 border-t border-neutral-200 dark:border-neutral-800/60 flex flex-col sm:flex-row sm:items-start justify-between gap-y-4 gap-x-8 w-full text-left font-sans">
-                        {/* Location */}
-                        <div className="flex flex-col gap-1.5">
-                            <span className="text-xs font-serif text-neutral-500 uppercase tracking-wider">Location</span>
-                            <div className="flex items-center gap-2 text-neutral-800 dark:text-neutral-200">
-                                <LocationIcon size={16} className="text-yellow-500" />
-                                <span className="text-sm md:text-base font-medium">Bengaluru, India</span>
-                            </div>
-                        </div>
 
-                        {/* Email */}
-                        <div className="flex flex-col gap-1.5">
-                            <span className="text-xs font-serif text-neutral-500 uppercase tracking-wider">Email</span>
-                            <div className="flex items-center gap-2 text-neutral-800 dark:text-neutral-200">
-                                <MailIcon size={16} className="text-yellow-500" />
-                                <a href="mailto:arnabjena2003@gmail.com" className="text-sm md:text-base font-medium hover:underline hover:text-yellow-500 transition-colors">
-                                    arnabjena2003@gmail.com
-                                </a>
-                            </div>
-                        </div>
-
-                        {/* Resume */}
-                        <div className="flex flex-col gap-1.5">
-                            <span className="text-xs font-serif text-neutral-500 uppercase tracking-wider">Resume</span>
-                            <div className="flex items-center gap-2 select-none">
-                                <a
-                                    href="https://drive.google.com/file/d/1Stp0jleIoRQ-6DkHPkkQESf7x6C9k7KL/view?usp=sharing"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="bg-neutral-200 dark:bg-slate-800 no-underline group cursor-pointer relative shadow-lg dark:shadow-2xl shadow-neutral-200 dark:shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6 text-neutral-900 dark:text-white inline-block"
-                                >
-                                    <span className="absolute inset-0 overflow-hidden rounded-full">
-                                        <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
-                                    </span>
-                                    <div className="relative flex space-x-2 items-center z-10 rounded-full bg-white dark:bg-zinc-950 py-1 px-4 ring-1 ring-black/10 dark:ring-white/10">
-                                        <span>Resume</span>
-                                        <svg
-                                            width="16"
-                                            height="16"
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path
-                                                stroke="currentColor"
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth="1.5"
-                                                d="M10.75 8.75L14.25 12L10.75 15.25"
-                                            ></path>
-                                        </svg>
-                                    </div>
-                                    <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </header>
 

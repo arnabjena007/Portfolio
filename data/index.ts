@@ -10,12 +10,12 @@ export const navItems = [
 export const projects = [
     {
         id: 1,
-        title: "Pix",
+        title: "Pixlate",
         des: "Generating pixel art in under 60 seconds using Golang and parallel processing.",
         img: "/p1.png",
         iconLists: ["/go.svg", "/ver.svg"],
-        link: "https://github.com/arnabjena007",
-        category: "Backend",
+        link: "https://pixlateweb.up.railway.app/",
+        category: "Full Stack",
         techStack: ["Golang"],
         details: "A high-performance command-line tool written in Go that converts standard images into massive pixel art compositions. It leverages Go's concurrency model to process pixels in parallel, handling 8k resolution images in under a minute.",
         features: [
