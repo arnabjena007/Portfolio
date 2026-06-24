@@ -7,8 +7,8 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // Diagonal Stripe Separator (Partition) spanning full viewport width
 const DiagonalSeparator = () => (
-    <div className="relative w-full h-5 my-4 select-none pointer-events-none flex items-center justify-center">
-        <div className="absolute w-[100vw] h-full left-1/2 -translate-x-1/2 border-t border-b border-neutral-200 dark:border-white/[0.03]">
+    <div className="relative w-full h-5 mb-8 select-none pointer-events-none flex items-center justify-center">
+        <div className="absolute w-[100vw] h-full left-1/2 -translate-x-1/2 border-t border-b border-neutral-200 dark:border-white/[0.1]">
             <div
                 className="absolute inset-0 block dark:hidden"
                 style={{
@@ -18,7 +18,7 @@ const DiagonalSeparator = () => (
             <div
                 className="absolute inset-0 hidden dark:block"
                 style={{
-                    backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(255, 255, 255, 0.03) 6px, rgba(255, 255, 255, 0.03) 7px)',
+                    backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(255, 255, 255, 0.1) 6px, rgba(255, 255, 255, 0.1) 7px)',
                 }}
             />
         </div>
@@ -50,18 +50,26 @@ const ProjectsPage = () => {
     }, [searchQuery, selectedCategory, selectedTech]);
 
     return (
-        <main className="w-full max-w-5xl mx-auto px-6 sm:px-12 relative pb-24 pt-16 text-neutral-700 dark:text-neutral-300 font-sans leading-relaxed border-l border-r border-solid border-neutral-200 dark:border-white/[0.03] min-h-screen">
-            <header className="relative pb-8 w-full text-center sm:text-left">
+        <main className="w-full max-w-5xl mx-auto px-6 sm:px-12 relative pb-24 text-neutral-700 dark:text-neutral-300 font-sans leading-relaxed border-l border-r border-solid border-neutral-200 dark:border-white/[0.1] min-h-screen">
+            <header className="relative -mx-6 sm:-mx-12 px-6 sm:px-12 py-12 w-auto text-center sm:text-left overflow-hidden border-b border-neutral-200 dark:border-white/[0.05]">
+                {/* Background Image */}
+                <img 
+                    src="/footer-bg.png" 
+                    alt="Header Background" 
+                    className="absolute inset-0 w-full h-full object-cover z-0 opacity-90"
+                />
+                <div className="absolute inset-0 bg-black/10 z-0"></div>
+
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="mb-8"
+                    className="mb-8 relative z-10"
                 >
-                    <h1 className="text-4xl md:text-5xl font-serif font-bold text-neutral-900 dark:text-white tracking-wide mb-4 italic">
+                    <h1 className="text-4xl md:text-5xl font-serif font-bold text-white drop-shadow-md tracking-wide mb-4 italic">
                         Projects
                     </h1>
-                    <p className="text-neutral-600 dark:text-neutral-400 text-base leading-relaxed max-w-xl mx-auto sm:mx-0">
+                    <p className="text-white/90 drop-shadow-md text-base leading-relaxed max-w-xl mx-auto sm:mx-0">
                         A curated list of my work, experiments, and open source contributions.
                     </p>
                 </motion.div>

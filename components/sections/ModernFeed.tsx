@@ -20,7 +20,7 @@ import LinkedinIcon from "@/components/icons/LinkedinIcon";
 // Diagonal Stripe Separator (Partition) spanning full viewport width
 const DiagonalSeparator = () => (
     <div className="relative w-full h-5 my-4 select-none pointer-events-none flex items-center justify-center">
-        <div className="absolute w-[100vw] h-full left-1/2 -translate-x-1/2 border-t border-b border-neutral-200 dark:border-white/[0.03]">
+        <div className="absolute w-[100vw] h-full left-1/2 -translate-x-1/2 border-t border-b border-neutral-200 dark:border-white/[0.1]">
             <div
                 className="absolute inset-0 block dark:hidden"
                 style={{
@@ -30,7 +30,7 @@ const DiagonalSeparator = () => (
             <div
                 className="absolute inset-0 hidden dark:block"
                 style={{
-                    backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(255, 255, 255, 0.03) 6px, rgba(255, 255, 255, 0.03) 7px)',
+                    backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(255, 255, 255, 0.1) 6px, rgba(255, 255, 255, 0.1) 7px)',
                 }}
             />
         </div>
@@ -40,7 +40,7 @@ const DiagonalSeparator = () => (
 
 export const ModernFeed = () => {
     return (
-        <div className="w-full max-w-3xl mx-auto px-8 sm:px-12 relative pb-16 text-neutral-700 dark:text-neutral-300 font-sans leading-relaxed border-l border-r border-solid border-neutral-200 dark:border-white/[0.03]">
+        <div className="w-full max-w-3xl mx-auto px-8 sm:px-12 relative pb-16 text-neutral-700 dark:text-neutral-300 font-sans leading-relaxed border-l border-r border-solid border-neutral-200 dark:border-white/[0.1]">
 
             {/* 1. HERO SECTION */}
             <header className="relative pt-10 pb-6 w-full">

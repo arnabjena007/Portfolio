@@ -68,7 +68,7 @@ export function BlogLayout({
       <ReadingProgressBar />
 
       {/* Main Container - matches the ModernFeed center column */}
-      <div className="w-full max-w-5xl mx-auto px-6 sm:px-12 relative pb-24 pt-8 text-neutral-700 dark:text-neutral-300 font-sans leading-relaxed border-l border-r border-solid border-neutral-200 dark:border-white/[0.03] min-h-screen">
+      <div className="w-full max-w-5xl mx-auto px-6 sm:px-12 relative pb-24 pt-8 text-neutral-700 dark:text-neutral-300 font-sans leading-relaxed border-l border-r border-solid border-neutral-200 dark:border-white/[0.1] min-h-screen">
         
         {/* ── Top bar: back link ── */}
         <div className="pb-8 border-b border-neutral-200 dark:border-neutral-800/50 mb-10">

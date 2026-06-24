@@ -101,7 +101,9 @@ const GitHubContributions = () => {
                     transformData={(data) => {
                         // Calculate total when data loads
                         const total = data.reduce((acc, d) => acc + d.count, 0);
-                        setTotalCount(total);
+                        if (totalCount !== total) {
+                            setTimeout(() => setTotalCount(total), 0);
+                        }
                         return data;
                     }}
                     labels={{
