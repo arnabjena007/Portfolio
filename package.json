@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
+    "@raulcanodev/react-github-dots": "^1.1.55",
     "@tabler/icons-react": "^3.36.1",
     "@tailwindcss/typography": "^0.5.19",
     "@types/mdx": "^2.0.13",

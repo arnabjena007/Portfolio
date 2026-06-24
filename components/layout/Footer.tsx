@@ -22,20 +22,10 @@ const Footer = () => {
             </div>
 
             {/* Footer Card */}
-            <div className="relative w-full h-[80px] overflow-hidden px-8 sm:px-12 flex items-center justify-between border-t border-b border-neutral-200 dark:border-white/[0.1] shadow-xl">
-                {/* Background Image */}
-                <img 
-                    src="/footer-bg.png" 
-                    alt="Footer Background" 
-                    className="absolute inset-0 w-full h-full object-cover z-0 opacity-90"
-                />
-                
-                {/* Slight dark overlay to ensure white text is always readable */}
-                <div className="absolute inset-0 bg-black/10 z-0"></div>
-
+            <div className="relative w-full h-[80px] overflow-hidden px-8 sm:px-12 flex items-center justify-between border-t border-b border-neutral-200 dark:border-white/[0.1]">
                 {/* Content */}
                 <div className="relative z-10 w-full flex items-center justify-center">
-                    <p className="text-lg font-serif text-white font-medium drop-shadow-md">
+                    <p className="text-lg font-serif text-neutral-800 dark:text-neutral-200 font-medium">
                         © 2026 Arnab Jena. All rights reserved.
                     </p>
                 </div>
