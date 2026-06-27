@@ -1,6 +1,3 @@
-"use client";
-
-import React from "react";
 import Link from "next/link";
 import { projects } from "@/data";
 import { Link as LinkIcon, ChevronLeft, ArrowUpRight } from "lucide-react";
@@ -59,9 +56,10 @@ const ProjectCard = ({
               <LinkIcon size={16} className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300 text-neutral-400" />
             </h3>
           </div>
-          <p className="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-2 mb-6 leading-relaxed">
-            {description}
-          </p>
+        
+        <p className="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-2 mb-6 leading-relaxed">
+          {description}
+        </p>
 
           <div className="flex items-center justify-between mt-auto">
             {/* Tech Stack Icons */}
@@ -88,23 +86,17 @@ const ProjectCard = ({
   );
 };
 
-const ProjectsPage = () => {
+const Projects = () => {
   return (
-    <div className="w-full min-h-screen dark:bg-[#09090B]">
-      <div className="max-w-2xl mx-auto px-3 py-6 min-h-screen">
-        <div className="flex items-center gap-2 mb-5">
-          <Link href={"/"}>
-            <div className="text-neutral-700 hover:dark:bg-neutral-900 hover:dark:border-neutral-800 rounded-md border border-transparent hover:border-neutral-200 hover:bg-neutral-50 p-1 transition-colors">
-              <ChevronLeft size={24} />
-            </div>
-          </Link>
+    <div className="w-full">
+      <div className="w-full max-w-2xl mx-auto px-3 py-6">
+        <div className="flex items-baseline justify-between mb-5">
           <h2 className="relative font-serif italic text-3xl md:text-4xl inline-block font-bold text-neutral-900 dark:text-neutral-100">
             Projects
           </h2>
         </div>
-        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {projects.map((p, i) => {
+          {projects.slice(0, 4).map((p, i) => {
             return (
               <ProjectCard
                 key={i}
@@ -121,9 +113,20 @@ const ProjectsPage = () => {
             );
           })}
         </div>
+        <div className="flex mt-6 w-full items-center justify-center">
+          <Link href="/projects">
+            <button className="group flex items-center gap-2 rounded-lg ring-1 active:scale-95 ring-neutral-200 dark:ring-neutral-800 bg-white dark:bg-gradient-to-b dark:from-neutral-900 dark:to-neutral-950 px-4 py-2 dark:text-white font-medium text-neutral-800 shadow-sm dark:shadow-lg hover:shadow-md transition-all duration-200">
+              More Projects
+              <ArrowUpRight
+                size={18}
+                className="group-hover:rotate-45 transition duration-300"
+              />
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );
 };
 
-export default ProjectsPage;
+export default Projects;

@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+.dotted-background {
+  background-image: radial-gradient(circle, #555 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.2;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

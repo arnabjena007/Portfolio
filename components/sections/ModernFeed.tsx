@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { motion } from "motion/react";
 import { workExperience, projects } from "@/data";
+import Projects from "@/components/sections/Projects";
 import GitHubContributions, { GitHubContributionsFallback } from "@/components/sections/GitHubContributions";
 import LocationIcon from "@/components/icons/LocationIcon";
 import MailIcon from "@/components/icons/MailIcon";
@@ -187,83 +188,7 @@ export const ModernFeed = () => {
             <DiagonalSeparator />
 
             {/* 3. PROJECTS SECTION */}
-            <section className="space-y-5">
-                <div className="relative py-3 flex items-center justify-between">
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100vw] border-t border-neutral-200 dark:border-neutral-800/50" />
-                    <h2 className="text-3xl font-serif italic font-bold text-neutral-900 dark:text-white">Projects</h2>
-                    <Link href="/projects" className="text-xs font-mono text-neutral-500 hover:text-yellow-600 dark:hover:text-yellow-500 transition-colors flex items-center gap-1">
-                        View All &rarr;
-                    </Link>
-                </div>
-
-                <div className="space-y-6">
-                    {projects.slice(0, 3).map((project) => (
-                        <div
-                            key={project.id}
-                            className="flex flex-col sm:flex-row gap-6 p-4 rounded-2xl bg-white dark:bg-[#08080a] border border-neutral-200 dark:border-neutral-900 hover:border-yellow-500/20 dark:hover:border-yellow-500/20 transition-all duration-300 group"
-                        >
-                            {/* Left aspect image */}
-                            <div className="relative w-full sm:w-44 aspect-[16/10] sm:aspect-square md:aspect-[16/10] overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 shrink-0">
-                                <img
-                                    src={project.img}
-                                    alt={project.title}
-                                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
-                                />
-                            </div>
-
-                            {/* Right text layout */}
-                            <div className="flex-1 flex flex-col justify-between gap-3 relative">
-                                <div className="space-y-2">
-                                    <div className="flex justify-between items-start w-full gap-4">
-                                        <h3 className="text-lg font-bold text-neutral-900 dark:text-white group-hover:text-yellow-600 dark:group-hover:text-yellow-500 transition-colors font-instrument pr-2">
-                                            {project.title}
-                                        </h3>
-                                        <div className="flex items-center gap-2">
-                                            {project.link && (
-                                                <a
-                                                    href={project.link}
-                                                    target="_blank"
-                                                    rel="noreferrer"
-                                                    className="inline-flex items-center gap-1 px-2.5 py-1 text-[10px] font-mono rounded bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 hover:border-yellow-500/40 text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-white transition-colors"
-                                                >
-                                                    <ExternalLink size={10} />
-                                                    <span>Live</span>
-                                                </a>
-                                            )}
-                                            <a
-                                                href="https://github.com/arnabjena007"
-                                                target="_blank"
-                                                rel="noreferrer"
-                                                className="inline-flex items-center gap-1 px-2.5 py-1 text-[10px] font-mono rounded bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 hover:border-yellow-500/40 text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-white transition-colors"
-                                            >
-                                                <Github size={10} />
-                                                <span>Github</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <p className="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-2">
-                                        {project.des}
-                                    </p>
-                                </div>
-
-                                <div className="flex flex-wrap items-center gap-2.5 mt-auto">
-                                    {project.iconLists?.map((icon, idx) => (
-                                        <img key={idx} src={icon} alt="tech icon" className="w-5 h-5 object-contain opacity-80 hover:opacity-100 transition-opacity" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                <div className="flex justify-center pt-4">
-                    <Link href="/projects">
-                        <button className="flex items-center gap-2 px-6 py-2.5 rounded-full border border-yellow-500/20 bg-neutral-50 dark:bg-neutral-950 text-xs font-mono text-yellow-600 dark:text-yellow-500 hover:border-yellow-600 hover:bg-neutral-100 dark:hover:bg-yellow-500/5 transition-all shadow-md">
-                            Show All Projects &rarr;
-                        </button>
-                    </Link>
-                </div>
-            </section>
+            <Projects />
 
             <DiagonalSeparator />
 
