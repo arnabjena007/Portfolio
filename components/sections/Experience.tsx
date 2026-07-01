@@ -17,10 +17,10 @@ const Experience = () => {
                         <p className="text-white-100 text-base md:text-lg leading-relaxed text-left">
                             I am a Frontend Engineer with a passion for building scalable, high-performance systems.
                             I build cool things like{" "}
-                            <LinkPreview url="https://github.com/arnabjena" isStatic imageSrc="/p1.png" className="text-yellow-500 font-bold" description="High-performance pixel art generator using Golang.">
+                            <LinkPreview url="https://github.com/arnabjena" isStatic imageSrc="/pixlate-final.png" className="text-yellow-500 font-bold" description="High-performance pixel art generator using Golang.">
                                 Pix
                             </LinkPreview>,{" "}
-                            <LinkPreview url="https://github.com/arnabjena007" isStatic imageSrc="/p2.png" className="text-yellow-500 font-bold" description="Interactive data visualization of Indian culture.">
+                            <LinkPreview url="https://github.com/arnabjena007" isStatic imageSrc="/indecoded-screenshot.png" className="text-yellow-500 font-bold" description="Interactive data visualization of Indian culture.">
                                 Indicoded
                             </LinkPreview>
                             , and{" "}

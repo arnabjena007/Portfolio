@@ -39,7 +39,7 @@ const DiagonalSeparator = () => (
 );
 
 
-export const ModernFeed = () => {
+export const HomePage = () => {
     return (
         <div className="w-full max-w-3xl mx-auto px-8 sm:px-12 relative pb-16 text-neutral-700 dark:text-neutral-300 font-sans leading-relaxed border-l border-r border-solid border-neutral-200 dark:border-white/[0.1]">
 

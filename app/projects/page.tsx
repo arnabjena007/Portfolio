@@ -35,19 +35,36 @@ const ProjectCard = ({
         {/* Media section with permanent grid background */}
         <div className="w-full h-44 relative overflow-hidden bg-neutral-100 dark:bg-[#111115] border-b border-neutral-100 dark:border-neutral-800/50 transition-all duration-500 ease-out">
           
-          {/* Grid pattern (always visible) */}
-          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]" 
+          {/* Grid pattern (default) */}
+          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] transition-opacity duration-500 ease-out group-hover:opacity-0" 
                style={{ backgroundImage: 'linear-gradient(to right, #888 1px, transparent 1px), linear-gradient(to bottom, #888 1px, transparent 1px)', backgroundSize: '24px 24px' }}>
           </div>
 
-          {/* Project Image (Hidden till half, pops up slightly but stays attached to bottom) */}
-          <div className="absolute inset-x-6 top-0 h-full transform translate-y-[40%] rounded-t-xl transition-all duration-500 ease-out group-hover:translate-y-[20%] group-hover:scale-[0.95] overflow-hidden shadow-none group-hover:shadow-[0_-10px_30px_-15px_rgba(0,0,0,0.3)] z-10 border-t border-l border-r border-transparent group-hover:border-neutral-200 dark:group-hover:border-neutral-700/50">
-            <Image 
-              src={projectImage} 
-              alt={title} 
-              fill 
-              className="object-cover object-top"
-            />
+          {/* Grid pattern (white glow on hover) */}
+          <div className="absolute inset-0 opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-[0.06] dark:group-hover:opacity-[0.08]" 
+               style={{ backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)', backgroundSize: '24px 24px' }}>
+          </div>
+
+          {/* Radial gradient glow behind the grid */}
+          <div className="absolute inset-0 opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100 pointer-events-none"
+               style={{ background: 'radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 70%)' }}>
+          </div>
+
+          {/* Project Image Container */}
+          <div className="absolute inset-x-6 top-0 h-full transform translate-y-[40%] rounded-t-xl transition-all duration-500 ease-out group-hover:translate-y-[20%] group-hover:scale-[0.95] overflow-hidden shadow-none group-hover:shadow-[0_-10px_30px_-15px_rgba(0,0,0,0.3)] z-10 border border-neutral-200/50 dark:border-neutral-800/80 group-hover:border-neutral-300 dark:group-hover:border-neutral-700 bg-neutral-100 dark:bg-[#151515]">
+            
+            {/* Noise Texture */}
+            <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.15] mix-blend-overlay" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
+
+            {/* Image */}
+            <div className="relative w-full h-full z-10">
+              <Image 
+                src={projectImage} 
+                alt={title} 
+                fill 
+                className="object-contain object-center p-2"
+              />
+            </div>
           </div>
         </div>
 
