@@ -62,7 +62,7 @@ export function TOC({ headings }: TOCProps) {
       aria-label="Table of contents"
       className="sticky top-24 hidden xl:block w-56 shrink-0"
     >
-      <p className="text-xs font-mono uppercase tracking-widest text-yellow-400/70 mb-4 px-1">
+      <p className="text-xs font-sans font-medium uppercase tracking-widest text-yellow-400/70 mb-4 px-1">
         On this page
       </p>
       <ul className="space-y-0.5">
@@ -93,7 +93,7 @@ export function TOC({ headings }: TOCProps) {
 
                 <span
                   className={`
-                    block py-1 pr-2 text-sm font-mono leading-snug transition-colors duration-200
+                    block py-1 pr-2 text-sm font-sans leading-snug transition-colors duration-200
                     ${
                       isActive
                         ? "text-yellow-400 font-medium"
