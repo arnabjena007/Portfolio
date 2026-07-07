@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
 import { TOC } from "./TOC";
 import type { BlogFrontmatter } from "@/lib/blog";
+import Footer from "@/components/layout/Footer";
 
 interface TOCItem {
   id: string;
@@ -68,7 +69,7 @@ export function BlogLayout({
       <ReadingProgressBar />
 
       {/* Main Container - matches the HomePage center column */}
-      <div className="w-full max-w-6xl mx-auto px-6 sm:px-12 relative pb-24 pt-8 text-neutral-700 dark:text-neutral-300 font-sans leading-relaxed border-l border-r border-solid border-neutral-200 dark:border-white/[0.1] min-h-screen">
+      <div className="w-full max-w-3xl mx-auto px-8 sm:px-12 relative pb-24 pt-8 text-neutral-700 dark:text-neutral-300 font-sans leading-relaxed border-l border-r border-solid border-neutral-200 dark:border-white/[0.1] min-h-screen">
         
         {/* ── Top bar: back link ── */}
         <div className="pb-8 border-b border-neutral-200 dark:border-neutral-800/50 mb-10">
@@ -90,11 +91,11 @@ export function BlogLayout({
           </motion.div>
         </div>
 
-        {/* ── Main grid: TOC | Article | TOC-mirror ── */}
-        <div className="flex gap-10 items-start">
+        {/* ── Main grid: TOC | Article ── */}
+        <div className="relative">
 
           {/* ── LEFT: sticky TOC (desktop only) ── */}
-          <aside className="hidden xl:block w-52 shrink-0 sticky top-24 self-start">
+          <aside className="hidden xl:block w-52 shrink-0 sticky top-24 self-start xl:absolute xl:right-full xl:mr-10">
             <TOC headings={headings} />
           </aside>
 
@@ -166,9 +167,11 @@ export function BlogLayout({
               {children}
             </article>
           </motion.main>
+        </div>
 
-          {/* ── RIGHT: mirror spacer so article stays centered ── */}
-          <div className="hidden xl:block w-52 shrink-0" />
+        {/* Footer inside the bordered container */}
+        <div className="mt-16 -mx-8 sm:-mx-12">
+          <Footer />
         </div>
       </div>
     </>
