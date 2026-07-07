@@ -6,6 +6,8 @@ import { projects } from "@/data";
 import { Link as LinkIcon, ChevronLeft, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 
+import Footer from "@/components/layout/Footer";
+
 // Reusing the adapted ProjectCard that matches your data
 const ProjectCard = ({ 
   title, 
@@ -107,36 +109,43 @@ const ProjectCard = ({
 
 const ProjectsPage = () => {
   return (
-    <div className="w-full min-h-screen dark:bg-[#09090B]">
-      <div className="max-w-2xl mx-auto px-3 py-6 min-h-screen">
-        <div className="flex items-center gap-2 mb-5">
-          <Link href={"/"}>
-            <div className="text-neutral-700 hover:dark:bg-neutral-900 hover:dark:border-neutral-800 rounded-md border border-transparent hover:border-neutral-200 hover:bg-neutral-50 p-1 transition-colors">
-              <ChevronLeft size={24} />
-            </div>
-          </Link>
-          <h2 className="relative font-serif italic text-3xl md:text-4xl inline-block font-bold text-neutral-900 dark:text-neutral-100">
-            Projects
-          </h2>
+    <div className="w-full min-h-screen">
+      <div className="w-full max-w-3xl mx-auto px-8 sm:px-12 relative text-neutral-700 dark:text-neutral-300 font-sans leading-relaxed border-l border-r border-solid border-neutral-200 dark:border-white/[0.1] min-h-screen py-6 flex flex-col justify-between">
+        <div>
+          <div className="flex items-center gap-2 mb-5">
+            <Link href={"/"}>
+              <div className="text-neutral-700 hover:dark:bg-neutral-900 hover:dark:border-neutral-800 rounded-md border border-transparent hover:border-neutral-200 hover:bg-neutral-50 p-1 transition-colors">
+                <ChevronLeft size={24} />
+              </div>
+            </Link>
+            <h2 className="relative font-serif italic text-3xl md:text-4xl inline-block font-bold text-neutral-900 dark:text-neutral-100">
+              Projects
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {projects.map((p, i) => {
+              return (
+                <ProjectCard
+                  key={i}
+                  id={p.id}
+                  title={p.title}
+                  description={p.des}
+                  isActive={!p.link.includes('github')}
+                  category={p.category}
+                  projectImage={p.img}
+                  stack={p.techStack || []}
+                  iconLists={p.iconLists}
+                  link={p.link}
+                />
+              );
+            })}
+          </div>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {projects.map((p, i) => {
-            return (
-              <ProjectCard
-                key={i}
-                id={p.id}
-                title={p.title}
-                description={p.des}
-                isActive={!p.link.includes('github')}
-                category={p.category}
-                projectImage={p.img}
-                stack={p.techStack || []}
-                iconLists={p.iconLists}
-                link={p.link}
-              />
-            );
-          })}
+
+        {/* Footer inside the bordered container */}
+        <div className="mt-12 -mx-8 sm:-mx-12">
+          <Footer />
         </div>
       </div>
     </div>
