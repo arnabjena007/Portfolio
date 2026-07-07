@@ -23,6 +23,10 @@ export const Navbar = () => {
             if (!AudioContext) return;
             const ctx = new AudioContext();
             
+            if (ctx.state === "suspended") {
+                ctx.resume();
+            }
+
             const osc = ctx.createOscillator();
             const gain = ctx.createGain();
             
@@ -30,14 +34,14 @@ export const Navbar = () => {
             gain.connect(ctx.destination);
             
             osc.type = "sine";
-            osc.frequency.setValueAtTime(800, ctx.currentTime);
-            osc.frequency.exponentialRampToValueAtTime(100, ctx.currentTime + 0.05);
+            osc.frequency.setValueAtTime(500, ctx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(120, ctx.currentTime + 0.1);
             
-            gain.gain.setValueAtTime(0.08, ctx.currentTime);
-            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.05);
+            gain.gain.setValueAtTime(0.3, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.1);
             
             osc.start();
-            osc.stop(ctx.currentTime + 0.06);
+            osc.stop(ctx.currentTime + 0.11);
         } catch (e) {
             console.error("Audio error:", e);
         }
