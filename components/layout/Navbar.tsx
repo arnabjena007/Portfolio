@@ -27,21 +27,47 @@ export const Navbar = () => {
                 ctx.resume();
             }
 
+            // 1. Tactile metal leaf contact snap (bandpassed white noise burst)
+            const bufferSize = ctx.sampleRate * 0.02; // 20ms
+            const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+            const data = buffer.getChannelData(0);
+            for (let i = 0; i < bufferSize; i++) {
+                data[i] = (Math.random() * 2 - 1) * Math.exp(-9 * (i / bufferSize));
+            }
+
+            const noiseNode = ctx.createBufferSource();
+            noiseNode.buffer = buffer;
+
+            const noiseFilter = ctx.createBiquadFilter();
+            noiseFilter.type = "bandpass";
+            noiseFilter.frequency.value = 1600; // Crisp high-frequency snap
+            noiseFilter.Q.value = 4;
+
+            const noiseGain = ctx.createGain();
+            noiseGain.gain.setValueAtTime(0.4, ctx.currentTime);
+            noiseGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.02);
+
+            noiseNode.connect(noiseFilter);
+            noiseFilter.connect(noiseGain);
+            noiseGain.connect(ctx.destination);
+
+            // 2. Plastic switch body resonance
             const osc = ctx.createOscillator();
-            const gain = ctx.createGain();
+            const oscGain = ctx.createGain();
             
-            osc.connect(gain);
-            gain.connect(ctx.destination);
+            osc.connect(oscGain);
+            oscGain.connect(ctx.destination);
             
             osc.type = "sine";
-            osc.frequency.setValueAtTime(500, ctx.currentTime);
-            osc.frequency.exponentialRampToValueAtTime(120, ctx.currentTime + 0.1);
+            osc.frequency.setValueAtTime(800, ctx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(200, ctx.currentTime + 0.03);
             
-            gain.gain.setValueAtTime(0.3, ctx.currentTime);
-            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.1);
+            oscGain.gain.setValueAtTime(0.12, ctx.currentTime);
+            oscGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.04);
             
+            noiseNode.start();
             osc.start();
-            osc.stop(ctx.currentTime + 0.11);
+            osc.stop(ctx.currentTime + 0.05);
         } catch (e) {
             console.error("Audio error:", e);
         }
