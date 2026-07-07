@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Calendar, Clock, Tag } from "lucide-react";
 import type { BlogMeta } from "@/lib/blog";
+import Footer from "@/components/layout/Footer";
 
 // Diagonal Stripe Separator (Partition) spanning full viewport width
 const DiagonalSeparator = () => (
@@ -151,6 +152,11 @@ export function BlogListClient({ posts }: BlogListClientProps) {
           </div>
         )}
       </section>
+
+      {/* Footer inside the bordered container */}
+      <div className="mt-16 -mx-8 sm:-mx-12">
+        <Footer />
+      </div>
     </div>
   );
 }
