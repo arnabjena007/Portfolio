@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Inter, Instrument_Serif, Instrument_Sans } from "next/font/google";
+import { Inter, Instrument_Serif, Instrument_Sans, Pixelify_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { Navbar } from "@/components/layout/Navbar";
@@ -18,6 +18,11 @@ const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
   variable: "--font-instrument-sans",
 });
+const pixelifySans = Pixelify_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-pixelify",
+});
 
 export const metadata: Metadata = {
   title: "Devo Portfolio"
@@ -30,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${instrumentSerif.variable} ${instrumentSans.variable} font-sans antialiased`} suppressHydrationWarning>
+      <body className={`${inter.variable} ${instrumentSerif.variable} ${instrumentSans.variable} ${pixelifySans.variable} font-sans antialiased`} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
@@ -50,10 +55,11 @@ export default function RootLayout({
           <div className="fixed inset-0 min-h-screen w-full bg-[#FAFAFA] dark:bg-[#0A0A0A] transition-colors duration-500 pointer-events-none z-0" />
 
           <div className="relative z-10 w-full">
-            <Navbar />
-            <LeftSidebar />
-            <div className="max-w-7xl mx-auto">
+            {/* Navbar inside the same bordered column */}
+            <div className="w-full max-w-3xl mx-auto border-l border-r border-solid border-neutral-200 dark:border-white/[0.1]">
+              <Navbar />
             </div>
+            <LeftSidebar />
             <PageTransition>
               {children}
             </PageTransition>

@@ -103,44 +103,56 @@ const ProjectCard = ({
   );
 };
 
-const Projects = () => {
-  return (
-    <div className="w-full">
-      <div className="w-full max-w-2xl mx-auto px-3 py-6">
+const Projects = ({ hideHeader = false }: { hideHeader?: boolean }) => {
+  const content = (
+    <>
+      {!hideHeader && (
         <div className="flex items-baseline justify-between mb-5">
           <h2 className="relative font-serif italic text-3xl md:text-4xl inline-block font-bold text-neutral-900 dark:text-neutral-100">
             Projects
           </h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {projects.slice(0, 4).map((p, i) => {
-            return (
-              <ProjectCard
-                key={i}
-                id={p.id}
-                title={p.title}
-                description={p.des}
-                isActive={!p.link.includes('github')}
-                category={p.category}
-                projectImage={p.img}
-                stack={p.techStack || []}
-                iconLists={p.iconLists}
-                link={p.link}
-              />
-            );
-          })}
-        </div>
-        <div className="flex mt-6 w-full items-center justify-center">
-          <Link href="/projects">
-            <button className="group flex items-center gap-2 rounded-lg ring-1 active:scale-95 ring-neutral-200 dark:ring-neutral-800 bg-white dark:bg-gradient-to-b dark:from-neutral-900 dark:to-neutral-950 px-4 py-2 dark:text-white font-medium text-neutral-800 shadow-sm dark:shadow-lg hover:shadow-md transition-all duration-200">
-              More Projects
-              <ArrowUpRight
-                size={18}
-                className="group-hover:rotate-45 transition duration-300"
-              />
-            </button>
-          </Link>
-        </div>
+      )}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {projects.slice(0, 4).map((p, i) => {
+          return (
+            <ProjectCard
+              key={i}
+              id={p.id}
+              title={p.title}
+              description={p.des}
+              isActive={!p.link.includes('github')}
+              category={p.category}
+              projectImage={p.img}
+              stack={p.techStack || []}
+              iconLists={p.iconLists}
+              link={p.link}
+            />
+          );
+        })}
+      </div>
+      <div className="flex mt-6 w-full items-center justify-center">
+        <Link href="/projects">
+          <button className="group flex items-center gap-2 rounded-lg ring-1 active:scale-95 ring-neutral-200 dark:ring-neutral-800 bg-white dark:bg-gradient-to-b dark:from-neutral-900 dark:to-neutral-950 px-4 py-2 dark:text-white font-medium text-neutral-800 shadow-sm dark:shadow-lg hover:shadow-md transition-all duration-200">
+            More Projects
+            <ArrowUpRight
+              size={18}
+              className="group-hover:rotate-45 transition duration-300"
+            />
+          </button>
+        </Link>
+      </div>
+    </>
+  );
+
+  if (hideHeader) {
+    return <div className="w-full mt-4">{content}</div>;
+  }
+
+  return (
+    <div className="w-full">
+      <div className="w-full max-w-2xl mx-auto px-3 py-6">
+        {content}
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ import type { BlogMeta } from "@/lib/blog";
 // Diagonal Stripe Separator (Partition) spanning full viewport width
 const DiagonalSeparator = () => (
     <div className="relative w-full h-5 mb-8 select-none pointer-events-none flex items-center justify-center">
-        <div className="absolute w-[100vw] h-full left-1/2 -translate-x-1/2 border-t border-b border-neutral-200 dark:border-white/[0.1]">
+        <div className="absolute w-[100vw] h-full left-1/2 -translate-x-1/2 border-t border-b border-neutral-200 dark:border-neutral-800/50">
             <div
                 className="absolute inset-0 block dark:hidden"
                 style={{
