@@ -19,6 +19,18 @@ export const Navbar = () => {
 
     const playClickSound = () => {
         try {
+            const audio = new Audio("/click.mp3");
+            audio.volume = 0.5;
+            audio.play().catch(() => {
+                playSynthClick();
+            });
+        } catch (e) {
+            playSynthClick();
+        }
+    };
+
+    const playSynthClick = () => {
+        try {
             const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
             if (!AudioContext) return;
             const ctx = new AudioContext();
