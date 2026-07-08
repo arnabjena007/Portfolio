@@ -64,7 +64,7 @@ const GitHubContributions = () => {
       </div>
 
       {/* Gitmap Heatmap Grid */}
-      <div className="px-8 sm:px-12">
+      <div className="px-8 sm:px-12 overflow-x-auto blog-scroll">
         <Gitmap
           username="arnabjena007"
           theme={portfolioTheme}
