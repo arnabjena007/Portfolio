@@ -19,7 +19,9 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "gitmap": ["./components/gitmap/index.tsx"],
+      "@arnabjena007/gitmap": ["./components/gitmap/index.tsx"]
     }
   },
   "include": [

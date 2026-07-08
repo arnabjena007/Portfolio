@@ -1,26 +1,8 @@
 "use client";
 
-import { GitHubCalendar } from "react-github-calendar";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-
-// Theme matching the portfolio in both light and dark modes
-const THEME = {
-  dark: [
-    "#1a1a1a", // level 0 — empty (near bg)
-    "#14311e", // level 1
-    "#1a5c30", // level 2
-    "#22883f", // level 3
-    "#2bb34f", // level 4
-  ],
-  light: [
-    "#f0f0f0", // level 0 — empty (near light bg)
-    "#9be9a8", // level 1
-    "#40c463", // level 2
-    "#30a14e", // level 3
-    "#216e39", // level 4
-  ],
-};
+import { Gitmap, useGitmapStats } from "@arnabjena007/gitmap";
 
 export function GitHubContributionsFallback() {
   return (
@@ -35,24 +17,40 @@ export function GitHubContributionsFallback() {
 }
 
 const GitHubContributions = () => {
-  const [totalCount, setTotalCount] = useState<number | null>(null);
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const stats = useGitmapStats("arnabjena007");
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
   const currentTheme = mounted && theme === "light" ? "light" : "dark";
 
+  // Construct a theme matching the portfolio's aesthetics
+  const portfolioTheme = currentTheme === "light"
+    ? {
+        level0: "#f5f5f5", // Light neutral background
+        level1: "#bbf7d0", // Light green tint
+        level2: "#86efac", // Mid light green
+        level3: "#22c55e", // Green
+        level4: "#15803d", // Deep green
+      }
+    : {
+        level0: "#1a1a1a", // Deep dark background
+        level1: "#14311e", // Dark level 1
+        level2: "#1a5c30", // Dark level 2
+        level3: "#22883f", // Dark level 3
+        level4: "#2bb34f", // Vibrant level 4
+      };
+
   return (
-    <div className="space-y-3 -mx-8 sm:-mx-12">
-      {/* Header row aligned with standard padding */}
+    <div className="space-y-6 -mx-8 sm:-mx-12">
+      {/* Header row */}
       <div className="flex items-center justify-between px-8 sm:px-12">
         <span className="text-xs font-serif text-neutral-500 dark:text-neutral-400">
-          {totalCount !== null
-            ? `${totalCount.toLocaleString("en")} contributions in the last year`
+          {stats.total > 0
+            ? `${stats.total.toLocaleString("en")} contributions in the last year`
             : "GitHub contributions"}
         </span>
         <a
@@ -65,61 +63,58 @@ const GitHubContributions = () => {
         </a>
       </div>
 
-      {/* Calendar container with horizontal padding so the scaled calendar has breathing room on mobile */}
+      {/* Gitmap Heatmap Grid */}
       <div className="px-8 sm:px-12">
-        {/* Guarantee zero scrollbars and perfect responsive scaling directly via injected style block */}
-        <style
-          dangerouslySetInnerHTML={{
-            __html: `
-.react-activity-calendar {
-  width: 100% !important;
-  max-width: 100% !important;
-  font-family: var(--font-instrument-serif), serif !important;
-}
-.react-activity-calendar__scroll-container {
-  overflow-x: hidden !important;
-  overflow-y: hidden !important;
-  width: 100% !important;
-  max-width: 100% !important;
-}
-.react-activity-calendar__calendar {
-  width: 100% !important;
-  height: auto !important;
-  max-width: 100% !important;
-  display: block !important;
-}
-`,
-          }}
-        />
-        <GitHubCalendar
+        <Gitmap
           username="arnabjena007"
-          colorScheme={currentTheme}
-          theme={THEME}
-          blockSize={13}
-          blockMargin={4}
-          blockRadius={2}
-          fontSize={11}
-          showColorLegend={true}
-          showTotalCount={false}
-          showMonthLabels={true}
-          transformData={(data) => {
-            // Calculate total when data loads
-            const total = data.reduce((acc, d) => acc + d.count, 0);
-            if (totalCount !== total) {
-              setTimeout(() => setTotalCount(total), 0);
-            }
-            return data;
-          }}
-          labels={{
-            totalCount: "{{count}} contributions in {{year}}",
-          }}
-          style={{
-            width: "100%",
-            color: currentTheme === "light" ? "#737373" : "#525252",
-          }}
+          theme={portfolioTheme}
+          cellSize={13}
+          gap={4}
+          shape="circle"
+          showNumbers={false}
+          useGradient={true}
         />
+      </div>
+
+      {/* Stats Bar */}
+      <div className="px-8 sm:px-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 rounded-xl border border-neutral-200 dark:border-neutral-800/60 bg-neutral-50/50 dark:bg-[#121212]/50 backdrop-blur-md">
+          <div className="space-y-1">
+            <span className="block text-[10px] font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+              Total
+            </span>
+            <strong className="block text-lg font-serif font-bold text-neutral-900 dark:text-white">
+              {stats.total.toLocaleString()}
+            </strong>
+          </div>
+          <div className="space-y-1">
+            <span className="block text-[10px] font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+              Current Streak
+            </span>
+            <strong className="block text-lg font-serif font-bold text-neutral-900 dark:text-white">
+              {stats.currentStreak}d
+            </strong>
+          </div>
+          <div className="space-y-1">
+            <span className="block text-[10px] font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+              Longest Streak
+            </span>
+            <strong className="block text-lg font-serif font-bold text-neutral-900 dark:text-white">
+              {stats.longestStreak}d
+            </strong>
+          </div>
+          <div className="space-y-1">
+            <span className="block text-[10px] font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+              Busiest Day
+            </span>
+            <strong className="block text-lg font-serif font-bold text-neutral-900 dark:text-white truncate">
+              {stats.busiestDay}
+            </strong>
+          </div>
+        </div>
       </div>
     </div>
   );
 };
+
 export default GitHubContributions;
