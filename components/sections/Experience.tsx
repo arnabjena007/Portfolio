@@ -24,8 +24,8 @@ const Experience = () => {
                                 Indicoded
                             </LinkPreview>
                             , and{" "}
-                            <LinkPreview url="https://internloom.vercel.app" isStatic imageSrc="/p3.png" className="text-yellow-500 font-bold" description="Internship discovery platform with 5000+ listings.">
-                                Internloom
+                            <LinkPreview url="https://gitmap-devo.vercel.app/" isStatic imageSrc="/gitmap-screenshot.png" className="text-yellow-500 font-bold" description="React component for visualizing GitHub contributions and heatmaps.">
+                                GitMap
                             </LinkPreview>.
                             My expertise lies in architecting distributed systems, optimizing database performance,
                             and ensuring reliability in production environments.

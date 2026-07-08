@@ -50,9 +50,9 @@ const AboutMe = () => {
                             as a technical one. This has led me to explore projects like
                             <Tooltip
                                 containerClassName="inline-block cursor-pointer underline decoration-dotted underline-offset-4 mx-1"
-                                content={<InternLoomCard />}
+                                content={<GitMapCard />}
                             >
-                                <span className="font-bold text-white">InternLoom</span>
+                                <span className="font-bold text-white">GitMap</span>
                             </Tooltip>,
                             generative art, experimental visual systems, and narrative driven technical projects.
                         </div>
@@ -128,12 +128,12 @@ const DevoCard = () => {
     );
 };
 
-const InternLoomCard = () => {
+const GitMapCard = () => {
     return (
         <div className="flex flex-col">
-            <p className="text-lg font-bold text-white">InternLoom</p>
+            <p className="text-lg font-bold text-white">GitMap</p>
             <p className="mt-1 text-xs text-neutral-400">
-                Internship discovery platform connecting students with opportunities.
+                React component for visualizing GitHub contributions and heatmaps.
             </p>
         </div>
     );
