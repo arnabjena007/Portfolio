@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import Experience from "@/components/sections/Experience";
-import Volunteering from "@/components/sections/Volunteering";
 
 const ExperiencePage = () => {
     return (
@@ -9,7 +8,6 @@ const ExperiencePage = () => {
             <div className="max-w-7xl w-full">
                 <div className="pt-20">
                     <Experience />
-                    <Volunteering />
                 </div>
             </div>
         </main>
