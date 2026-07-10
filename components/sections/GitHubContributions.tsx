@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useTheme } from "next-themes";
 import { Gitmap, useGitmapStats } from "@arnabjena007/gitmap";
 
@@ -18,14 +18,8 @@ export function GitHubContributionsFallback() {
 
 const GitHubContributions = () => {
   const { theme } = useTheme();
-  const [mounted, setMounted] = useState(false);
   const stats = useGitmapStats("arnabjena007");
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const currentTheme = mounted && theme === "light" ? "light" : "dark";
+  const currentTheme = theme === "light" ? "light" : "dark";
 
   // Construct a theme matching the portfolio's aesthetics
   const portfolioTheme = currentTheme === "light"

@@ -103,7 +103,9 @@ const ProjectCard = ({
   );
 };
 
-const Projects = ({ hideHeader = false }: { hideHeader?: boolean }) => {
+type ProjectItem = (typeof projects)[number];
+
+const Projects = ({ hideHeader = false, items = projects }: { hideHeader?: boolean; items?: ProjectItem[] }) => {
   const content = (
     <>
       {!hideHeader && (
@@ -114,7 +116,7 @@ const Projects = ({ hideHeader = false }: { hideHeader?: boolean }) => {
         </div>
       )}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {projects.slice(0, 4).map((p, i) => {
+        {items.slice(0, 4).map((p, i) => {
           return (
             <ProjectCard
               key={i}

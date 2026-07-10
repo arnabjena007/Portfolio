@@ -95,6 +95,49 @@ export const projects = [
     }
 ];
 
+export const featuredProjects = [
+    {
+        id: 1,
+        title: "Pixlate",
+        des: "Generating pixel art in under 60 seconds using Golang and parallel processing.",
+        img: "/pixlate-final.png",
+        iconLists: ["/go.svg", "/ver.svg"],
+        link: "https://pixlateweb.up.railway.app/",
+        category: "Full Stack",
+        techStack: ["Golang"],
+    },
+    {
+        id: 2,
+        title: "Indicoded",
+        des: "Interactive data visualization exploring Indian cultural patterns using D3.js, p5.js, and React.",
+        img: "/indecoded-screenshot.png",
+        iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/ver.svg"],
+        link: "https://github.com/arnabjena007",
+        category: "Frontend",
+        techStack: ["React", "TypeScript"],
+    },
+    {
+        id: 3,
+        title: "GitMap",
+        des: "A React component for visualizing GitHub contributions and heatmap with customizable themes.",
+        img: "/gitmap-screenshot.png",
+        iconLists: ["/re.svg", "/ts.svg", "/ver.svg"],
+        link: "https://gitmap-devo.vercel.app/",
+        category: "Open Source",
+        techStack: ["React", "TypeScript", "Vercel"],
+    },
+    {
+        id: 4,
+        title: "Pastellet",
+        des: "A soft, modern community platform focused on collaboration, ideas, and creative growth.",
+        img: "/pastellet-hero.png",
+        iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/ver.svg"],
+        link: "https://pastellet.vercel.app/",
+        category: "Community Platform",
+        techStack: ["HTML", "CSS", "JavaScript", "Firestore", "Vercel"],
+    },
+];
+
 export const workExperience = [
     {
         id: 2,

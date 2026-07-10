@@ -13,7 +13,7 @@ import {
     FileText
 } from "lucide-react";
 import { motion } from "motion/react";
-import { workExperience, projects } from "@/data";
+import { workExperience, featuredProjects } from "@/data";
 import Projects from "@/components/sections/Projects";
 import GitHubContributions, { GitHubContributionsFallback } from "@/components/sections/GitHubContributions";
 import LocationIcon from "@/components/icons/LocationIcon";
@@ -147,8 +147,8 @@ export const HomePage = () => {
 
                                 {/* Location + Visitor Counter */}
                                 <div className="flex items-center justify-between w-full mt-0.5">
-                                    <p className="text-sm text-neutral-500 dark:text-neutral-400">
-                                        20, Bengaluru IND
+                                <p className="text-sm text-neutral-500 dark:text-neutral-400">
+                                        Bengaluru, India
                                     </p>
                                     {visitorCount !== null && (
                                         <div className="flex items-center gap-1.5 text-neutral-500 dark:text-neutral-400">
@@ -191,13 +191,14 @@ export const HomePage = () => {
                             href="https://github.com/arnabjena007" 
                             target="_blank" 
                             rel="noreferrer"
+                            aria-label="Open Arnab Jena's GitHub profile"
                             className="flex items-center justify-between py-6 px-8 sm:px-12 hover:bg-neutral-500/[0.03] transition-colors group cursor-pointer border-b sm:border-r border-neutral-200 dark:border-white/[0.08]"
                         >
                             <div className="flex items-center gap-4">
                                 <div className="flex items-center justify-center w-10 h-10 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-100/50 dark:bg-neutral-900/50 text-neutral-700 dark:text-neutral-300 transition-colors group-hover:bg-neutral-200/50 dark:group-hover:bg-neutral-800/50">
                                     <FileText size={18} />
                                 </div>
-                                <span className="font-semibold text-neutral-800 dark:text-neutral-200 group-hover:text-neutral-950 dark:group-hover:text-white transition-colors text-sm sm:text-base">Social Links</span>
+                                <span className="font-semibold text-neutral-800 dark:text-neutral-200 group-hover:text-neutral-950 dark:group-hover:text-white transition-colors text-sm sm:text-base">GitHub Profile</span>
                             </div>
                             <ArrowUpRight size={16} className="text-neutral-400 group-hover:text-neutral-600 dark:group-hover:text-neutral-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
                         </a>
@@ -205,6 +206,7 @@ export const HomePage = () => {
                         {/* 2. Contact */}
                         <a 
                             href="mailto:arnabjena11@gmail.com" 
+                            aria-label="Send Arnab Jena an email"
                             className="flex items-center justify-between py-6 px-8 sm:px-12 hover:bg-neutral-500/[0.03] transition-colors group cursor-pointer border-b sm:border-r border-neutral-200 dark:border-white/[0.08]"
                         >
                             <div className="flex items-center gap-4">
@@ -221,6 +223,7 @@ export const HomePage = () => {
                             href="https://github.com/arnabjena007" 
                             target="_blank" 
                             rel="noreferrer"
+                            aria-label="Open Arnab Jena's GitHub repository profile"
                             className="flex items-center justify-between py-6 px-8 sm:px-12 hover:bg-neutral-500/[0.03] transition-colors group cursor-pointer border-b border-neutral-200 dark:border-white/[0.08]"
                         >
                             <div className="flex items-center gap-4">
@@ -237,6 +240,7 @@ export const HomePage = () => {
                             href="https://linkedin.com/in/arnabjena007" 
                             target="_blank" 
                             rel="noreferrer"
+                            aria-label="Open Arnab Jena's LinkedIn profile"
                             className="flex items-center justify-between py-6 px-8 sm:px-12 hover:bg-neutral-500/[0.03] transition-colors group cursor-pointer border-b sm:border-b-0 sm:border-r border-neutral-200 dark:border-white/[0.08]"
                         >
                             <div className="flex items-center gap-4">
@@ -253,6 +257,7 @@ export const HomePage = () => {
                             href="https://x.com/ArnabJena11" 
                             target="_blank" 
                             rel="noreferrer"
+                            aria-label="Open Arnab Jena's X profile"
                             className="flex items-center justify-between py-6 px-8 sm:px-12 hover:bg-neutral-500/[0.03] transition-colors group cursor-pointer border-b sm:border-b-0 sm:border-r border-neutral-200 dark:border-white/[0.08]"
                         >
                             <div className="flex items-center gap-4">
@@ -267,6 +272,7 @@ export const HomePage = () => {
                         {/* 6. Email */}
                         <a 
                             href="mailto:arnabjena11@gmail.com" 
+                            aria-label="Send Arnab Jena an email"
                             className="flex items-center justify-between py-6 px-8 sm:px-12 hover:bg-neutral-500/[0.03] transition-colors group cursor-pointer border-neutral-200 dark:border-white/[0.08] sm:border-0"
                         >
                             <div className="flex items-center gap-4">
@@ -356,7 +362,7 @@ export const HomePage = () => {
                         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100vw] border-t border-neutral-200 dark:border-neutral-800/50" />
                         <h2 className="text-3xl font-serif italic font-bold text-neutral-900 dark:text-white">Projects</h2>
                     </div>
-                    <Projects hideHeader={true} />
+                    <Projects hideHeader={true} items={featuredProjects} />
                 </section>
 
                 <DiagonalSeparator />

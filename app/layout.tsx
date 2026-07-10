@@ -25,7 +25,12 @@ const pixelifySans = Pixelify_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Devo Portfolio"
+  title: {
+    default: "Devo Portfolio",
+    template: "%s | Devo Portfolio",
+  },
+  description:
+    "Portfolio of Arnab Jena, a frontend engineer and computer science student building thoughtful web experiences.",
 };
 
 export default function RootLayout({

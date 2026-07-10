@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { Sun, Moon, Search } from "lucide-react";
+import { Sun, Moon } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 import { useTheme as useNextTheme } from "next-themes";
@@ -24,14 +24,14 @@ export const Navbar = () => {
             audio.play().catch(() => {
                 playSynthClick();
             });
-        } catch (e) {
+        } catch {
             playSynthClick();
         }
     };
 
     const playSynthClick = () => {
         try {
-            const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
             if (!AudioContext) return;
             const ctx = new AudioContext();
             
@@ -80,8 +80,8 @@ export const Navbar = () => {
             noiseNode.start();
             osc.start();
             osc.stop(ctx.currentTime + 0.05);
-        } catch (e) {
-            console.error("Audio error:", e);
+        } catch {
+            console.error("Audio error");
         }
     };
 

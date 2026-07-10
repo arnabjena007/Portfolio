@@ -24,10 +24,10 @@ const Footer = () => {
             {/* Footer credits */}
             <div className="px-8 sm:px-12 py-8 text-center space-y-1">
                 <p className="text-sm text-neutral-500 dark:text-neutral-400">
-                    Design by <a href="https://github.com/arnabjena007" target="_blank" rel="noreferrer" className="text-neutral-700 dark:text-neutral-300 hover:text-yellow-500 dark:hover:text-yellow-500 transition-colors underline underline-offset-2">Devo</a>
+                    Crafted by <a href="https://github.com/arnabjena007" target="_blank" rel="noreferrer" className="text-neutral-700 dark:text-neutral-300 hover:text-yellow-500 dark:hover:text-yellow-500 transition-colors underline underline-offset-2">Devo</a>
                 </p>
                 <p className="text-sm text-neutral-500 dark:text-neutral-400">
-                    © {new Date().getFullYear()}. Build with Hands.
+                    © {new Date().getFullYear()}. Built by hand.
                 </p>
             </div>
 
