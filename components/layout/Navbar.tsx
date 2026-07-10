@@ -31,7 +31,9 @@ export const Navbar = () => {
 
     const playSynthClick = () => {
         try {
-            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            const AudioContext =
+                window.AudioContext ||
+                (window as Window & { webkitAudioContext?: typeof window.AudioContext }).webkitAudioContext;
             if (!AudioContext) return;
             const ctx = new AudioContext();
             

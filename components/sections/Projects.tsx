@@ -3,6 +3,19 @@ import { projects } from "@/data";
 import { Link as LinkIcon, ChevronLeft, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 
+type ProjectItem = {
+  id: number;
+  title: string;
+  des: string;
+  img: string;
+  iconLists?: string[];
+  link: string;
+  category?: string;
+  techStack?: string[];
+  details?: string;
+  features?: string[];
+};
+
 // Reusing the adapted ProjectCard that matches your data
 const ProjectCard = ({ 
   title, 
@@ -103,8 +116,6 @@ const ProjectCard = ({
   );
 };
 
-type ProjectItem = (typeof projects)[number];
-
 const Projects = ({ hideHeader = false, items = projects }: { hideHeader?: boolean; items?: ProjectItem[] }) => {
   const content = (
     <>
@@ -124,7 +135,7 @@ const Projects = ({ hideHeader = false, items = projects }: { hideHeader?: boole
               title={p.title}
               description={p.des}
               isActive={!p.link.includes('github')}
-              category={p.category}
+              category={p.category ?? ""}
               projectImage={p.img}
               stack={p.techStack || []}
               iconLists={p.iconLists}
