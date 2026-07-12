@@ -237,7 +237,7 @@ export const HomePage = () => {
 
                         {/* 4. LinkedIn */}
                         <a 
-                            href="https://linkedin.com/in/arnabjena007" 
+                            href="https://www.linkedin.com/in/arnabjena/" 
                             target="_blank" 
                             rel="noreferrer"
                             aria-label="Open Arnab Jena's LinkedIn profile"

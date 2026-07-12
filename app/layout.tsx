@@ -31,6 +31,11 @@ export const metadata: Metadata = {
   },
   description:
     "Portfolio of Arnab Jena, a frontend engineer and computer science student building thoughtful web experiences.",
+  icons: {
+    icon: "/icon.jpg",
+    shortcut: "/icon.jpg",
+    apple: "/icon.jpg",
+  },
 };
 
 export default function RootLayout({

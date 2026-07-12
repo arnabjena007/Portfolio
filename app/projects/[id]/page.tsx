@@ -44,7 +44,7 @@ const Page = async ({ params }: Props) => {
           {/* Links Block */}
           <div className="w-full p-2 grid  m-2 grid-cols-2 divide-x divide-neutral-200 dark:divide-neutral-900  rounded-lg overflow-hidden text-sm">
             <Link
-              href={project?.link}
+              href={project?.githubLink || project?.link}
               target="_blank"
               className="flex items-center justify-center gap-1.5 py-2.5 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors cursor-pointer"
             >
