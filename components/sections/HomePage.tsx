@@ -92,9 +92,8 @@ export const HomePage = () => {
                         className="relative z-10 flex flex-col items-center justify-center py-10 md:py-16 px-4"
                     >
                         <p className="text-lg md:text-2xl font-serif italic text-neutral-800 dark:text-neutral-100 text-center leading-relaxed">
-                            <span className="relative inline-flex px-2 py-1">
-                                <span className="absolute -inset-x-1 bottom-1 h-4 -rotate-3 skew-x-[-10deg] rounded-[60%_35%_55%_40%] bg-amber-300/55 blur-[0.4px] dark:bg-amber-400/25" />
-                                <span className="absolute inset-x-1 bottom-0.5 h-1 rotate-1 rounded-full bg-amber-600/35 dark:bg-amber-200/25" />
+                            <span className="relative inline-flex px-1">
+                                <span className="absolute -inset-x-0.5 bottom-1 top-1.5 -rotate-1 skew-x-[-4deg] rounded-[12%_18%_14%_20%] bg-amber-200/75 dark:bg-amber-300/35" />
                                 <span className="relative">Open for full-time</span>
                             </span>
                         </p>
