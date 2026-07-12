@@ -130,6 +130,13 @@ export const HomePage = () => {
                                             className="h-full w-full rounded-[2rem] object-cover"
                                         />
                                     </div>
+                                    <div className="absolute -right-4 top-5 h-32 w-32 rotate-12 rounded-[2.25rem] border border-neutral-200/70 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-1 shadow-lg transition-transform duration-300 group-hover:rotate-6 group-hover:translate-x-1">
+                                        <img
+                                            src="/profile-smile.png"
+                                            alt=""
+                                            className="h-full w-full rounded-[2rem] object-cover"
+                                        />
+                                    </div>
                                     {/* Outer frame */}
                                     <div className="relative w-32 h-32 rounded-[2.25rem] overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-2xl p-1 transition-transform duration-300 group-hover:-translate-y-1 group-hover:-rotate-2">
                                     {/* Bulletproof CSS injection to guarantee the profile sweep animation runs instantly */}
@@ -436,8 +443,20 @@ export const HomePage = () => {
                         className="relative w-full max-w-sm"
                         onClick={(event) => event.stopPropagation()}
                     >
-                        <div className="absolute inset-0 translate-x-5 translate-y-5 rotate-3 rounded-[2rem] bg-white/10 ring-1 ring-white/15" />
-                        <div className="absolute inset-0 -translate-x-4 translate-y-3 -rotate-3 rounded-[2rem] bg-black/30 ring-1 ring-white/10" />
+                        <div className="absolute inset-0 translate-x-8 translate-y-5 rotate-6 overflow-hidden rounded-[2rem] border border-white/15 bg-neutral-950 p-2 shadow-2xl">
+                            <img
+                                src="/profile-smile.png"
+                                alt=""
+                                className="aspect-[4/5] w-full rounded-[1.55rem] object-cover"
+                            />
+                        </div>
+                        <div className="absolute inset-0 -translate-x-7 translate-y-4 -rotate-6 overflow-hidden rounded-[2rem] border border-white/15 bg-neutral-950 p-2 shadow-2xl">
+                            <img
+                                src="/profile-gandhi.png"
+                                alt=""
+                                className="aspect-[4/5] w-full rounded-[1.55rem] object-cover"
+                            />
+                        </div>
                         <div className="relative overflow-hidden rounded-[2rem] border border-white/20 bg-neutral-950 p-2 shadow-2xl">
                             <img
                                 src="/profile-mountain.png"
