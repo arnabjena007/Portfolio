@@ -8,16 +8,13 @@ import {
     MapPin,
     Mail,
     Eye,
-    ArrowUpRight,
-    Send,
-    FileText
+    ArrowUpRight
 } from "lucide-react";
 import { motion } from "motion/react";
 import { workExperience, featuredProjects } from "@/data";
 import Projects from "@/components/sections/Projects";
 import GitHubContributions, { GitHubContributionsFallback } from "@/components/sections/GitHubContributions";
 import LocationIcon from "@/components/icons/LocationIcon";
-import MailIcon from "@/components/icons/MailIcon";
 import GithubIcon from "@/components/icons/GithubIcon";
 import TwitterXIcon from "@/components/icons/TwitterXIcon";
 import LinkedinIcon from "@/components/icons/LinkedinIcon";
@@ -234,45 +231,13 @@ export const HomePage = () => {
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-3 -mx-8 sm:-mx-12 border-t border-neutral-200 dark:border-white/[0.08]">
-                        {/* 1. Social Links */}
-                        <a 
-                            href="https://github.com/arnabjena007" 
-                            target="_blank" 
-                            rel="noreferrer"
-                            aria-label="Open Arnab Jena's GitHub profile"
-                            className="flex items-center justify-between py-6 px-8 sm:px-12 hover:bg-neutral-500/[0.03] transition-colors group cursor-pointer border-b sm:border-r border-neutral-200 dark:border-white/[0.08]"
-                        >
-                            <div className="flex items-center gap-4">
-                                <div className="flex items-center justify-center w-10 h-10 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-100/50 dark:bg-neutral-900/50 text-neutral-700 dark:text-neutral-300 transition-colors group-hover:bg-neutral-200/50 dark:group-hover:bg-neutral-800/50">
-                                    <FileText size={18} />
-                                </div>
-                                <span className="font-semibold text-neutral-800 dark:text-neutral-200 group-hover:text-neutral-950 dark:group-hover:text-white transition-colors text-sm sm:text-base">GitHub Profile</span>
-                            </div>
-                            <ArrowUpRight size={16} className="text-neutral-400 group-hover:text-neutral-600 dark:group-hover:text-neutral-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
-                        </a>
-
-                        {/* 2. Contact */}
-                        <a 
-                            href="mailto:arnabjena11@gmail.com" 
-                            aria-label="Send Arnab Jena an email"
-                            className="flex items-center justify-between py-6 px-8 sm:px-12 hover:bg-neutral-500/[0.03] transition-colors group cursor-pointer border-b sm:border-r border-neutral-200 dark:border-white/[0.08]"
-                        >
-                            <div className="flex items-center gap-4">
-                                <div className="flex items-center justify-center w-10 h-10 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-100/50 dark:bg-neutral-900/50 text-neutral-700 dark:text-neutral-300 transition-colors group-hover:bg-neutral-200/50 dark:group-hover:bg-neutral-800/50">
-                                    <Send size={18} />
-                                </div>
-                                <span className="font-semibold text-neutral-800 dark:text-neutral-200 group-hover:text-neutral-950 dark:group-hover:text-white transition-colors text-sm sm:text-base">Contact</span>
-                            </div>
-                            <ArrowUpRight size={16} className="text-neutral-400 group-hover:text-neutral-600 dark:group-hover:text-neutral-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
-                        </a>
-
-                        {/* 3. GitHub */}
+                        {/* GitHub */}
                         <a 
                             href="https://github.com/arnabjena007" 
                             target="_blank" 
                             rel="noreferrer"
                             aria-label="Open Arnab Jena's GitHub repository profile"
-                            className="flex items-center justify-between py-6 px-8 sm:px-12 hover:bg-neutral-500/[0.03] transition-colors group cursor-pointer border-b border-neutral-200 dark:border-white/[0.08]"
+                            className="flex items-center justify-between py-6 px-8 sm:px-12 hover:bg-neutral-500/[0.03] transition-colors group cursor-pointer border-b sm:border-r sm:border-b-0 border-neutral-200 dark:border-white/[0.08]"
                         >
                             <div className="flex items-center gap-4">
                                 <div className="flex items-center justify-center w-10 h-10 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-100/50 dark:bg-neutral-900/50 text-neutral-700 dark:text-neutral-300 transition-colors group-hover:bg-neutral-200/50 dark:group-hover:bg-neutral-800/50">
@@ -283,13 +248,13 @@ export const HomePage = () => {
                             <ArrowUpRight size={16} className="text-neutral-400 group-hover:text-neutral-600 dark:group-hover:text-neutral-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
                         </a>
 
-                        {/* 4. LinkedIn */}
+                        {/* LinkedIn */}
                         <a 
                             href="https://www.linkedin.com/in/arnabjena/" 
                             target="_blank" 
                             rel="noreferrer"
                             aria-label="Open Arnab Jena's LinkedIn profile"
-                            className="flex items-center justify-between py-6 px-8 sm:px-12 hover:bg-neutral-500/[0.03] transition-colors group cursor-pointer border-b sm:border-b-0 sm:border-r border-neutral-200 dark:border-white/[0.08]"
+                            className="flex items-center justify-between py-6 px-8 sm:px-12 hover:bg-neutral-500/[0.03] transition-colors group cursor-pointer border-b sm:border-r sm:border-b-0 border-neutral-200 dark:border-white/[0.08]"
                         >
                             <div className="flex items-center gap-4">
                                 <div className="flex items-center justify-center w-10 h-10 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-100/50 dark:bg-neutral-900/50 text-neutral-700 dark:text-neutral-300 transition-colors group-hover:bg-neutral-200/50 dark:group-hover:bg-neutral-800/50">
@@ -300,34 +265,19 @@ export const HomePage = () => {
                             <ArrowUpRight size={16} className="text-neutral-400 group-hover:text-neutral-600 dark:group-hover:text-neutral-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
                         </a>
 
-                        {/* 5. X (Twitter) */}
+                        {/* X */}
                         <a 
                             href="https://x.com/ArnabJena11" 
                             target="_blank" 
                             rel="noreferrer"
                             aria-label="Open Arnab Jena's X profile"
-                            className="flex items-center justify-between py-6 px-8 sm:px-12 hover:bg-neutral-500/[0.03] transition-colors group cursor-pointer border-b sm:border-b-0 sm:border-r border-neutral-200 dark:border-white/[0.08]"
+                            className="flex items-center justify-between py-6 px-8 sm:px-12 hover:bg-neutral-500/[0.03] transition-colors group cursor-pointer border-neutral-200 dark:border-white/[0.08]"
                         >
                             <div className="flex items-center gap-4">
                                 <div className="flex items-center justify-center w-10 h-10 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-100/50 dark:bg-neutral-900/50 text-neutral-700 dark:text-neutral-300 transition-colors group-hover:bg-neutral-200/50 dark:group-hover:bg-neutral-800/50">
                                     <TwitterXIcon size={18} />
                                 </div>
-                                <span className="font-semibold text-neutral-800 dark:text-neutral-200 group-hover:text-neutral-950 dark:group-hover:text-white transition-colors text-sm sm:text-base">X (Twitter)</span>
-                            </div>
-                            <ArrowUpRight size={16} className="text-neutral-400 group-hover:text-neutral-600 dark:group-hover:text-neutral-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
-                        </a>
-
-                        {/* 6. Email */}
-                        <a 
-                            href="mailto:arnabjena11@gmail.com" 
-                            aria-label="Send Arnab Jena an email"
-                            className="flex items-center justify-between py-6 px-8 sm:px-12 hover:bg-neutral-500/[0.03] transition-colors group cursor-pointer border-neutral-200 dark:border-white/[0.08] sm:border-0"
-                        >
-                            <div className="flex items-center gap-4">
-                                <div className="flex items-center justify-center w-10 h-10 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-100/50 dark:bg-neutral-900/50 text-neutral-700 dark:text-neutral-300 transition-colors group-hover:bg-neutral-200/50 dark:group-hover:bg-neutral-800/50">
-                                    <MailIcon size={18} />
-                                </div>
-                                <span className="font-semibold text-neutral-800 dark:text-neutral-200 group-hover:text-neutral-950 dark:group-hover:text-white transition-colors text-sm sm:text-base">Email</span>
+                                <span className="font-semibold text-neutral-800 dark:text-neutral-200 group-hover:text-neutral-950 dark:group-hover:text-white transition-colors text-sm sm:text-base">X</span>
                             </div>
                             <ArrowUpRight size={16} className="text-neutral-400 group-hover:text-neutral-600 dark:group-hover:text-neutral-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
                         </a>
