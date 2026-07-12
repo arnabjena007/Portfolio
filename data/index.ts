@@ -71,7 +71,7 @@ export const projects = [
         link: "https://colora-devo.vercel.app/",
         githubLink: "https://github.com/arnabjena007/colora",
         category: "Community Platform",
-        techStack: ["HTML", "CSS", "JavaScript", "Firestore", "Vercel"],
+        techStack: ["Next.js", "TailwindCSS", "TypeScript", "Vercel"],
         details: "Colora is a polished PDF editor built to keep the workspace calm and uncluttered while making annotation and page control feel fast, premium, and easy to use.",
         features: [
             "Quiet workspace with a restrained premium interface",
@@ -190,7 +190,7 @@ export const featuredProjects = [
         link: "https://colora-devo.vercel.app/",
         githubLink: "https://github.com/arnabjena007/colora",
         category: "Community Platform",
-        techStack: ["HTML", "CSS", "JavaScript", "Firestore", "Vercel"],
+        techStack: ["Next.js", "TailwindCSS", "TypeScript", "Vercel"],
     },
 ];
 
