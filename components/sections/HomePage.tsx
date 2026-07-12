@@ -190,15 +190,10 @@ export const HomePage = () => {
                                     Arnab Jena
                                 </h1>
 
-                                {/* Role */}
-                                <p className="text-base font-medium text-yellow-500">
-                                    Frontend Engineer.
-                                </p>
-
                                 {/* Location + Visitor Counter */}
                                 <div className="flex items-center justify-between w-full mt-0.5">
                                 <p className="text-sm text-neutral-500 dark:text-neutral-400">
-                                        Bengaluru, India
+                                        Chandigarh, India
                                     </p>
                                     {visitorCount !== null && (
                                         <div className="flex items-center gap-1.5 text-neutral-500 dark:text-neutral-400">
