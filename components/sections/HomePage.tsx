@@ -45,7 +45,14 @@ const DiagonalSeparator = () => (
 
 export const HomePage = () => {
     const [visitorCount, setVisitorCount] = React.useState<number | null>(null);
-    const [isProfileOpen, setIsProfileOpen] = React.useState(false);
+    const [activeProfileIndex, setActiveProfileIndex] = React.useState(0);
+    const profilePhotos = [
+        { src: "/profile.jpg", alt: "Arnab Jena" },
+        { src: "/profile-mountain.png", alt: "Arnab Jena in the mountains" },
+        { src: "/profile-smile.png", alt: "Arnab Jena smiling" },
+        { src: "/profile-gandhi.png", alt: "Arnab Jena near a Gandhi statue" },
+    ];
+    const stackedProfilePhotos = profilePhotos.map((_, index) => profilePhotos[(activeProfileIndex + index) % profilePhotos.length]);
 
     React.useEffect(() => {
         const counted = sessionStorage.getItem("visitor-counted");
@@ -64,24 +71,6 @@ export const HomePage = () => {
                 .catch(() => { });
         }
     }, []);
-
-    React.useEffect(() => {
-        if (!isProfileOpen) return;
-
-        const handleKeyDown = (event: KeyboardEvent) => {
-            if (event.key === "Escape") {
-                setIsProfileOpen(false);
-            }
-        };
-
-        window.addEventListener("keydown", handleKeyDown);
-        document.body.style.overflow = "hidden";
-
-        return () => {
-            window.removeEventListener("keydown", handleKeyDown);
-            document.body.style.overflow = "";
-        };
-    }, [isProfileOpen]);
 
     return (
         <div className="w-full relative">
@@ -119,26 +108,44 @@ export const HomePage = () => {
                             <div className="relative shrink-0 select-none">
                                 <button
                                     type="button"
-                                    onClick={() => setIsProfileOpen(true)}
-                                    aria-label="Open profile photo"
-                                    className="group relative block w-36 h-36 rounded-[2.6rem] focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500/70 focus-visible:ring-offset-4 focus-visible:ring-offset-[#FAFAFA] dark:focus-visible:ring-offset-[#0A0A0A]"
+                                    onClick={() => setActiveProfileIndex((currentIndex) => (currentIndex + 1) % profilePhotos.length)}
+                                    aria-label="Shuffle profile photo"
+                                    className="group relative block h-40 w-40 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500/70 focus-visible:ring-offset-4 focus-visible:ring-offset-[#FAFAFA] dark:focus-visible:ring-offset-[#0A0A0A]"
                                 >
-                                    <div className="absolute -right-2 top-2 h-32 w-32 rotate-6 rounded-[2.25rem] border border-neutral-200/80 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-1 shadow-xl transition-transform duration-300 group-hover:rotate-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                                    <motion.div
+                                        key={`${stackedProfilePhotos[2].src}-back`}
+                                        initial={{ opacity: 0, x: 10, y: 4, rotate: 12 }}
+                                        animate={{ opacity: 1, x: 0, y: 0, rotate: 9 }}
+                                        transition={{ duration: 0.28, ease: "easeOut" }}
+                                        className="absolute left-8 top-3 h-36 w-32 overflow-hidden rounded-[2rem] bg-neutral-900 shadow-lg"
+                                    >
                                         <img
-                                            src="/profile-mountain.png"
+                                            src={stackedProfilePhotos[2].src}
                                             alt=""
-                                            className="h-full w-full rounded-[2rem] object-cover"
+                                            className="h-full w-full object-cover"
                                         />
-                                    </div>
-                                    <div className="absolute -right-4 top-5 h-32 w-32 rotate-12 rounded-[2.25rem] border border-neutral-200/70 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-1 shadow-lg transition-transform duration-300 group-hover:rotate-6 group-hover:translate-x-1">
+                                    </motion.div>
+                                    <motion.div
+                                        key={`${stackedProfilePhotos[1].src}-middle`}
+                                        initial={{ opacity: 0, x: 6, y: 2, rotate: 8 }}
+                                        animate={{ opacity: 1, x: 0, y: 0, rotate: 5 }}
+                                        transition={{ duration: 0.3, ease: "easeOut" }}
+                                        className="absolute left-5 top-1 h-36 w-32 overflow-hidden rounded-[2rem] bg-neutral-900 shadow-xl"
+                                    >
                                         <img
-                                            src="/profile-smile.png"
+                                            src={stackedProfilePhotos[1].src}
                                             alt=""
-                                            className="h-full w-full rounded-[2rem] object-cover"
+                                            className="h-full w-full object-cover"
                                         />
-                                    </div>
+                                    </motion.div>
                                     {/* Outer frame */}
-                                    <div className="relative w-32 h-32 rounded-[2.25rem] overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-2xl p-1 transition-transform duration-300 group-hover:-translate-y-1 group-hover:-rotate-2">
+                                    <motion.div
+                                        key={`${stackedProfilePhotos[0].src}-front`}
+                                        initial={{ opacity: 0, y: 8, rotate: 4, scale: 0.97 }}
+                                        animate={{ opacity: 1, y: 0, rotate: -2, scale: 1 }}
+                                        transition={{ duration: 0.34, ease: "easeOut" }}
+                                        className="relative h-36 w-32 overflow-hidden rounded-[2rem] bg-neutral-900 shadow-2xl"
+                                    >
                                     {/* Bulletproof CSS injection to guarantee the profile sweep animation runs instantly */}
                                     <style dangerouslySetInnerHTML={{
                                         __html: `
@@ -158,15 +165,15 @@ export const HomePage = () => {
                                         }
                                     ` }} />
                                     <img
-                                        src="/profile.jpg"
-                                        alt="Arnab Jena"
-                                        className="w-full h-full object-cover rounded-[2rem]"
+                                        src={stackedProfilePhotos[0].src}
+                                        alt={stackedProfilePhotos[0].alt}
+                                        className="w-full h-full object-cover"
                                     />
                                     {/* Profile Sweep Shimmer (profile-sweep) */}
-                                    <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-[2rem]">
+                                    <div className="absolute inset-0 pointer-events-none overflow-hidden">
                                         <div className="absolute top-0 bottom-0 w-8 bg-gradient-to-r from-transparent via-white/35 to-transparent animate-profile-sweep" />
                                     </div>
-                                    </div>
+                                    </motion.div>
                                 </button>
 
 
@@ -422,51 +429,6 @@ export const HomePage = () => {
 
             </div>
 
-            {isProfileOpen && (
-                <div
-                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-6 py-10 backdrop-blur-md"
-                    role="dialog"
-                    aria-modal="true"
-                    aria-label="Profile photo preview"
-                    onClick={() => setIsProfileOpen(false)}
-                >
-                    <button
-                        type="button"
-                        aria-label="Close profile photo preview"
-                        className="absolute inset-0 cursor-zoom-out"
-                    />
-                    <motion.div
-                        initial={{ opacity: 0, y: 18, scale: 0.96 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 12, scale: 0.98 }}
-                        transition={{ duration: 0.25, ease: "easeOut" }}
-                        className="relative w-full max-w-sm"
-                        onClick={(event) => event.stopPropagation()}
-                    >
-                        <div className="absolute inset-0 translate-x-8 translate-y-5 rotate-6 overflow-hidden rounded-[2rem] border border-white/15 bg-neutral-950 p-2 shadow-2xl">
-                            <img
-                                src="/profile-smile.png"
-                                alt=""
-                                className="aspect-[4/5] w-full rounded-[1.55rem] object-cover"
-                            />
-                        </div>
-                        <div className="absolute inset-0 -translate-x-7 translate-y-4 -rotate-6 overflow-hidden rounded-[2rem] border border-white/15 bg-neutral-950 p-2 shadow-2xl">
-                            <img
-                                src="/profile-gandhi.png"
-                                alt=""
-                                className="aspect-[4/5] w-full rounded-[1.55rem] object-cover"
-                            />
-                        </div>
-                        <div className="relative overflow-hidden rounded-[2rem] border border-white/20 bg-neutral-950 p-2 shadow-2xl">
-                            <img
-                                src="/profile-mountain.png"
-                                alt="Arnab Jena in the mountains"
-                                className="aspect-[4/5] w-full rounded-[1.55rem] object-cover"
-                            />
-                        </div>
-                    </motion.div>
-                </div>
-            )}
         </div>
     );
 };
