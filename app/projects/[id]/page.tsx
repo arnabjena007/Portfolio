@@ -43,7 +43,7 @@ const Page = async ({ params }: Props) => {
           </div>
 
           {/* Links Block */}
-          <div className="mx-4 sm:mx-6 my-4 grid grid-cols-2 divide-x divide-neutral-200 dark:divide-neutral-800 border-y border-neutral-200 dark:border-neutral-800 text-sm">
+          <div className="mt-4 grid grid-cols-2 divide-x divide-neutral-200 dark:divide-neutral-800 border-y border-neutral-200 dark:border-neutral-800 text-sm">
             <Link
               href={project?.githubLink || project?.link}
               target="_blank"
