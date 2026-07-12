@@ -18,18 +18,17 @@ const Page = async ({ params }: Props) => {
   if (!project) return null;
 
   return (
-    <div className="flex flex-col flex-1 items-center justify-center font-sans dark:bg-[#09090B] mt-2">
-      {/* Block */}
-      <div className="w-full border-t z-0 items-center justify-center flex border-neutral-200 dark:border-neutral-900">
-        <div className="max-w-2xl w-full relative mx-auto">
-          <div className="dotted-background w-full h-[12.5rem] flex items-center justify-center p-12"></div>
+    <div className="w-full min-h-screen font-sans dark:bg-[#09090B]">
+      <div className="w-full max-w-3xl mx-auto border-l border-r border-neutral-200 dark:border-white/[0.1]">
+        <div className="relative h-40 border-b border-neutral-200 dark:border-neutral-800/60 overflow-hidden">
+          <div className="absolute inset-0 dotted-background" />
         </div>
-      </div>
-      <div className="w-full relative border-b border-t font-sans tracking-tight dark:border-neutral-900 border-neutral-200">
-        <div className="mx-auto gap-1  flex flex-col max-w-2xl border-x dark:border-neutral-900 border-neutral-200    relative">
-          <div className="w-2 h-2 bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 -top-1 -left-1 absolute border"></div>
-          <div className="w-2 h-2 bg-white dark:bg-black border-neutral-200 dark:border-neutral-800  -top-1 -right-1 absolute border"></div>
-          <div className="p-2 items-center flex gap-2 mt-2">
+
+        <main className="relative border-b border-neutral-200 dark:border-neutral-800/60 font-sans tracking-tight">
+          <div className="w-2 h-2 bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 -top-1 -left-1 absolute border" />
+          <div className="w-2 h-2 bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 -top-1 -right-1 absolute border" />
+
+          <div className="px-4 sm:px-6 py-4 items-center flex gap-2">
             <Link href={"/projects"}>
               <div className="text-neutral-700 w-fit hover:dark:bg-neutral-900 hover:dark:border-neutral-800 rounded-md border border-transparent hover:border-neutral-200 hover:bg-neutral-50">
                 <ChevronLeft />
@@ -37,12 +36,14 @@ const Page = async ({ params }: Props) => {
             </Link>
             <p className="text-lg font-sans font-semibold">{project?.title}</p>
           </div>
+
           {/* Video Block (Mocked with image since there's no ProjectVideoPlayer) */}
-          <div className="h-70 border m-2 rounded-lg p-2 border-neutral-200 dark:border-neutral-800 relative aspect-video">
+          <div className="mx-4 sm:mx-6 border rounded-lg p-2 border-neutral-200 dark:border-neutral-800 relative aspect-video overflow-hidden">
             <Image src={project?.img} alt={project?.title} fill className="object-cover rounded" />
           </div>
+
           {/* Links Block */}
-          <div className="w-full p-2 grid  m-2 grid-cols-2 divide-x divide-neutral-200 dark:divide-neutral-900  rounded-lg overflow-hidden text-sm">
+          <div className="mx-4 sm:mx-6 my-4 grid grid-cols-2 divide-x divide-neutral-200 dark:divide-neutral-800 border-y border-neutral-200 dark:border-neutral-800 text-sm">
             <Link
               href={project?.githubLink || project?.link}
               target="_blank"
@@ -81,7 +82,8 @@ const Page = async ({ params }: Props) => {
               Live Link
             </Link>
           </div>
-          <div className="flex items-start mx-5 justify-center flex-col">
+
+          <div className="flex items-start px-4 sm:px-6 justify-center flex-col">
             <div className="flex items-center w-full justify-between">
               <h3 className="text-xl font-sans font-semibold">
                 {project?.title}
@@ -101,12 +103,13 @@ const Page = async ({ params }: Props) => {
               </span>
             </div>
             <div>
-              <p className="text-wrap text-neutral-800 dark:text-neutral-200  py-3 ">
+              <p className="text-wrap text-neutral-800 dark:text-neutral-200 py-3">
                 {project?.details || project?.des}
               </p>
             </div>
           </div>
-          <div className="px-5 py-3  border-y border-neutral-200 dark:border-neutral-800">
+
+          <div className="px-4 sm:px-6 py-4 border-y border-neutral-200 dark:border-neutral-800">
             <p className="text-lg font-sans font-semibold text-neutral-800 dark:text-neutral-300 mb-2.5 tracking-wide ">
               Stack used
             </p>
@@ -118,7 +121,8 @@ const Page = async ({ params }: Props) => {
               })}
             </div>
           </div>
-          <div className="p-4 -mt-1 font-sans border-neutral-200 dark:border-neutral-900 items-center justify-center flex ">
+
+          <div className="p-4 font-sans border-neutral-200 dark:border-neutral-900 items-center justify-center flex">
             <p className="text-sm text-neutral-600">
               For more cool projects, visit my{" "}
               <Link
@@ -130,12 +134,14 @@ const Page = async ({ params }: Props) => {
               </Link>
             </p>
           </div>
+        </main>
+
+        <div className="-mx-px">
+          <Footer />
         </div>
-      </div>
-      <Footer />
-      <div className="w-full border-b z-0 items-center justify-center flex border-neutral-200 dark:border-neutral-900">
-        <div className="max-w-2xl w-full relative mx-auto">
-          <div className="dotted-background w-full h-[12.5rem] flex items-center justify-center p-12"></div>
+
+        <div className="relative h-28 border-t border-neutral-200 dark:border-neutral-800/60 overflow-hidden">
+          <div className="absolute inset-0 dotted-background" />
         </div>
       </div>
     </div>
