@@ -53,6 +53,7 @@ export const HomePage = () => {
         { src: "/profile-gandhi.png", alt: "Arnab Jena near a Gandhi statue" },
         { src: "/profile-trophy.png", alt: "Arnab Jena with a trophy" },
         { src: "/profile-stage.png", alt: "Arnab Jena on stage" },
+        { src: "/profile-palace.png", alt: "Arnab Jena at Bangalore Palace" },
     ];
     const stackedProfilePhotos = profilePhotos.map((_, index) => profilePhotos[(activeProfileIndex + index) % profilePhotos.length]);
 
