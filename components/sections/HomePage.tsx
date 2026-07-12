@@ -183,10 +183,10 @@ export const HomePage = () => {
                             </div>
 
                             {/* Name + Stats */}
-                            <div className="flex flex-col gap-1 flex-1 min-w-0 sm:pt-3">
+                            <div className="flex min-h-36 flex-col justify-center gap-1 flex-1 min-w-0">
 
                                 {/* Name */}
-                                <h1 className="text-3.5xl md:text-4xl font-serif font-bold text-neutral-900 dark:text-white tracking-wide">
+                                <h1 className="text-3xl md:text-[2.15rem] font-serif font-bold text-neutral-900 dark:text-white tracking-wide leading-tight">
                                     Arnab Jena
                                 </h1>
 
