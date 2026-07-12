@@ -45,6 +45,7 @@ const DiagonalSeparator = () => (
 
 export const HomePage = () => {
     const [visitorCount, setVisitorCount] = React.useState<number | null>(null);
+    const [isProfileOpen, setIsProfileOpen] = React.useState(false);
 
     React.useEffect(() => {
         const counted = sessionStorage.getItem("visitor-counted");
@@ -63,6 +64,24 @@ export const HomePage = () => {
                 .catch(() => { });
         }
     }, []);
+
+    React.useEffect(() => {
+        if (!isProfileOpen) return;
+
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === "Escape") {
+                setIsProfileOpen(false);
+            }
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+        document.body.style.overflow = "hidden";
+
+        return () => {
+            window.removeEventListener("keydown", handleKeyDown);
+            document.body.style.overflow = "";
+        };
+    }, [isProfileOpen]);
 
     return (
         <div className="w-full relative">
@@ -98,8 +117,21 @@ export const HomePage = () => {
                         <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 w-full">
                             {/* Profile image */}
                             <div className="relative shrink-0 select-none">
-                                {/* Outer frame */}
-                                <div className="relative w-32 h-32 rounded-[2.25rem] overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-2xl p-1">
+                                <button
+                                    type="button"
+                                    onClick={() => setIsProfileOpen(true)}
+                                    aria-label="Open profile photo"
+                                    className="group relative block w-36 h-36 rounded-[2.6rem] focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500/70 focus-visible:ring-offset-4 focus-visible:ring-offset-[#FAFAFA] dark:focus-visible:ring-offset-[#0A0A0A]"
+                                >
+                                    <div className="absolute -right-2 top-2 h-32 w-32 rotate-6 rounded-[2.25rem] border border-neutral-200/80 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-1 shadow-xl transition-transform duration-300 group-hover:rotate-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                                        <img
+                                            src="/profile-mountain.png"
+                                            alt=""
+                                            className="h-full w-full rounded-[2rem] object-cover"
+                                        />
+                                    </div>
+                                    {/* Outer frame */}
+                                    <div className="relative w-32 h-32 rounded-[2.25rem] overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-2xl p-1 transition-transform duration-300 group-hover:-translate-y-1 group-hover:-rotate-2">
                                     {/* Bulletproof CSS injection to guarantee the profile sweep animation runs instantly */}
                                     <style dangerouslySetInnerHTML={{
                                         __html: `
@@ -127,7 +159,8 @@ export const HomePage = () => {
                                     <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-[2rem]">
                                         <div className="absolute top-0 bottom-0 w-8 bg-gradient-to-r from-transparent via-white/35 to-transparent animate-profile-sweep" />
                                     </div>
-                                </div>
+                                    </div>
+                                </button>
 
 
                             </div>
@@ -381,6 +414,40 @@ export const HomePage = () => {
 
 
             </div>
+
+            {isProfileOpen && (
+                <div
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-6 py-10 backdrop-blur-md"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-label="Profile photo preview"
+                    onClick={() => setIsProfileOpen(false)}
+                >
+                    <button
+                        type="button"
+                        aria-label="Close profile photo preview"
+                        className="absolute inset-0 cursor-zoom-out"
+                    />
+                    <motion.div
+                        initial={{ opacity: 0, y: 18, scale: 0.96 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 12, scale: 0.98 }}
+                        transition={{ duration: 0.25, ease: "easeOut" }}
+                        className="relative w-full max-w-sm"
+                        onClick={(event) => event.stopPropagation()}
+                    >
+                        <div className="absolute inset-0 translate-x-5 translate-y-5 rotate-3 rounded-[2rem] bg-white/10 ring-1 ring-white/15" />
+                        <div className="absolute inset-0 -translate-x-4 translate-y-3 -rotate-3 rounded-[2rem] bg-black/30 ring-1 ring-white/10" />
+                        <div className="relative overflow-hidden rounded-[2rem] border border-white/20 bg-neutral-950 p-2 shadow-2xl">
+                            <img
+                                src="/profile-mountain.png"
+                                alt="Arnab Jena in the mountains"
+                                className="aspect-[4/5] w-full rounded-[1.55rem] object-cover"
+                            />
+                        </div>
+                    </motion.div>
+                </div>
+            )}
         </div>
     );
 };
