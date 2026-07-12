@@ -91,9 +91,10 @@ export const HomePage = () => {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="relative z-10 flex flex-col items-center justify-center py-10 md:py-16 px-4"
                     >
-                        <p className="text-lg md:text-2xl font-serif italic text-neutral-600 dark:text-neutral-300 text-center leading-relaxed">
+                        <p className="text-lg md:text-2xl font-serif italic text-neutral-800 dark:text-neutral-100 text-center leading-relaxed">
                             <span className="relative inline-flex px-3 py-1">
-                                <span className="absolute inset-x-0 bottom-1 top-2 -rotate-1 rounded-[55%_45%_50%_42%] bg-yellow-300/35 dark:bg-yellow-400/20" />
+                                <span className="absolute inset-x-0 bottom-0.5 top-1 -rotate-1 rounded-[52%_44%_58%_46%] bg-amber-300/65 blur-[0.2px] dark:bg-amber-400/30" />
+                                <span className="absolute inset-x-2 bottom-0 h-1 rotate-[0.7deg] rounded-full bg-orange-300/70 dark:bg-orange-300/35" />
                                 <span className="relative">Open for full-time</span>
                             </span>
                         </p>
@@ -194,10 +195,8 @@ export const HomePage = () => {
 
                                 {/* Location + Visitor Counter */}
                                 <div className="flex items-center justify-between w-full mt-0.5">
-                                <p className="flex items-center gap-1.5 text-sm text-neutral-500 dark:text-neutral-400">
-                                        <span aria-hidden="true">🇮🇳</span>
-                                        <span>Chandigarh, India</span>
-                                        <span aria-hidden="true">🇮🇳</span>
+                                <p className="text-sm text-neutral-500 dark:text-neutral-400">
+                                        Chandigarh, India
                                     </p>
                                     {visitorCount !== null && (
                                         <div className="flex items-center gap-1.5 text-neutral-500 dark:text-neutral-400">
