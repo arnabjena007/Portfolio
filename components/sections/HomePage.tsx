@@ -91,9 +91,11 @@ export const HomePage = () => {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="relative z-10 flex flex-col items-center justify-center py-10 md:py-16 px-4"
                     >
-                        <p className="text-lg md:text-2xl font-serif italic text-neutral-500 dark:text-neutral-400 text-center leading-relaxed">
-                            Open for full-time<br />
-                            & freelance work
+                        <p className="text-lg md:text-2xl font-serif italic text-neutral-600 dark:text-neutral-300 text-center leading-relaxed">
+                            <span className="relative inline-flex px-3 py-1">
+                                <span className="absolute inset-x-0 bottom-1 top-2 -rotate-1 rounded-[55%_45%_50%_42%] bg-yellow-300/35 dark:bg-yellow-400/20" />
+                                <span className="relative">Open for full-time</span>
+                            </span>
                         </p>
                     </motion.div>
                 </div>
@@ -192,8 +194,10 @@ export const HomePage = () => {
 
                                 {/* Location + Visitor Counter */}
                                 <div className="flex items-center justify-between w-full mt-0.5">
-                                <p className="text-sm text-neutral-500 dark:text-neutral-400">
-                                        Chandigarh, India
+                                <p className="flex items-center gap-1.5 text-sm text-neutral-500 dark:text-neutral-400">
+                                        <span aria-hidden="true">🇮🇳</span>
+                                        <span>Chandigarh, India</span>
+                                        <span aria-hidden="true">🇮🇳</span>
                                     </p>
                                     {visitorCount !== null && (
                                         <div className="flex items-center gap-1.5 text-neutral-500 dark:text-neutral-400">
