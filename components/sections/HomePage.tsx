@@ -1,20 +1,11 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import {
-    Github,
-    ExternalLink,
-    ArrowRight,
-    MapPin,
-    Mail,
-    Eye,
-    ArrowUpRight
-} from "lucide-react";
+import { Eye, ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
 import { workExperience, featuredProjects } from "@/data";
 import Projects from "@/components/sections/Projects";
 import GitHubContributions, { GitHubContributionsFallback } from "@/components/sections/GitHubContributions";
-import LocationIcon from "@/components/icons/LocationIcon";
 import GithubIcon from "@/components/icons/GithubIcon";
 import TwitterXIcon from "@/components/icons/TwitterXIcon";
 import LinkedinIcon from "@/components/icons/LinkedinIcon";
@@ -74,7 +65,10 @@ export const HomePage = () => {
 
     return (
         <div className="w-full relative">
-            <div className="w-full max-w-3xl mx-auto px-8 sm:px-12 relative pb-16 text-neutral-700 dark:text-neutral-300 font-sans leading-relaxed border-l border-r border-solid border-neutral-200 dark:border-white/[0.1]">
+            <div
+                className="w-full max-w-3xl mx-auto px-8 sm:px-12 relative pb-16 text-neutral-700 dark:text-neutral-300 leading-relaxed border-l border-r border-solid border-neutral-200 dark:border-white/[0.1]"
+                style={{ fontFamily: "var(--font-kalam), cursive" }}
+            >
 
                 <div className="relative overflow-hidden -mx-8 sm:-mx-12 px-8 sm:px-12">
                     {/* Dotted grid pattern background */}
@@ -313,8 +307,11 @@ export const HomePage = () => {
 
                                 {/* Timeline Content */}
                                 <div className="flex flex-col gap-1">
-                                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 w-full font-sans">
-                                        <h3 className="text-base md:text-lg font-bold text-neutral-900 dark:text-white flex items-center gap-1.5 flex-wrap font-instrument">
+                                    <div
+                                        className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 w-full"
+                                        style={{ fontFamily: "var(--font-kalam), cursive" }}
+                                    >
+                                        <h3 className="text-base md:text-lg font-bold text-neutral-900 dark:text-white flex items-center gap-1.5 flex-wrap font-serif">
                                             <span className="text-neutral-900 dark:text-white">{exp.title}</span>
                                             <span className="text-neutral-400 dark:text-neutral-500 font-normal">·</span>
                                             <span className="text-neutral-400 dark:text-neutral-500 font-normal">{exp.company}</span>

@@ -21,6 +21,11 @@ export interface RawContribution {
   level: number;
 }
 
+interface ContributionApiRecord {
+  date: string;
+  count: number;
+}
+
 export interface GitmapStats {
   total: number;
   currentStreak: number;
@@ -243,8 +248,8 @@ export function useGitmapStats(username: string): GitmapStats {
         const data = await res.json();
         if (!active) return;
         
-        const contribs = data.contributions || [];
-        const days = contribs.map((d: any) => ({
+        const contribs = (data.contributions || []) as ContributionApiRecord[];
+        const days = contribs.map((d) => ({
           date: new Date(d.date),
           count: d.count
         }));
@@ -320,11 +325,6 @@ function HeatmapCell({
   const [showTooltip, setShowTooltip] = useState(false);
   const [tooltipPos, setTooltipPos] = useState<"top" | "bottom">("top");
   const cellRef = useRef<HTMLDivElement>(null);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   if (!day) {
     return <div style={{ width: cellSize, height: cellSize }} className="opacity-0" />;
@@ -387,7 +387,7 @@ function HeatmapCell({
           type: "spring",
           stiffness: 400,
           damping: 20,
-          delay: mounted ? 0 : delay,
+          delay,
         }}
       >
         {showNumbers && day.count > 0 && cellSize >= 8 && (

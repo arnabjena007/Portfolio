@@ -12,22 +12,14 @@ import Footer from "@/components/layout/Footer";
 const ProjectCard = ({ 
   title, 
   description, 
-  isActive, 
-  category, 
   projectImage, 
-  stack, 
   iconLists,
-  link, 
   id 
 }: {
   title: string;
   description: string;
-  isActive: boolean;
-  category: string;
   projectImage: string;
-  stack: string[];
   iconLists?: string[];
-  link: string;
   id: number;
 }) => {
   return (
@@ -131,12 +123,8 @@ const ProjectsPage = () => {
                   id={p.id}
                   title={p.title}
                   description={p.des}
-                  isActive={!p.link.includes('github')}
-                  category={p.category}
                   projectImage={p.img}
-                  stack={p.techStack || []}
                   iconLists={p.iconLists}
-                  link={p.link}
                 />
               );
             })}

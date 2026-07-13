@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { projects } from "@/data";
-import { Link as LinkIcon, ChevronLeft, ArrowUpRight } from "lucide-react";
+import { Link as LinkIcon, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 
 type ProjectItem = {
@@ -20,22 +20,14 @@ type ProjectItem = {
 const ProjectCard = ({ 
   title, 
   description, 
-  isActive, 
-  category, 
   projectImage, 
-  stack, 
   iconLists,
-  link, 
   id 
 }: {
   title: string;
   description: string;
-  isActive: boolean;
-  category: string;
   projectImage: string;
-  stack: string[];
   iconLists?: string[];
-  link: string;
   id: number;
 }) => {
   return (
@@ -134,12 +126,8 @@ const Projects = ({ hideHeader = false, items = projects }: { hideHeader?: boole
               id={p.id}
               title={p.title}
               description={p.des}
-              isActive={!p.link.includes('github')}
-              category={p.category ?? ""}
               projectImage={p.img}
-              stack={p.techStack || []}
               iconLists={p.iconLists}
-              link={p.link}
             />
           );
         })}

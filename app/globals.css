@@ -31,7 +31,11 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-instrument-sans), sans-serif;
+    font-family: var(--font-kalam), sans-serif;
+  }
+
+  .font-serif {
+    font-family: var(--font-instrument-serif), serif;
   }
 }
 
@@ -238,4 +242,4 @@ pre code.hljs {
 
 
 
-
+

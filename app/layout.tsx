@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Inter, Instrument_Serif, Instrument_Sans, Pixelify_Sans } from "next/font/google";
+import { Inter, Kalam, Instrument_Serif, Instrument_Sans, Pixelify_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { Navbar } from "@/components/layout/Navbar";
@@ -9,6 +9,11 @@ import { PageTransition } from "@/components/layout/PageTransition";
 
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const kalam = Kalam({
+  subsets: ["latin"],
+  weight: ["300", "400", "700"],
+  variable: "--font-kalam",
+});
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
   weight: "400",
@@ -45,7 +50,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${instrumentSerif.variable} ${instrumentSans.variable} ${pixelifySans.variable} font-sans antialiased`} suppressHydrationWarning>
+        <body className={`${inter.variable} ${kalam.variable} ${instrumentSerif.variable} ${instrumentSans.variable} ${pixelifySans.variable} font-sans antialiased`} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
@@ -61,11 +66,8 @@ export default function RootLayout({
               })(window, document, "clarity", "script", "x5viuw258x");
             `}
           </Script>
-          {/* Background */}
           <div className="fixed inset-0 min-h-screen w-full bg-[#FAFAFA] dark:bg-[#0A0A0A] transition-colors duration-500 pointer-events-none z-0" />
-
           <div className="relative z-10 w-full">
-            {/* Navbar inside the same bordered column */}
             <div className="w-full max-w-3xl mx-auto border-l border-r border-solid border-neutral-200 dark:border-white/[0.1]">
               <Navbar />
             </div>
