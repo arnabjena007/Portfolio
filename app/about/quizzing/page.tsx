@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowLeft, Clock } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
+import Footer from "@/components/layout/Footer";
 
 const links = {
     kbc: "https://en.wikipedia.org/wiki/Kaun_Banega_Crorepati",
@@ -95,13 +96,41 @@ const galleryImages = [
     { src: "/quizzing-certificate.jpg", alt: "Certificate presentation" },
 ];
 
+const DiagonalSeparator = () => (
+    <div className="relative mb-8 flex h-5 w-full select-none items-center justify-center pointer-events-none">
+        <div className="absolute left-1/2 h-full w-[100vw] -translate-x-1/2 border-b border-t border-neutral-200 dark:border-neutral-800/50">
+            <div
+                className="absolute inset-0 block dark:hidden"
+                style={{
+                    backgroundImage:
+                        "repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(0, 0, 0, 0.03) 6px, rgba(0, 0, 0, 0.03) 7px)",
+                }}
+            />
+            <div
+                className="absolute inset-0 hidden dark:block"
+                style={{
+                    backgroundImage:
+                        "repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(255, 255, 255, 0.1) 6px, rgba(255, 255, 255, 0.1) 7px)",
+                }}
+            />
+        </div>
+    </div>
+);
+
 const QuizzingPage = () => {
     return (
-        <div className="mx-auto min-h-screen w-full max-w-4xl border-l border-r border-solid border-neutral-200 px-8 pb-24 pt-8 font-sans leading-relaxed text-neutral-700 dark:border-white/[0.1] dark:text-neutral-300 sm:px-12">
-            <div className="mb-10 border-b border-neutral-200 pb-8 dark:border-neutral-800/50">
+        <div className="mx-auto min-h-screen w-full max-w-4xl border-l border-r border-solid border-neutral-200 px-8 pb-16 font-sans leading-relaxed text-neutral-700 dark:border-white/[0.1] dark:text-neutral-300 sm:px-12">
+            <header className="relative -mx-8 overflow-hidden border-b border-neutral-200 px-8 py-12 text-center dark:border-white/[0.05] sm:-mx-12 sm:px-12 sm:text-left">
+                <img
+                    src="/footer-bg.png"
+                    alt=""
+                    className="absolute inset-0 z-0 h-full w-full object-cover opacity-90"
+                />
+                <div className="absolute inset-0 z-0 bg-black/10" />
+
                 <Link
                     href="/about#other-side-quests"
-                    className="group inline-flex items-center gap-2 text-sm font-medium text-neutral-500 transition-colors duration-200 hover:text-yellow-600 dark:text-neutral-400 dark:hover:text-yellow-500"
+                    className="group relative z-10 mb-10 inline-flex items-center gap-2 text-sm font-medium text-white/75 transition-colors duration-200 hover:text-white"
                 >
                     <ArrowLeft
                         size={15}
@@ -109,22 +138,23 @@ const QuizzingPage = () => {
                     />
                     Other pursuits
                 </Link>
-            </div>
 
-            <main>
-                <header className="mb-12 border-b border-neutral-200 pb-8 dark:border-neutral-800/50">
-                    <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tight text-neutral-900 dark:text-white sm:text-5xl">
+                <div className="relative z-10">
+                    <p className="mb-3 font-mono text-xs uppercase tracking-[0.18em] text-white/75">
+                        Side Quest
+                    </p>
+                    <h1 className="mb-4 font-serif text-4xl font-bold italic tracking-wide text-white drop-shadow-md md:text-5xl">
                         Quizzing
                     </h1>
-                    <p className="mb-6 max-w-3xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
+                    <p className="mx-auto max-w-2xl text-base leading-relaxed text-white/90 drop-shadow-md sm:mx-0">
                         On KBC, Bangalore&apos;s quiz circuit, Mimansa, and why a good question can make facts come alive.
                     </p>
-                    <div className="flex items-center gap-2 text-sm font-medium text-neutral-500">
-                        <Clock size={13} className="text-yellow-600 dark:text-yellow-500" />
-                        4 min read
-                    </div>
-                </header>
+                </div>
+            </header>
 
+            <DiagonalSeparator />
+
+            <main className="mt-8">
                 <article className="space-y-12">
                     {sections.map((section) => (
                         <section key={section.title}>
@@ -195,6 +225,10 @@ const QuizzingPage = () => {
                     </section>
                 </article>
             </main>
+
+            <div className="-mx-8 mt-16 sm:-mx-12">
+                <Footer />
+            </div>
         </div>
     );
 };
