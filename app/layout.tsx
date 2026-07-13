@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Inter, Kalam, Instrument_Serif, Instrument_Sans, Pixelify_Sans } from "next/font/google";
+import { Kalam, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { Navbar } from "@/components/layout/Navbar";
 import { LeftSidebar } from "@/components/layout/LeftSidebar";
 import { PageTransition } from "@/components/layout/PageTransition";
 
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const kalam = Kalam({
   subsets: ["latin"],
   weight: ["300", "400", "700"],
@@ -18,15 +16,6 @@ const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-instrument-serif",
-});
-const instrumentSans = Instrument_Sans({
-  subsets: ["latin"],
-  variable: "--font-instrument-sans",
-});
-const pixelifySans = Pixelify_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-pixelify",
 });
 
 export const metadata: Metadata = {
@@ -50,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${kalam.variable} ${instrumentSerif.variable} ${instrumentSans.variable} ${pixelifySans.variable} font-sans antialiased`} suppressHydrationWarning>
+      <body className={`${kalam.variable} ${instrumentSerif.variable} font-sans antialiased`} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

@@ -114,7 +114,7 @@ export const Navbar = () => {
         >
             {/* Left: Logo */}
             <Link href="/" className="flex items-center gap-0 select-none">
-                <span className="text-lg md:text-xl font-bold tracking-[0.1em] text-neutral-900 dark:text-white uppercase" style={{ fontFamily: 'var(--font-pixelify), monospace' }}>
+                <span className="text-lg md:text-xl font-bold tracking-[0.1em] text-neutral-900 dark:text-white uppercase font-serif">
                     DEVO
                 </span>
             </Link>

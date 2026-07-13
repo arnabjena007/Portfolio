@@ -572,7 +572,7 @@ export function Gitmap({
                   width: activeCellSize + activeGap,
                   fontSize: Math.max(8, Math.min(10, activeCellSize)),
                   color: "#737373",
-                  fontFamily: "monospace",
+                  fontFamily: "var(--font-kalam), cursive",
                   flexShrink: 0,
                 }}
               >
@@ -597,7 +597,7 @@ export function Gitmap({
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "flex-end",
-                  fontFamily: "monospace",
+                  fontFamily: "var(--font-kalam), cursive",
                   flexShrink: 0,
                 }}
               >
@@ -641,7 +641,7 @@ export function Gitmap({
 
         {/* Legend */}
         <div style={{ display: "flex", alignItems: "center", gap: 4, marginTop: 8, justifyContent: "flex-end" }}>
-          <span style={{ fontSize: 10, color: "#737373", fontFamily: "monospace" }}>Less</span>
+          <span style={{ fontSize: 10, color: "#737373", fontFamily: "var(--font-kalam), cursive" }}>Less</span>
           {levels.map((color, i) => (
             <div
               key={i}
@@ -664,7 +664,7 @@ export function Gitmap({
               }}
             />
           ))}
-          <span style={{ fontSize: 10, color: "#737373", fontFamily: "monospace" }}>More</span>
+          <span style={{ fontSize: 10, color: "#737373", fontFamily: "var(--font-kalam), cursive" }}>More</span>
         </div>
       </div>
     </div>

@@ -25,9 +25,10 @@ const config: Config = {
                 yellow: "#e9dd6eff",
             },
             fontFamily: {
-                sans: ["var(--font-inter)", "sans-serif"],
+                sans: ["var(--font-kalam)", "cursive"],
                 serif: ["var(--font-instrument-serif)", "serif"],
-                instrument: ["var(--font-instrument-sans)", "sans-serif"],
+                instrument: ["var(--font-kalam)", "cursive"],
+                mono: ["var(--font-kalam)", "cursive"],
             },
             animation: {
                 spotlight: "spotlight 2s ease .75s 1 forwards",
