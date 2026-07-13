@@ -120,7 +120,7 @@ export const projects = [
         id: 7,
         title: "Mapify",
         des: "A modern, interactive web application for finding shortest paths in Kolkata using Dijkstra's algorithm.",
-        img: "/p5.png",
+        img: "/mapify-screenshot.png",
         iconLists: ["/re.svg", "/tail.svg", "/ts.svg"],
         link: "https://github.com/arnabjena007",
         githubLink: "https://github.com/arnabjena007",
