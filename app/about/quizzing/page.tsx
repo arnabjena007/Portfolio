@@ -86,12 +86,12 @@ const sections = [
 
 const galleryImages = [
     { src: "/quizzing-qotb-bangalore-cluster.png", alt: "QOTB Bangalore cluster finals" },
+    { src: "/quizzing-trophy.jpg", alt: "Trophy moment" },
     { src: "/quizzing-brain-chain.png", alt: "Brain Chain quiz with classmates" },
     { src: "/quizzing-reflekta.png", alt: "Reflekta 2025 quiz certificate moment" },
     { src: "/general-quiz.jpg", alt: "General quiz finalists" },
     { src: "/science-quiz.jpg", alt: "Science quiz stage moment" },
     { src: "/quizzing-panel.jpg", alt: "Quiz panel on stage" },
-    { src: "/quizzing-trophy.jpg", alt: "Trophy moment" },
     { src: "/quizzing-certificate.jpg", alt: "Certificate presentation" },
 ];
 
@@ -141,18 +141,14 @@ const QuizzingPage = () => {
                         <h2 className="mb-6 border-l-2 border-yellow-500 pl-4 font-serif text-3xl font-bold text-neutral-900 dark:text-white">
                             Moments from the circuit
                         </h2>
-                        <div className="grid gap-5 md:grid-cols-2">
+                        <div className="columns-1 gap-4 space-y-4 md:columns-2">
                             {galleryImages.map((image) => (
-                                <div
+                                <img
                                     key={image.src}
-                                    className="flex min-h-64 items-center justify-center overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-100 p-2 dark:border-neutral-800 dark:bg-neutral-950/60"
-                                >
-                                    <img
-                                        src={image.src}
-                                        alt={image.alt}
-                                        className="max-h-[520px] w-full rounded-xl object-contain"
-                                    />
-                                </div>
+                                    src={image.src}
+                                    alt={image.alt}
+                                    className="mb-4 w-full break-inside-avoid rounded-xl object-contain"
+                                />
                             ))}
                         </div>
                     </section>
