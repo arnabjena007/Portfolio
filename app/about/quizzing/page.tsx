@@ -2,26 +2,8 @@ import Footer from "@/components/layout/Footer";
 import Link from "next/link";
 import { ArrowLeft, Clock } from "lucide-react";
 
-const sections = [
-    {
-        title: "How it started",
-        paragraphs: [
-            "Quizzing has been one of the few constants in my life. Out of all the things I keep returning to, this one has stayed with me since school: competitions, pub quizzes, hosting, writing questions, and chasing that tiny electric moment when a clue finally clicks.",
-            "I remember maa asking me to finish my homework early so I could watch KBC on Sony TV at 9:00 PM. KBC single handedly changed prime time viewing for many Indian families, shifting attention from daily soaps to high-stakes appointment television built around knowledge. It made curiosity feel glamorous, democratic, and rewarding across generations.",
-            "One reason I came to Karnataka for my undergraduate studies was Bangalore's well-established quizzing circuit like RVCE Under the Peepal Tree, TAPMI's Quiz on the Beach, Christ University's CUIZ, and so many others. At MIT Bengaluru, I have led Mimansa, the quizzing society, and helped the team participate actively across Bangalore's circuit.",
-        ],
-    },
-    {
-        title: "My two cents on quizzing",
-        paragraphs: [
-            "In school, you study to remember. You read something, retain it, reproduce it in an exam, and move on. The goal is the grade. Quizzing does not work like that.",
-            "When you get a question wrong at a quiz, you do not just note the answer and forget it. You feel it. There is a mild sting of \"I should have known that,\" and that sting is surprisingly effective. You almost never forget the answer after that.",
-            "More importantly, quizzing teaches you to connect things. A good question is not just trivia. It gives you a trail of clues: a date, a place, a person, a pattern. You work backwards to the answer. You are not just recalling facts; you are reasoning through them.",
-            "Over the years, I have realized that people are most present in the gap between not knowing and knowing, when they are not sure if they are right but think they might be. I see my job as building the bridge between \"I don't know\" and \"Oh, I see.\" A good quiz question makes the answer feel just out of reach, close enough to chase and far enough to make the chase worthwhile.",
-            "Quizzing taught me that knowledge has texture. Some facts are sticky, some are slippery. Apps taught me that engagement is fragile; you have seconds to earn attention and even fewer to keep it. Live quizzes taught me that the best moments are shared. Good quizzing is not just about facts. It is about making them come alive.",
-        ],
-    },
-];
+const externalLinkClass =
+    "text-yellow-600 underline decoration-yellow-500/40 underline-offset-4 transition-colors hover:text-yellow-700 dark:text-yellow-500 dark:hover:text-yellow-400";
 
 const quizzingMoments = [
     {
@@ -89,18 +71,130 @@ const QuizzingPage = () => {
                 </header>
 
                 <article className="space-y-12">
-                    {sections.map((section) => (
-                        <section key={section.title}>
-                            <h2 className="mb-4 border-l-2 border-yellow-500 pl-4 font-serif text-3xl font-bold text-neutral-900 dark:text-white">
-                                {section.title}
-                            </h2>
-                            <div className="space-y-6 text-neutral-700 dark:text-neutral-300">
-                                {section.paragraphs.map((paragraph) => (
-                                    <p key={paragraph}>{paragraph}</p>
-                                ))}
-                            </div>
-                        </section>
-                    ))}
+                    <section>
+                        <h2 className="mb-4 border-l-2 border-yellow-500 pl-4 font-serif text-3xl font-bold text-neutral-900 dark:text-white">
+                            How it started
+                        </h2>
+                        <div className="space-y-6 text-neutral-700 dark:text-neutral-300">
+                            <p>
+                                Quizzing has been one of the few constants in my life. Out of all the things I keep
+                                returning to, this one has stayed with me since school: competitions, pub quizzes,
+                                hosting, writing questions, and chasing that tiny electric moment when a clue finally
+                                clicks.
+                            </p>
+                            <p>
+                                I remember <em>maa</em> asking me to finish my homework early so I could watch{" "}
+                                <a
+                                    href="https://en.wikipedia.org/wiki/Kaun_Banega_Crorepati"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className={externalLinkClass}
+                                >
+                                    KBC
+                                </a>{" "}
+                                on Sony TV at 9:00 PM. The show changed prime-time viewing for many Indian families,
+                                shifting attention from daily soaps to high-stakes appointment television built around
+                                knowledge. It made curiosity feel glamorous, democratic, and rewarding across
+                                generations.
+                            </p>
+                            <p>
+                                One reason I came to Karnataka for my <em>undergrad</em> was Bangalore&apos;s
+                                well-established quizzing circuit, shaped in no small part by the{" "}
+                                <a
+                                    href="http://kqaquizzes.org/"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className={externalLinkClass}
+                                >
+                                    Karnataka Quiz Association
+                                </a>
+                                : RVCE&apos;s{" "}
+                                <a
+                                    href="https://rvce.edu.in/cultural_teams/quizcorp/"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className={externalLinkClass}
+                                >
+                                    Under the Peepal Tree
+                                </a>
+                                , TAPMI&apos;s{" "}
+                                <a
+                                    href="https://www.tapmi.edu.in/event/quiz-on-the-beach-qotb/"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className={externalLinkClass}
+                                >
+                                    Quiz on the Beach
+                                </a>
+                                , Christ University&apos;s CUIZ, and so many others. At MIT Bengaluru, I have led{" "}
+                                <a
+                                    href="https://www.instagram.com/mimansa.mitblr/"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className={externalLinkClass}
+                                >
+                                    Mimansa
+                                </a>
+                                , the quizzing society, and helped the team participate actively across Bangalore&apos;s
+                                circuit.
+                            </p>
+                            <p>
+                                Some of that has meant representing teams at the QOTB Bangalore cluster finals, and a
+                                lot of it has meant showing up for in-house college quizzes: sometimes as a participant,
+                                sometimes helping run the room, and sometimes just being around the people who make a
+                                quiz feel alive.
+                            </p>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2 className="mb-4 border-l-2 border-yellow-500 pl-4 font-serif text-3xl font-bold text-neutral-900 dark:text-white">
+                            My two cents on quizzing
+                        </h2>
+                        <div className="space-y-6 text-neutral-700 dark:text-neutral-300">
+                            <p>
+                                In school, you study to remember. You read something, retain it, reproduce it in an
+                                exam, and move on. The goal is the grade. Quizzing does not work like that.
+                            </p>
+                            <p>
+                                When you get a question wrong at a quiz, you do not just note the answer and forget it.
+                                You feel it. There is a mild sting of <em>&quot;I should have known that&quot;</em>, and
+                                that sting is surprisingly effective. You almost never forget the answer after that.
+                            </p>
+                            <p>
+                                More importantly, quizzing teaches you to connect things. A good question is not just
+                                trivia. It gives you a trail of clues: a date, a place, a person, a pattern. You work
+                                backwards to the answer. You are not just recalling facts; you are reasoning through
+                                them.
+                            </p>
+                            <p>
+                                Over the years, I have realized that people are most present in the gap between not
+                                knowing and knowing, when they are not sure if they are right but think they might be. I
+                                see my job as building the bridge between <em>&quot;I don&apos;t know&quot;</em> and{" "}
+                                <em>&quot;Oh, I see&quot;</em>. A good quiz question makes the answer feel just out of
+                                reach, close enough to chase and far enough to make the chase worthwhile.
+                            </p>
+                            <p>
+                                Quizzing taught me that knowledge has texture. Some facts are sticky, some are
+                                slippery. Apps taught me that engagement is fragile; you have seconds to earn attention
+                                and even fewer to keep it. Live quizzes taught me that the best moments are shared. Good
+                                quizzing is not just about facts. It is about making them come alive.
+                            </p>
+                            <p>
+                                I had written an older, rougher version of these thoughts long ago on Quora:{" "}
+                                <a
+                                    href="https://www.quora.com/How-has-been-your-quizzing-experience"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className={externalLinkClass}
+                                >
+                                    How has been your quizzing experience?
+                                </a>
+                                . It is a nice little time capsule of how I used to think about quizzes before this
+                                became a larger part of my life.
+                            </p>
+                        </div>
+                    </section>
 
                     <section>
                         <h2 className="mb-4 border-l-2 border-yellow-500 pl-4 font-serif text-3xl font-bold text-neutral-900 dark:text-white">
@@ -124,7 +218,15 @@ const QuizzingPage = () => {
 
                     <section className="rounded-2xl border border-neutral-200 bg-neutral-50 p-5 dark:border-neutral-800 dark:bg-neutral-900/40">
                         <p className="mb-3 font-mono text-xs uppercase tracking-[0.16em] text-yellow-600 dark:text-yellow-500">
-                            A recent question from 4Edge Sunday Quiz
+                            A recent question from{" "}
+                            <a
+                                href="https://www.instagram.com/4edgequizzing/?hl=en"
+                                target="_blank"
+                                rel="noreferrer"
+                                className={externalLinkClass}
+                            >
+                                4 Edge Sunday Quiz
+                            </a>
                         </p>
                         <img
                             src="/quizzing-lion-beer-question.png"
@@ -132,15 +234,60 @@ const QuizzingPage = () => {
                             className="mb-5 w-full rounded-xl border border-neutral-200 bg-white dark:border-neutral-800"
                         />
                         <p className="text-neutral-700 dark:text-neutral-300">
-                            In 1855, British entrepreneur Edward Abraham Dyer established the Kasauli Brewery in
-                            Himachal Pradesh to supply fresh liquor to British troops. That brewery gave birth to Lion
-                            Beer, widely regarded as Asia&apos;s first commercial beer brand. The same family name later
-                            became infamous through his youngest son, Brigadier-General Reginald Dyer, who ordered the
-                            Jallianwala Bagh massacre in 1919. After Indian independence, the business was bought by the
-                            Mohan family in 1949 and became Mohan Meakin Limited. Instead of shutting the colonial
-                            infrastructure down, the new management repurposed it into a homegrown legacy that gave
-                            India cultural staples like Old Monk Rum and Doctor&apos;s Brandy, one of the country&apos;s first
-                            domestic spirits to earn a V.S.O.P. classification.
+                            This one begins with{" "}
+                            <a
+                                href="https://en.wikipedia.org/wiki/Mohan_Meakin"
+                                target="_blank"
+                                rel="noreferrer"
+                                className={externalLinkClass}
+                            >
+                                Lion Beer
+                            </a>
+                            , one of Asia&apos;s earliest commercial beer brands, and ends in one of the darkest
+                            chapters of colonial India. In 1855, British entrepreneur Edward Abraham Dyer established
+                            the Kasauli Brewery in Himachal Pradesh to supply fresh liquor to British troops. The same
+                            family name later became infamous through his youngest son,{" "}
+                            <a
+                                href="https://en.wikipedia.org/wiki/Reginald_Dyer"
+                                target="_blank"
+                                rel="noreferrer"
+                                className={externalLinkClass}
+                            >
+                                Brigadier-General Reginald Dyer
+                            </a>
+                            , who ordered the{" "}
+                            <a
+                                href="https://en.wikipedia.org/wiki/Jallianwala_Bagh_massacre"
+                                target="_blank"
+                                rel="noreferrer"
+                                className={externalLinkClass}
+                            >
+                                Jallianwala Bagh massacre
+                            </a>{" "}
+                            in 1919.
+                        </p>
+                        <p className="mt-4 text-neutral-700 dark:text-neutral-300">
+                            After Indian independence, the business was bought by the Mohan family in 1949 and became{" "}
+                            <a
+                                href="https://en.wikipedia.org/wiki/Mohan_Meakin"
+                                target="_blank"
+                                rel="noreferrer"
+                                className={externalLinkClass}
+                            >
+                                Mohan Meakin Limited
+                            </a>
+                            . Instead of shutting the colonial infrastructure down, the new management repurposed it
+                            into a homegrown legacy that gave India cultural staples like{" "}
+                            <a
+                                href="https://en.wikipedia.org/wiki/Old_Monk"
+                                target="_blank"
+                                rel="noreferrer"
+                                className={externalLinkClass}
+                            >
+                                Old Monk
+                            </a>{" "}
+                            Rum and Doctor&apos;s Brandy, one of the country&apos;s first domestic spirits to earn a
+                            V.S.O.P. classification.
                         </p>
                     </section>
                 </article>
