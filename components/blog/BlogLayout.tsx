@@ -69,7 +69,7 @@ export function BlogLayout({
       <ReadingProgressBar />
 
       {/* Main Container - matches the HomePage center column */}
-      <div className="w-full max-w-3xl mx-auto px-8 sm:px-12 relative pb-24 pt-8 text-neutral-700 dark:text-neutral-300 font-sans leading-relaxed border-l border-r border-solid border-neutral-200 dark:border-white/[0.1] min-h-screen">
+      <div className="mx-auto min-h-screen w-full max-w-6xl border-l border-r border-solid border-neutral-200 px-8 pb-24 pt-8 font-sans leading-relaxed text-neutral-700 dark:border-white/[0.1] dark:text-neutral-300 sm:px-12">
         
         {/* ── Top bar: back link ── */}
         <div className="pb-8 border-b border-neutral-200 dark:border-neutral-800/50 mb-10">
@@ -92,16 +92,16 @@ export function BlogLayout({
         </div>
 
         {/* ── Main grid: TOC | Article ── */}
-        <div className="relative">
+        <div className="grid gap-10 xl:grid-cols-[190px_minmax(0,768px)] xl:justify-center xl:gap-14">
 
           {/* ── LEFT: sticky TOC (desktop only) ── */}
-          <aside className="hidden xl:block w-52 shrink-0 sticky top-24 self-start xl:absolute xl:right-full xl:mr-10">
+          <aside className="hidden xl:block self-start">
             <TOC headings={headings} />
           </aside>
 
           {/* ── CENTER: Post content ── */}
           <motion.main
-            className="min-w-0 flex-1"
+            className="min-w-0"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}

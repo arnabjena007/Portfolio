@@ -60,12 +60,12 @@ export function TOC({ headings }: TOCProps) {
   return (
     <nav
       aria-label="Table of contents"
-      className="sticky top-24 hidden xl:block w-56 shrink-0"
+      className="sticky top-24 hidden max-h-[calc(100vh-7rem)] w-full overflow-y-auto pr-2 xl:block"
     >
-      <p className="text-xs font-sans font-medium uppercase tracking-widest text-yellow-400/70 mb-4 px-1">
+      <p className="mb-4 px-1 font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">
         On this page
       </p>
-      <ul className="space-y-0.5">
+      <ul className="space-y-1 border-l border-neutral-200 pl-3 dark:border-neutral-800">
         {headings.map((h) => {
           const isActive = activeId === h.id;
           return (
@@ -74,7 +74,7 @@ export function TOC({ headings }: TOCProps) {
                 onClick={() => handleClick(h.id)}
                 className={`
                   group relative w-full text-left transition-all duration-200
-                  ${h.level === 3 ? "pl-5" : "pl-2"}
+                  ${h.level === 3 ? "pl-3" : "pl-0"}
                 `}
               >
                 {/* Active indicator bar */}
@@ -82,7 +82,7 @@ export function TOC({ headings }: TOCProps) {
                   {isActive && (
                     <motion.span
                       layoutId="toc-active-bar"
-                      className="absolute left-0 top-0.5 bottom-0.5 w-0.5 bg-yellow-400 rounded-full"
+                      className="absolute -left-3 top-1 bottom-1 w-0.5 rounded-full bg-yellow-500"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
@@ -93,13 +93,13 @@ export function TOC({ headings }: TOCProps) {
 
                 <span
                   className={`
-                    block py-1 pr-2 text-sm font-sans leading-snug transition-colors duration-200
+                    block py-1 pr-2 font-sans leading-snug transition-colors duration-200
                     ${
                       isActive
-                        ? "text-yellow-400 font-medium"
-                        : "text-zinc-500 hover:text-zinc-300"
+                        ? "font-medium text-yellow-600 dark:text-yellow-500"
+                        : "text-neutral-500 hover:text-neutral-900 dark:text-neutral-500 dark:hover:text-neutral-300"
                     }
-                    ${h.level === 3 ? "text-xs" : "text-sm"}
+                    ${h.level === 3 ? "text-xs" : "text-[13px]"}
                   `}
                 >
                   {h.text}
