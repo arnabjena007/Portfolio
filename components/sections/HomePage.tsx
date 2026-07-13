@@ -217,7 +217,13 @@ export const HomePage = () => {
                         <h2 className="text-3xl font-serif italic font-bold text-neutral-900 dark:text-white">About</h2>
                     </div>
                     <p className="text-neutral-700 dark:text-neutral-300 text-base md:text-base max-w-2xl leading-relaxed">
-                        I&apos;m Arnab Jena. I&apos;m currently a student studying Computer Science at Manipal Institute of Technology, Bengaluru. I spend most of my time going down the rabbit hole and teaching myself whatever catches my curiosity. All of which this page attempts to outline.
+                        I&apos;m Arnab Jena. I&apos;m currently a student studying Computer Science at Manipal Institute of Technology, Bengaluru. I spend most of my time going down the rabbit hole and teaching myself whatever catches my curiosity. All of which this page attempts to outline. You can check out the other things I do{" "}
+                        <Link
+                            href="/about#other-side-quests"
+                            className="font-medium text-neutral-900 underline decoration-yellow-400 decoration-2 underline-offset-4 transition-colors hover:text-yellow-600 dark:text-white dark:hover:text-yellow-300"
+                        >
+                            here
+                        </Link>.
                     </p>
                 </section>
 

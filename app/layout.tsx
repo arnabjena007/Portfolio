@@ -26,8 +26,8 @@ const pixelifySans = Pixelify_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "Devo Portfolio",
-    template: "%s | Devo Portfolio",
+    default: "Devo · portfolio",
+    template: "%s | Devo · portfolio",
   },
   description:
     "Portfolio of Arnab Jena, a frontend engineer and computer science student building thoughtful web experiences.",
