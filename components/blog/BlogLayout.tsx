@@ -92,10 +92,10 @@ export function BlogLayout({
         </div>
 
         {/* ── Main grid: TOC | Article ── */}
-        <div className="grid gap-10 xl:grid-cols-[190px_minmax(0,768px)] xl:justify-center xl:gap-14">
+        <div className="grid gap-10 xl:grid-cols-[220px_minmax(0,768px)] xl:justify-center xl:gap-14 xl:items-start">
 
           {/* ── LEFT: sticky TOC (desktop only) ── */}
-          <aside className="hidden xl:block self-start">
+          <aside className="hidden xl:block">
             <TOC headings={headings} />
           </aside>
 
