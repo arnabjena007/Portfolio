@@ -283,6 +283,79 @@ saveAsPdf(pdfBytes);`,
             "Interactive map-first user experience",
         ],
     }
+    ,
+    {
+        id: 8,
+        title: "Nehru",
+        des: "An immersive historical introduction that uses motion, portrait animation, and narrative pacing to create a quiet entry into the story.",
+        overview: "Nehru is an atmospheric interactive experience that introduces a historical voice through a cinematic landing flow. It focuses on mood, pacing, and restrained interaction instead of dense UI so the portrait and narration can do the heavy lifting.",
+        whatItIs: "A narrative-first web experience built around a portrait reveal, a short guided intro, and a transition into the main conversation.",
+        problem: "Historical or documentary-style web pages often feel static, which makes the opening moment forgettable and weakens the emotional connection.",
+        howItWorks: "The page opens with an animated portrait sequence, a brief intro panel, and a continue flow that moves the user from presentation into the main content at a deliberate pace.",
+        whyItStandsOut: "Nehru stands out because it uses restraint as the design language. The interface is quiet, the typography is formal, and the experience relies on timing and composition rather than heavy interaction.",
+        repositoryStructure: [
+            "Intro/landing logic handles the portrait reveal and skip flow",
+            "Narrative sections control the transition into the main experience",
+            "Motion and animation layers guide pacing and attention",
+            "Shared UI components keep the presentation consistent",
+        ],
+        installation: [
+            "git clone https://github.com/arnabjena007/nehru.git",
+            "cd nehru",
+            "npm install",
+            "npm run dev",
+        ],
+        setupNotes: [
+            "Built as a browser experience with a strong visual focus",
+            "Best viewed on a larger screen to preserve the composition",
+            "Use the intro flow first, then continue into the main narrative",
+        ],
+        localRun: [
+            "npm run dev",
+            "Open the local development URL shown in the terminal",
+        ],
+        flagReference: [
+            "Skip Intro: jumps past the opening sequence",
+            "Continue: enters the main experience",
+        ],
+        codeSnippets: [
+            {
+                title: "Intro state",
+                language: "ts",
+                code: `const [introDone, setIntroDone] = useState(false);
+
+const continueToStory = () => {
+  setIntroDone(true);
+  setTimeout(() => scrollToNarrative(), 300);
+};`,
+            },
+            {
+                title: "Portrait reveal",
+                language: "ts",
+                code: `useEffect(() => {
+  const timer = setTimeout(() => {
+    setPortraitVisible(true);
+  }, 150);
+
+  return () => clearTimeout(timer);
+}, []);`,
+            },
+        ],
+        img: "/p4.jpg",
+        iconLists: ["/next.svg", "/tail.svg", "/ver.svg"],
+        link: "https://nehru-devo.vercel.app/",
+        githubLink: "https://github.com/arnabjena007/nehru",
+        category: "Interactive Experience",
+        techStack: ["Next.js", "TypeScript", "TailwindCSS"],
+        details: "An immersive historical introduction that uses motion, portrait animation, and narrative pacing to create a quiet entry into the story. It is designed to feel cinematic, restrained, and deliberate.",
+        features: [
+            "Portrait-led intro sequence",
+            "Skip and continue flow",
+            "Narrative pacing and motion",
+            "Quiet editorial typography",
+            "Minimal interface with strong composition",
+        ],
+    }
 ];
 
 export const featuredProjects = [
