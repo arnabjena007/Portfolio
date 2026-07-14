@@ -4,6 +4,7 @@ import { projects } from "@/data";
 import { ChevronLeft } from "lucide-react";
 import Image from "next/image";
 import React from "react";
+import CodeSnippetBlock from "@/components/sections/CodeSnippetBlock";
 
 interface Props {
   params: Promise<{
@@ -11,20 +12,42 @@ interface Props {
   }>;
 }
 
+type ProjectDetail = {
+  overview?: string;
+  whatItIs?: string;
+  problem?: string;
+  howItWorks?: string;
+  whyItStandsOut?: string;
+  challenge?: string;
+  solution?: string;
+  outcome?: string;
+  repositoryStructure?: string[];
+  installation?: string[];
+  setupNotes?: string[];
+  localRun?: string[];
+  flagReference?: string[];
+  codeSnippets?: Array<{
+    title: string;
+    language: string;
+    code: string;
+  }>;
+};
+
 const Page = async ({ params }: Props) => {
   const { id } = await params;
   const project = projects.find((p) => p.id.toString() === id);
   
   if (!project) return null;
+  const detailProject = project as typeof project & ProjectDetail;
 
   return (
-    <div className="w-full min-h-screen font-sans dark:bg-[#09090B]">
+    <div className="w-full min-h-screen font-serif dark:bg-[#09090B]">
       <div className="w-full max-w-3xl mx-auto border-l border-r border-neutral-200 dark:border-white/[0.1]">
-        <div className="relative h-40 border-b border-neutral-200 dark:border-neutral-800/60 overflow-hidden">
+        <div className="relative h-28 border-b border-neutral-200 dark:border-neutral-800/60 overflow-hidden">
           <div className="absolute inset-0 dotted-background" />
         </div>
 
-        <main className="relative border-b border-neutral-200 dark:border-neutral-800/60 font-sans tracking-tight">
+        <main className="relative border-b border-neutral-200 dark:border-neutral-800/60 font-serif tracking-tight">
           <div className="w-2 h-2 bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 -top-1 -left-1 absolute border" />
           <div className="w-2 h-2 bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 -top-1 -right-1 absolute border" />
 
@@ -34,10 +57,10 @@ const Page = async ({ params }: Props) => {
                 <ChevronLeft />
               </div>
             </Link>
-            <p className="text-lg font-sans font-semibold">{project?.title}</p>
+            <p className="text-lg font-serif font-semibold text-amber-300">{project?.title}</p>
           </div>
 
-          {/* Video Block (Mocked with image since there's no ProjectVideoPlayer) */}
+          {/* Preview Image */}
           <div className="mx-4 sm:mx-6 border rounded-lg p-2 border-neutral-200 dark:border-neutral-800 relative aspect-video overflow-hidden">
             <Image src={project?.img} alt={project?.title} fill className="object-cover rounded" />
           </div>
@@ -47,7 +70,7 @@ const Page = async ({ params }: Props) => {
             <Link
               href={project?.githubLink || project?.link}
               target="_blank"
-              className="flex items-center justify-center gap-1.5 py-2.5 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors cursor-pointer"
+              className="flex items-center justify-center gap-1.5 py-2.5 text-white hover:bg-neutral-950/40 transition-colors cursor-pointer font-serif"
             >
               <svg
                 width="15"
@@ -63,7 +86,7 @@ const Page = async ({ params }: Props) => {
             <Link
               href={project?.link}
               target="_blank"
-              className={`flex items-center  justify-center gap-1.5 py-2.5   hover:bg-neutral-50 text-neutral-600 dark:text-neutral-400  dark:hover:bg-neutral-900 cursor-pointer transition-colors`}
+              className={`flex items-center justify-center gap-1.5 py-2.5 hover:bg-neutral-950/40 text-white cursor-pointer transition-colors font-serif`}
             >
               <svg
                 width="15"
@@ -83,34 +106,85 @@ const Page = async ({ params }: Props) => {
             </Link>
           </div>
 
-          <div className="flex items-start px-4 sm:px-6 justify-center flex-col">
+          <div className="flex items-start px-4 sm:px-6 justify-center flex-col gap-5 py-5">
             <div className="flex items-center w-full justify-between">
-              <h3 className="text-xl font-sans font-semibold">
+              <h3 className="text-5xl md:text-7xl leading-none font-serif font-semibold text-amber-300 tracking-tight">
                 {project?.title}
               </h3>
-              <span
-                className={`text-[11px] flex items-center gap-1 justify-center  rounded-full text-emerald-700  dark:text-emerald-400`}
-              >
+              <span className="text-[11px] flex items-center gap-1 justify-center rounded-full text-emerald-300 font-serif">
                 <div className="w-3 h-3 relative">
-                  <div
-                    className={`w-3 h-3 animate-ping rounded-full bg-green-300`}
-                  ></div>{" "}
-                  <div
-                    className={`absolute w-2 h-2 -translate-y-1/2 left-1/2 top-1/2 bg-green-500 rounded-full   -translate-x-1/2`}
-                  />
+                  <div className="w-3 h-3 animate-ping rounded-full bg-green-300" />
+                  <div className="absolute w-2 h-2 -translate-y-1/2 left-1/2 top-1/2 bg-green-500 rounded-full -translate-x-1/2" />
                 </div>
                 Live
               </span>
             </div>
-            <div>
-              <p className="text-wrap text-neutral-800 dark:text-neutral-200 py-3">
-                {project?.details || project?.des}
-              </p>
-            </div>
+
+            <Section title="Overview" text={detailProject.overview || project?.details || project?.des} />
+            <Section title="What It Is" text={detailProject.whatItIs} />
+            <Section title="Problem" text={detailProject.problem} />
+            <Section title="How It Works" text={detailProject.howItWorks} />
+            <Section title="Why It Stands Out" text={detailProject.whyItStandsOut} />
+            <Section title="Challenge" text={detailProject.challenge} />
+            <Section title="Solution" text={detailProject.solution} />
+            <Section title="Outcome" text={detailProject.outcome} />
           </div>
 
+          {detailProject.repositoryStructure?.length ? (
+            <PlainListSection title="Repository Structure" items={detailProject.repositoryStructure} accent="text-amber-300" />
+          ) : null}
+
+          {detailProject.installation?.length ? (
+            <CommandListSection title="Installation" items={detailProject.installation} />
+          ) : null}
+
+          {detailProject.localRun?.length ? (
+            <CommandListSection title="Local Run" items={detailProject.localRun} />
+          ) : null}
+
+          {detailProject.flagReference?.length ? (
+            <PlainListSection title="Flags" items={detailProject.flagReference} accent="text-amber-300" />
+          ) : null}
+
+          {detailProject.codeSnippets?.length ? (
+            <div className="px-4 sm:px-6 py-4 border-t border-neutral-200 dark:border-neutral-800">
+              <p className="text-lg font-serif font-semibold text-amber-300 mb-3 tracking-wide">
+                Code Snippets
+              </p>
+              <div className="space-y-4">
+                {detailProject.codeSnippets.map((snippet, index) => (
+                  <CodeSnippetBlock
+                    key={index}
+                    title={snippet.title}
+                    language={snippet.language}
+                    code={snippet.code}
+                  />
+                ))}
+              </div>
+            </div>
+          ) : null}
+
+          {detailProject.setupNotes?.length ? (
+            <PlainListSection title="Setup Notes" items={detailProject.setupNotes} accent="text-amber-300" />
+          ) : null}
+
+          {project?.features?.length ? (
+            <div className="px-4 sm:px-6 py-4 border-t border-neutral-200 dark:border-neutral-800">
+              <p className="text-lg font-serif font-semibold text-amber-300 mb-3 tracking-wide">
+                Key Features
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {project.features.map((feature, index) => (
+                  <div key={index} className="rounded-md border border-amber-300/10 bg-white/5 px-3 py-2 text-sm text-neutral-200 font-serif">
+                    {feature}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : null}
+
           <div className="px-4 sm:px-6 py-4 border-y border-neutral-200 dark:border-neutral-800">
-            <p className="text-lg font-sans font-semibold text-neutral-800 dark:text-neutral-300 mb-2.5 tracking-wide ">
+            <p className="text-lg font-serif font-semibold text-amber-300 mb-2.5 tracking-wide ">
               Stack used
             </p>
             <div className="flex flex-wrap gap-2 pb-2">
@@ -122,13 +196,13 @@ const Page = async ({ params }: Props) => {
             </div>
           </div>
 
-          <div className="p-4 font-sans border-neutral-200 dark:border-neutral-900 items-center justify-center flex">
-            <p className="text-sm text-neutral-600">
+          <div className="p-4 font-serif border-neutral-200 dark:border-neutral-900 items-center justify-center flex">
+            <p className="text-sm text-neutral-400">
               For more cool projects, visit my{" "}
               <Link
                 href={"https://github.com/arnabjena007"}
                 target={"_blank"}
-                className="text-neutral-900 dark:text-neutral-300 font-semibold"
+                className="text-amber-300 font-semibold"
               >
                 GitHub.
               </Link>
@@ -149,6 +223,49 @@ const Page = async ({ params }: Props) => {
 };
 
 export default Page;
+
+const Section = ({ title, text }: { title: string; text?: string }) => {
+  if (!text) return null;
+
+  return (
+    <div className="w-full">
+      <p className="text-xs uppercase tracking-[0.35em] text-amber-300 mb-2 font-serif">
+        {title}
+      </p>
+      <p className="text-wrap text-neutral-100 leading-8 font-serif text-[17px]">
+        {text}
+      </p>
+    </div>
+  );
+};
+
+const PlainListSection = ({ title, items, accent }: { title: string; items: string[]; accent: string }) => (
+  <div className="px-4 sm:px-6 py-4 border-t border-neutral-200 dark:border-neutral-800">
+    <p className={`text-lg font-serif font-semibold mb-3 tracking-wide ${accent}`}>
+      {title}
+    </p>
+    <div className="space-y-1.5 text-neutral-200 font-serif text-[15px] leading-7">
+      {items.map((item, index) => (
+        <p key={index} className="before:content-['-'] before:mr-2 before:text-amber-300">
+          {item}
+        </p>
+      ))}
+    </div>
+  </div>
+);
+
+const CommandListSection = ({ title, items }: { title: string; items: string[] }) => (
+  <div className="px-4 sm:px-6 py-4 border-t border-neutral-200 dark:border-neutral-800">
+    <p className="text-lg font-serif font-semibold text-amber-300 mb-3 tracking-wide">
+      {title}
+    </p>
+    <CodeSnippetBlock
+      title={title}
+      language="sh"
+      code={items.join("\n")}
+    />
+  </div>
+);
 
 const Badge = ({ name, icon }: { name: string; icon?: React.ReactNode }) => (
   <div className="inline-flex  items-center gap-1.5 px-3 py-1 rounded-md border border-dashed border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 text-sm font-medium hover:border-neutral-400 dark:hover:border-neutral-500 transition-colors cursor-default select-none whitespace-nowrap">
