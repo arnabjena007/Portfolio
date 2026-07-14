@@ -42,7 +42,7 @@ export default function RootLayout({
       <body className={`${kalam.variable} ${instrumentSerif.variable} font-sans antialiased`} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="dark"
           enableSystem={false}
           disableTransitionOnChange
         >

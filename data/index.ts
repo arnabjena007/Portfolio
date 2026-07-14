@@ -341,7 +341,7 @@ const continueToStory = () => {
 }, []);`,
             },
         ],
-        img: "/p4.jpg",
+        img: "/nehru-screenshot.png",
         iconLists: ["/next.svg", "/tail.svg", "/ver.svg"],
         link: "https://nehru-devo.vercel.app/",
         githubLink: "https://github.com/arnabjena007/nehru",
