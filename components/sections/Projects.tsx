@@ -53,7 +53,7 @@ const ProjectCard = ({
           </div>
 
           {/* Project Image Container */}
-          <div className="absolute inset-x-6 top-0 h-full transform translate-y-[40%] rounded-t-xl transition-all duration-500 ease-out group-hover:translate-y-[20%] group-hover:scale-[0.95] overflow-hidden shadow-none group-hover:shadow-[0_-10px_30px_-15px_rgba(0,0,0,0.3)] z-10 border border-neutral-200/50 dark:border-neutral-800/80 group-hover:border-neutral-300 dark:group-hover:border-neutral-700 bg-neutral-100 dark:bg-[#151515]">
+          <div className="absolute inset-x-4 top-2 bottom-2 transform translate-y-[28%] rounded-t-xl transition-all duration-500 ease-out group-hover:translate-y-[14%] group-hover:scale-[0.98] overflow-hidden shadow-none group-hover:shadow-[0_-10px_30px_-15px_rgba(0,0,0,0.3)] z-10 border border-neutral-200/50 dark:border-neutral-800/80 group-hover:border-neutral-300 dark:group-hover:border-neutral-700 bg-neutral-100 dark:bg-[#151515]">
             
             {/* Noise Texture */}
             <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.15] mix-blend-overlay" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
@@ -64,7 +64,7 @@ const ProjectCard = ({
                 src={projectImage} 
                 alt={title} 
                 fill 
-                className="object-contain object-center p-2"
+                className="object-contain object-center p-4"
               />
             </div>
           </div>
