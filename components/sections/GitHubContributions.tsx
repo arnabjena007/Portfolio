@@ -70,43 +70,6 @@ const GitHubContributions = () => {
         />
       </div>
 
-      {/* Stats Bar */}
-      <div className="px-8 sm:px-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 rounded-xl border border-neutral-200 dark:border-neutral-800/60 bg-neutral-50/50 dark:bg-[#121212]/50 backdrop-blur-md">
-          <div className="space-y-1">
-            <span className="block text-[10px] font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
-              Total
-            </span>
-            <strong className="block text-lg font-serif font-bold text-neutral-900 dark:text-white">
-              {stats.total.toLocaleString()}
-            </strong>
-          </div>
-          <div className="space-y-1">
-            <span className="block text-[10px] font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
-              Current Streak
-            </span>
-            <strong className="block text-lg font-serif font-bold text-neutral-900 dark:text-white">
-              {stats.currentStreak}d
-            </strong>
-          </div>
-          <div className="space-y-1">
-            <span className="block text-[10px] font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
-              Longest Streak
-            </span>
-            <strong className="block text-lg font-serif font-bold text-neutral-900 dark:text-white">
-              {stats.longestStreak}d
-            </strong>
-          </div>
-          <div className="space-y-1">
-            <span className="block text-[10px] font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
-              Busiest Day
-            </span>
-            <strong className="block text-lg font-serif font-bold text-neutral-900 dark:text-white truncate">
-              {stats.busiestDay}
-            </strong>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };
